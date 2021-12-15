@@ -1,0 +1,95 @@
+<?php
+
+/**
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
+ */
+
+declare(strict_types=1);
+
+namespace loophp\iterators;
+
+use Generator;
+use Iterator;
+
+/**
+ * @template TKey
+ * @template T
+ *
+ * @implements Iterator<TKey, T>
+ */
+final class ClosureIterator implements Iterator
+{
+    /**
+     * @var callable(mixed ...$parameters): iterable<TKey, T>
+     */
+    private $callable;
+
+    /**
+     * @var Generator<TKey, T>
+     */
+    private Generator $generator;
+
+    /**
+     * @var iterable<int, mixed>
+     */
+    private iterable $parameters;
+
+    /**
+     * @param callable(mixed ...$parameters): iterable<TKey, T> $callable
+     * @param iterable<int, mixed> $parameters
+     */
+    public function __construct(callable $callable, iterable $parameters = [])
+    {
+        $this->callable = $callable;
+        $this->parameters = $parameters;
+        $this->generator = $this->getGenerator();
+    }
+
+    /**
+     * @return T
+     */
+    public function current()
+    {
+        return $this->generator->current();
+    }
+
+    /**
+     * @return Iterator<TKey, T>
+     */
+    public function getInnerIterator(): Iterator
+    {
+        return $this->generator;
+    }
+
+    /**
+     * @return TKey
+     */
+    public function key()
+    {
+        return $this->generator->key();
+    }
+
+    public function next(): void
+    {
+        $this->generator->next();
+    }
+
+    public function rewind(): void
+    {
+        $this->generator = $this->getGenerator();
+    }
+
+    public function valid(): bool
+    {
+        return $this->generator->valid();
+    }
+
+    /**
+     * @return Generator<TKey, T, mixed, void>
+     */
+    private function getGenerator(): Generator
+    {
+        yield from ($this->callable)(...$this->parameters);
+    }
+}

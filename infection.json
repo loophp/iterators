@@ -1,0 +1,19 @@
+{
+    "timeout": 30,
+    "source": {
+        "directories": [
+            "src"
+        ]
+    },
+    "logs": {
+        "github": true,
+        "text": "build/logs/infection/infection.log",
+        "summary": "build/logs/infection/summary.log",
+        "debug": "build/logs/infection/debug.log",
+        "perMutator": "build/logs/infection/per-mutator.md",
+        "badge": {
+            "branch": "master"
+        }
+    },
+    "testFramework":"phpunit"
+}
