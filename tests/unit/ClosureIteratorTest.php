@@ -36,4 +36,20 @@ final class ClosureIteratorTest extends TestCase
             iterator_to_array($iterator)
         );
     }
+
+    public function testRewind(): void
+    {
+        $iterator = new ClosureIterator(
+            static fn (array $iterable): array => $iterable,
+            [self::MAP_DATA]
+        );
+
+        self::assertEquals(1, $iterator->current());
+        $iterator->next();
+        self::assertEquals(2, $iterator->current());
+
+        $iterator->rewind();
+
+        self::assertEquals(1, $iterator->current());
+    }
 }
