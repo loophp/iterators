@@ -33,6 +33,9 @@ final class IterableIteratorAggregate implements IteratorAggregate
         $this->iterator = new ClosureIteratorAggregate(static fn () => yield from $iterable);
     }
 
+    /**
+     * @return Traversable<TKey, T>
+     */
     public function getIterator(): Traversable
     {
         return $this->iterator->getIterator();

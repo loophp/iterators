@@ -26,7 +26,7 @@ final class ClosureIterator implements Iterator
     private $callable;
 
     /**
-     * @var Generator<TKey, T>
+     * @var Generator<TKey, T, mixed, void>
      */
     private Generator $generator;
 

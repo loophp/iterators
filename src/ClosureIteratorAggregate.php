@@ -42,6 +42,6 @@ final class ClosureIteratorAggregate implements IteratorAggregate
 
     public function getIterator(): Traversable
     {
-        return yield from ($this->callable)(...$this->parameters);
+        yield from ($this->callable)(...$this->parameters);
     }
 }
