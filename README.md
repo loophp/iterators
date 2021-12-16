@@ -19,7 +19,9 @@ The missing PHP iterators.
 2 Iterators:
 
 * `ClosureIterator`: ClosureIterator(callable $callable, array $arguments = [])
+* `ClosureIteratorAggregate`: ClosureIteratorAggregate(callable $callable, array $arguments = [])
 * `IterableIterator`: IterableIterator(iterable $iterable)
+* `IterableIteratorAggregate`: IterableIterator(iterable $iterable)
 
 ## Installation
 
