@@ -85,11 +85,11 @@ For more detailed changelogs, please check [the release changelogs][45].
 [github stars]: https://img.shields.io/github/stars/loophp/iterators.svg?style=flat-square
 [total downloads]: https://img.shields.io/packagist/dt/loophp/iterators.svg?style=flat-square
 [github workflow status]: https://img.shields.io/github/workflow/status/loophp/iterators/Unit%20tests?style=flat-square
-[code quality]: https://img.shields.io/scrutinizer/quality/g/loophp/iterators/master.svg?style=flat-square
-[3]: https://scrutinizer-ci.com/g/loophp/iterators/?branch=master
+[code quality]: https://img.shields.io/scrutinizer/quality/g/loophp/iterators/main.svg?style=flat-square
+[3]: https://scrutinizer-ci.com/g/loophp/iterators/?branch=main
 [type coverage]: https://img.shields.io/badge/dynamic/json?style=flat-square&color=color&label=Type%20coverage&query=message&url=https%3A%2F%2Fshepherd.dev%2Fgithub%2Floophp%2Fiterators%2Fcoverage
 [4]: https://shepherd.dev/github/loophp/iterators
-[code coverage]: https://img.shields.io/scrutinizer/coverage/g/loophp/iterators/master.svg?style=flat-square
+[code coverage]: https://img.shields.io/scrutinizer/coverage/g/loophp/iterators/main.svg?style=flat-square
 [license]: https://img.shields.io/packagist/l/loophp/iterators.svg?style=flat-square
 [donate github]: https://img.shields.io/badge/Sponsor-Github-brightgreen.svg?style=flat-square
 [donate paypal]: https://img.shields.io/badge/Sponsor-Paypal-brightgreen.svg?style=flat-square
@@ -99,7 +99,7 @@ For more detailed changelogs, please check [the release changelogs][45].
 [13]: https://www.php.net/manual/en/class.iterator.php
 [14]: https://en.wikipedia.org/wiki/SOLID
 [15]: https://en.wikipedia.org/wiki/Pure_function
-[16]: https://github.com/loophp/iterators/blob/master/src/iterators.php
+[16]: https://github.com/loophp/iterators/blob/main/src/iterators.php
 [8]: https://www.php.net/array-map
 [9]: https://www.php.net/array-filter
 [10]: https://www.php.net/array-reduce
@@ -127,8 +127,8 @@ For more detailed changelogs, please check [the release changelogs][45].
 [40]: https://www.reddit.com/r/PHP/comments/csxw23/a_stateless_and_modular_iterators_class/
 [41]: https://www.reddit.com/r/PHP/comments/i2u2le/release_of_version_200_of_loophpiterators/
 [42]: https://blog.jetbrains.com/phpstorm/2020/08/php-annotated-august-2020/
-[43]: https://github.com/loophp/iterators/blob/master/CHANGELOG.md
-[44]: https://github.com/loophp/iterators/commits/master
+[43]: https://github.com/loophp/iterators/blob/main/CHANGELOG.md
+[44]: https://github.com/loophp/iterators/commits/main
 [45]: https://github.com/loophp/iterators/releases
 [25]: https://www.haskell.org/
 [29]: https://www.youtube.com/watch?v=m3svKOdZijA
