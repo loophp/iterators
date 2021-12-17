@@ -50,14 +50,6 @@ final class IterableIterator implements Iterator
     }
 
     /**
-     * @return Iterator<TKey, T>
-     */
-    public function getInnerIterator(): Iterator
-    {
-        return $this->iterator;
-    }
-
-    /**
      * @return TKey
      */
     public function key()

@@ -55,14 +55,6 @@ final class ClosureIterator implements Iterator
     }
 
     /**
-     * @return Iterator<TKey, T>
-     */
-    public function getInnerIterator(): Iterator
-    {
-        return $this->generator;
-    }
-
-    /**
      * @return TKey
      */
     public function key()
