@@ -16,18 +16,87 @@ The missing PHP iterators.
 
 ## Features
 
-2 Iterators:
+7 Iterators:
 
+* `CachingIteratorAggregate`
 * `ClosureIterator`: `ClosureIterator(callable $callable, array $arguments = [])`
 * `ClosureIteratorAggregate`: `ClosureIteratorAggregate(callable $callable, array $arguments = [])`
 * `IterableIterator`: `IterableIterator(iterable $iterable)`
 * `IterableIteratorAggregate`: `IterableIteratorAggregate(iterable $iterable)`
+* `PackIterableAggregate`
+* `UnpackIterableAggregate`
 
 ## Installation
 
 ```composer require loophp/iterators```
 
 ## Usage
+
+### CachingIteratorAggregate
+
+```php
+<?php
+
+// Generator
+$generator = static function (): \Generator {
+    yield true => 'foo';
+    yield false => 'bar';
+    yield ['foo', 'bar'] => 'foobar';
+};
+
+$iterator = new CachingIteratorAggregate($generator());
+
+foreach ($iterator as $key => $value); // This will work.
+foreach ($iterator as $key => $value); // This will also work.
+```
+
+### PackIterableAggregate
+
+```php
+<?php
+
+// Generator
+$generator = static function (): \Generator {
+    yield true => 'foo';
+    yield false => 'bar';
+    yield ['foo', 'bar'] => 'foobar';
+};
+
+$iterator = new PackIterableAggregate($generator());
+
+foreach ($iterator as $value);
+/*
+$value will yield the following values:
+
+- [true, 'foo']
+- [false, 'bar']
+- [['foo', 'bar'], 'foobar']
+*/
+```
+
+### UnpackIterableAggregate
+
+```php
+<?php
+
+// Generator
+$generator = static function (): \Generator {
+    yield [true, 'foo'];
+    yield [false, 'bar'];
+    yield [['foo', 'bar'], 'foobar'];
+};
+
+$iterator = new UnpackIterableAggregate($generator());
+
+foreach ($iterator as $key => $value);
+/*
+$key and $value will yield the following values:
+
+- true => 'foo'
+- false => 'bar'
+- ['foo', 'bar'] => 'foobar'
+*/
+```
 
 ### ClosureIterator
 
