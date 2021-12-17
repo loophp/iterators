@@ -5,10 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.1.1](https://github.com/loophp/iterators/compare/1.1.0...1.1.1)
+## [1.2.0](https://github.com/loophp/iterators/compare/1.1.1...1.2.0)
 
 ### Commits
 
+- feat: Add new Iterators. [`8e59d91`](https://github.com/loophp/iterators/commit/8e59d913651925c77f148ad0430109861a3a3d19)
+
+## [1.1.1](https://github.com/loophp/iterators/compare/1.1.0...1.1.1) - 2021-12-17
+
+### Commits
+
+- docs: Add/update CHANGELOG. [`405102f`](https://github.com/loophp/iterators/commit/405102fa1b92d8d1a1b5fd599ac9a40e24390a69)
 - Remove method to get the inner Iterator for now. [`5d26c3e`](https://github.com/loophp/iterators/commit/5d26c3e7b153ca895ceb997f9993e47d4f1ea000)
 - sa: Improve static analysis annotations and code. [`a0be7d5`](https://github.com/loophp/iterators/commit/a0be7d555b0b5c2cf9f432b49721e60224507913)
 - docs: Update badge links in README. [`4ed7324`](https://github.com/loophp/iterators/commit/4ed73248519fb357e397c6425f0b7df5516bb29a)
