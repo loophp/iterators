@@ -5,10 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.2.0](https://github.com/loophp/iterators/compare/1.1.1...1.2.0)
+## [1.2.1](https://github.com/loophp/iterators/compare/1.2.0...1.2.1)
 
 ### Commits
 
+- chore: Update `.gitattributes` file. [`29be8f5`](https://github.com/loophp/iterators/commit/29be8f5b2f27451b0db90130158f08c13efa7fd0)
+
+## [1.2.0](https://github.com/loophp/iterators/compare/1.1.1...1.2.0) - 2021-12-17
+
+### Commits
+
+- docs: Add/update CHANGELOG. [`33f759c`](https://github.com/loophp/iterators/commit/33f759c530783bef37ba981d16c295178e1765f0)
 - feat: Add new Iterators. [`8e59d91`](https://github.com/loophp/iterators/commit/8e59d913651925c77f148ad0430109861a3a3d19)
 
 ## [1.1.1](https://github.com/loophp/iterators/compare/1.1.0...1.1.1) - 2021-12-17
