@@ -23,4 +23,4 @@ phpstan.neon.dist export-ignore
 phpstan.neon export-ignore
 phpunit.xml export-ignore
 CHANGELOG.md export-ignore
-README.md
+README.md export-ignore
