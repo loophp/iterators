@@ -20,3 +20,7 @@ phpstan-baseline.neon export-ignore
 phpstan-docs-baseline.neon export-ignore
 phpstan-unsupported-baseline.neon export-ignore
 phpstan.neon.dist export-ignore
+phpstan.neon export-ignore
+phpunit.xml export-ignore
+CHANGELOG.md export-ignore
+README.md
