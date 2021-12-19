@@ -57,6 +57,6 @@ final class SimpleCachingIteratorAggregate implements IteratorAggregate
 
         $this->isDone = true;
 
-        return yield from $this->iterator->getCache();
+        yield from $this->iterator->getCache();
     }
 }

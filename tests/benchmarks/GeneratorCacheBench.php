@@ -76,7 +76,7 @@ class GeneratorCacheBench
             $c[] = [$key, $value];
         }
 
-        if ($a !== $b) {
+        if ($b !== $c) {
             throw new Exception('$a !== $b');
         }
     }
