@@ -5,10 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.2.2](https://github.com/loophp/iterators/compare/1.2.1...1.2.2)
+## [1.3.0](https://github.com/loophp/iterators/compare/1.2.2...1.3.0)
 
 ### Commits
 
+- docs: Update `README.md` - remove constraints. [`b289c71`](https://github.com/loophp/iterators/commit/b289c71b0c960f846e191b3efe83bc31464ccbea)
+- feat: Micro optimizations. [`e209721`](https://github.com/loophp/iterators/commit/e20972178d859c15f1a1d33a9cc7a10b77d2b580)
+- feat: `SimpleCachingIteratorAggregate` to fail when iterating multiple times. [`c4e92f5`](https://github.com/loophp/iterators/commit/c4e92f521d6b9c882008321e805e8ff0c68011d2)
+- Remove not required dev dependencies. [`85a5047`](https://github.com/loophp/iterators/commit/85a5047aa4b4d618559bca3ff17d1144a2c9583d)
+- fix: Fixed Static Analysis issues. [`e5d495d`](https://github.com/loophp/iterators/commit/e5d495de89ea2121d11d8a391f23bf4379c7e1e8)
+- ci: Tests on PHP 8.1 only. [`feeea9f`](https://github.com/loophp/iterators/commit/feeea9f094659e43f68e7ba7302a5642d96b6118)
+- docs: Update `README`. [`d96dada`](https://github.com/loophp/iterators/commit/d96dada81c1b910906b39d5bf6798045190e41bf)
+- feat: Add `SimpleCachingIteratorAggregate`. [`69b9896`](https://github.com/loophp/iterators/commit/69b9896a7dbb04f72a5378ee3d0919669e54e2fa)
+- cs: Add custom PHP CS Fixer configuration. [`a3b7e80`](https://github.com/loophp/iterators/commit/a3b7e80d0b69b3d8f67243b0adb7ec634d04b0d0)
+- tests: Add more tests. [`5201840`](https://github.com/loophp/iterators/commit/5201840a96df0e277855fd6c153a2ba640d518b3)
+- feat: Add benchmarks. [`f9b7102`](https://github.com/loophp/iterators/commit/f9b7102cec73ee337143ecdf9a07602c75c9f716)
+
+## [1.2.2](https://github.com/loophp/iterators/compare/1.2.1...1.2.2) - 2021-12-18
+
+### Commits
+
+- docs: Add/update CHANGELOG. [`72ba6b8`](https://github.com/loophp/iterators/commit/72ba6b863acce2166342114ba6061ec83f66681e)
 - chore: Update `.gitattributes` file. [`102dd61`](https://github.com/loophp/iterators/commit/102dd6115059aa08a382d1d1fa1ea806dbee3e74)
 
 ## [1.2.1](https://github.com/loophp/iterators/compare/1.2.0...1.2.1) - 2021-12-18
