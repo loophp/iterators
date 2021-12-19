@@ -8,6 +8,7 @@ parameters:
 
     # PHP CS Fixer
     tasks.phpcsfixer.diff: true
+    tasks.phpcsfixer.config: .php-cs-fixer.dist.php
 
     # PHPCS
     tasks.phpcs.ignore_patterns:
