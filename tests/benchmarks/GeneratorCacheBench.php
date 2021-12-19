@@ -77,7 +77,11 @@ class GeneratorCacheBench
         }
 
         if ($b !== $c) {
-            throw new Exception('$a !== $b');
+            throw new Exception('$b !== $c');
+        }
+
+        if ($a !== $b[2]) {
+            throw new Exception('$a !== $b[2]');
         }
     }
 }
