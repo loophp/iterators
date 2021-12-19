@@ -44,14 +44,6 @@ The underlying mechanism is based on [SPL \CachingIterator][48].
 The pros of using that iterator is **performance**. It's blazing fast,
 it cannot compare to any other stateful custom implementations.
 
-However, [\Generators][49] and [SPL \CachingIterator][48] have drawbacks.
-We are aware that a [\Generators][49] cannot be "rewinded"  by nature.
-Then, if you use this `CachingIteratorAggregate` implementation and
-stop the iteration in the middle of it, you won't be able to rewind it
-anymore.
-
-Usually this won't cause any issue, but it is important to mention.
-
 This iterator will cache keys and values, of any type.
 
 ```php
