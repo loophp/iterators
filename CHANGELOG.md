@@ -5,10 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.3.0](https://github.com/loophp/iterators/compare/1.2.2...1.3.0)
+## [1.3.1](https://github.com/loophp/iterators/compare/1.3.0...1.3.1)
 
 ### Commits
 
+- fix: Fixed Static Analysis issues. [`707e7b0`](https://github.com/loophp/iterators/commit/707e7b0195bf77aacba9971a618bb35f683dd07e)
+
+## [1.3.0](https://github.com/loophp/iterators/compare/1.2.2...1.3.0) - 2021-12-19
+
+### Commits
+
+- docs: Add/update CHANGELOG. [`7b257ca`](https://github.com/loophp/iterators/commit/7b257ca97e209f8d7c925d78628fd9d3dca1e6a7)
 - docs: Update `README.md` - remove constraints. [`b289c71`](https://github.com/loophp/iterators/commit/b289c71b0c960f846e191b3efe83bc31464ccbea)
 - feat: Micro optimizations. [`e209721`](https://github.com/loophp/iterators/commit/e20972178d859c15f1a1d33a9cc7a10b77d2b580)
 - feat: `SimpleCachingIteratorAggregate` to fail when iterating multiple times. [`c4e92f5`](https://github.com/loophp/iterators/commit/c4e92f521d6b9c882008321e805e8ff0c68011d2)
