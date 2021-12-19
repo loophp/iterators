@@ -15,22 +15,22 @@ use IteratorAggregate;
 use Traversable;
 
 /**
- * @template TKey
+ * @template TKey of array-key
  * @template T
  *
- * @implements IteratorAggregate<TKey, T>
+ * @implements IteratorAggregate<int|string, T>
  */
 final class SimpleCachingIteratorAggregate implements IteratorAggregate
 {
     private bool $isDone = false;
 
     /**
-     * @var CachingIterator<TKey, T>
+     * @var CachingIterator<int|string, T>
      */
     private CachingIterator $iterator;
 
     /**
-     * @param Iterator<TKey, T> $iterator
+     * @param Iterator<int|string, T> $iterator
      */
     public function __construct(Iterator $iterator)
     {
@@ -41,7 +41,7 @@ final class SimpleCachingIteratorAggregate implements IteratorAggregate
     }
 
     /**
-     * @return Traversable<TKey, T>
+     * @return Traversable<int|string, T>
      */
     public function getIterator(): Traversable
     {
