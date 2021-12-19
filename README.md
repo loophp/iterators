@@ -34,6 +34,26 @@ The missing PHP iterators.
 
 ### CachingIteratorAggregate
 
+Let you cache any iterator. You then get [\Generators][49]
+rewindable for free.
+
+This implementation does not use internal state to keep track
+of the current position of the iterator.
+The underlying mechanism is based on [SPL \CachingIterator][48].
+
+The pros of using that iterator is **performance**. It's blazing fast,
+it cannot compare to any other stateful custom implementations.
+
+However, [\Generators][49] and [SPL \CachingIterator][48] have drawbacks.
+We are aware that a [\Generators][49] cannot be "rewinded"  by nature.
+Then, if you use this `CachingIteratorAggregate` implementation and
+stop the iteration in the middle of it, you won't be able to rewind it
+anymore.
+
+Usually this won't cause any issue, but it is important to mention.
+
+This iterator will cache keys and values, of any type.
+
 ```php
 <?php
 
@@ -49,6 +69,13 @@ $iterator = new CachingIteratorAggregate($generator());
 foreach ($iterator as $key => $value); // This will work.
 foreach ($iterator as $key => $value); // This will also work.
 ```
+
+### SimpleCachingIteratorAggregate
+
+This iterator has the same features as `CachingIteratorAggregate`.
+
+The only difference is that this iterator only cache the values,
+not the keys.
 
 ### PackIterableAggregate
 
@@ -206,3 +233,5 @@ For more detailed changelogs, please check [the release changelogs][45].
 [31]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap
 [46]: https://www.youtube.com/watch?v=Kp47f8dtqoo
 [47]: https://loophp-iterators.readthedocs.io/en/stable/pages/principles.html
+[48]: https://www.php.net/cachingiterator
+[49]: https://www.php.net/generator
