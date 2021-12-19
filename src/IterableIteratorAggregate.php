@@ -38,6 +38,6 @@ final class IterableIteratorAggregate implements IteratorAggregate
      */
     public function getIterator(): Traversable
     {
-        return $this->iterator->getIterator();
+        yield from $this->iterator->getIterator();
     }
 }
