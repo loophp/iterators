@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace loophp\iterators;
 
+use CachingIterator;
 use Iterator;
 use IteratorAggregate;
 use Traversable;
@@ -19,20 +20,21 @@ use Traversable;
  *
  * @implements IteratorAggregate<TKey, T>
  */
-final class CachingIteratorAggregate implements IteratorAggregate
+final class SimpleCachingIteratorAggregate implements IteratorAggregate
 {
     /**
-     * @var IteratorAggregate<TKey, T>
+     * @var CachingIterator<TKey, T>
      */
-    private IteratorAggregate $iterator;
+    private CachingIterator $iterator;
 
     /**
      * @param Iterator<TKey, T> $iterator
      */
     public function __construct(Iterator $iterator)
     {
-        $this->iterator = new SimpleCachingIteratorAggregate(
-            (new PackIterableAggregate($iterator))->getIterator()
+        $this->iterator = new CachingIterator(
+            $iterator,
+            CachingIterator::FULL_CACHE
         );
     }
 
@@ -41,6 +43,11 @@ final class CachingIteratorAggregate implements IteratorAggregate
      */
     public function getIterator(): Traversable
     {
-        return new UnpackIterableAggregate($this->iterator->getIterator());
+        /** @var iterable<int, array{0: TKey, 1: T}> $traversable */
+        $traversable = $this->iterator->getInnerIterator()->valid()
+            ? $this->iterator
+            : $this->iterator->getCache();
+
+        yield from $traversable;
     }
 }
