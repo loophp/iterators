@@ -1,6 +1,2 @@
 parameters:
 	ignoreErrors:
-		-
-			message: "#^Parameter \\#1 \\$iterator of class CachingIterator constructor expects Iterator, Traversable\\<int, array\\<int, T\\|TKey\\>\\> given\\.$#"
-			count: 1
-			path: src/CachingIteratorAggregate.php

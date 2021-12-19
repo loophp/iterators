@@ -22,7 +22,7 @@ use Traversable;
 final class CachingIteratorAggregate implements IteratorAggregate
 {
     /**
-     * @var IteratorAggregate<TKey, T>
+     * @var IteratorAggregate<int, array{0: TKey, 1: T}>
      */
     private IteratorAggregate $iterator;
 
@@ -31,9 +31,10 @@ final class CachingIteratorAggregate implements IteratorAggregate
      */
     public function __construct(Iterator $iterator)
     {
-        $this->iterator = new SimpleCachingIteratorAggregate(
-            (new PackIterableAggregate($iterator))->getIterator()
-        );
+        /** @var Iterator<int, array{0: TKey, 1: T}> $innerIterator */
+        $innerIterator = (new PackIterableAggregate($iterator))->getIterator();
+
+        $this->iterator = new SimpleCachingIteratorAggregate($innerIterator);
     }
 
     /**

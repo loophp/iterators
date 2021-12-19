@@ -43,7 +43,7 @@ final class SimpleCachingIteratorAggregate implements IteratorAggregate
      */
     public function getIterator(): Traversable
     {
-        /** @var iterable<int, array{0: TKey, 1: T}> $traversable */
+        /** @var iterable<TKey, T> $traversable */
         $traversable = $this->iterator->getInnerIterator()->valid()
             ? $this->iterator
             : $this->iterator->getCache();
