@@ -35,15 +35,37 @@ final class CachingIteratorAggregateTest extends TestCase
 
         $a = $b = [];
 
+        $i = 0;
+
         foreach ($iterator as $key => $value) {
             $a[] = [$key, $value];
+            $d[] = [$key, $value];
+
+            if (2 === $i++) {
+                break;
+            }
         }
 
         foreach ($iterator as $key => $value) {
             $b[] = [$key, $value];
+            $d[] = [$key, $value];
+        }
+
+        foreach ($iterator as $key => $value) {
+            $c[] = [$key, $value];
+            $d[] = [$key, $value];
         }
 
         $expected = [
+            [true, true],
+            [false, false],
+            [['a'], ['a']],
+            [true, true],
+            [false, false],
+            [['a'], ['a']],
+            [0, 'a'],
+            [1, 'b'],
+            [2, 'c'],
             [true, true],
             [false, false],
             [['a'], ['a']],
@@ -52,7 +74,7 @@ final class CachingIteratorAggregateTest extends TestCase
             [2, 'c'],
         ];
 
-        self::assertEquals($expected, $a);
-        self::assertTrue($a === $b);
+        self::assertTrue($b === $c);
+        self::assertEquals($expected, $d);
     }
 }

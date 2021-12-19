@@ -58,12 +58,22 @@ class GeneratorCacheBench
     {
         $a = $b = [];
 
+        $i = 0;
+
         foreach ($input as $key => $value) {
-            $a[] = [$key, $value];
+            $a = [$key, $value];
+
+            if (2 === $i++) {
+                break;
+            }
         }
 
         foreach ($input as $key => $value) {
             $b[] = [$key, $value];
+        }
+
+        foreach ($input as $key => $value) {
+            $c[] = [$key, $value];
         }
 
         if ($a !== $b) {

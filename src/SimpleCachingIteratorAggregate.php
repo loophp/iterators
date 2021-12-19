@@ -22,6 +22,8 @@ use Traversable;
  */
 final class SimpleCachingIteratorAggregate implements IteratorAggregate
 {
+    private bool $isDone = false;
+
     /**
      * @var CachingIterator<TKey, T>
      */
@@ -43,11 +45,18 @@ final class SimpleCachingIteratorAggregate implements IteratorAggregate
      */
     public function getIterator(): Traversable
     {
-        /** @var iterable<TKey, T> $traversable */
-        $traversable = $this->iterator->getInnerIterator()->valid()
-            ? $this->iterator
-            : $this->iterator->getCache();
+        if (true === $this->isDone) {
+            return yield from $this->iterator->getCache();
+        }
 
-        yield from $traversable;
+        $this->iterator->next();
+
+        for (; $this->iterator->valid(); $this->iterator->next()) {
+            $this->iterator->current();
+        }
+
+        $this->isDone = true;
+
+        return yield from $this->iterator->getCache();
     }
 }
