@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 namespace loophp\iterators\Contract;
 
-use IteratorAggregate;
 use Iterator;
+use IteratorAggregate;
 
 /**
  * @template TKey

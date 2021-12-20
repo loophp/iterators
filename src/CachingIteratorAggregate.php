@@ -11,7 +11,6 @@ namespace loophp\iterators;
 
 use Iterator;
 use IteratorAggregate;
-use Traversable;
 
 /**
  * @template TKey
