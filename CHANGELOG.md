@@ -5,10 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.3.1](https://github.com/loophp/iterators/compare/1.3.0...1.3.1)
+## [1.4.0](https://github.com/loophp/iterators/compare/1.3.1...1.4.0)
+
+### Merged
+
+- add benchmarks makefile [`#2`](https://github.com/loophp/iterators/pull/2)
 
 ### Commits
 
+- ci: Send Infection report to StrykerDashboard. [`9506c10`](https://github.com/loophp/iterators/commit/9506c10bc7ce968f80aeb846bdd93fd3a74f46e1)
+- ci: Fix branch name. [`bfcbaef`](https://github.com/loophp/iterators/commit/bfcbaef731b896131b6429d45bdeabe3259fc729)
+- docs: Update `README`. [`ebb8cdd`](https://github.com/loophp/iterators/commit/ebb8cdd0d14183dcf35a97c7fb4a595e06950626)
+- Fix code style. [`a4a8cb5`](https://github.com/loophp/iterators/commit/a4a8cb5ffbd9d2dcd51460a7847c708eac14128d)
+- Fix annotations and static analysis. [`4a653b0`](https://github.com/loophp/iterators/commit/4a653b0f038b4948ef9d0d1a2e5970ba25e37034)
+- feat: Micro optimizations to improve performance. [`b898474`](https://github.com/loophp/iterators/commit/b8984749efc2c688417b46cbaad2ad663d326b51)
+- feat: Add `PausableIteratorAggregate`. [`a806dcc`](https://github.com/loophp/iterators/commit/a806dccd83a09725019d4c1899d52095d3d8477c)
+- feat: Micro optimizations to improve performance. [`b0eed19`](https://github.com/loophp/iterators/commit/b0eed19123f805a16271dd4f64923302010d1505)
+- Implements micro/minor optimizations. [`d51b7f2`](https://github.com/loophp/iterators/commit/d51b7f2cbe4dc35ab66cff951e020ae9a5d9a841)
+
+## [1.3.1](https://github.com/loophp/iterators/compare/1.3.0...1.3.1) - 2021-12-19
+
+### Commits
+
+- docs: Add/update CHANGELOG. [`a68cec4`](https://github.com/loophp/iterators/commit/a68cec44b18ed1ef1227e3475e533df77b5e3f45)
 - fix: Fixed Static Analysis issues. [`707e7b0`](https://github.com/loophp/iterators/commit/707e7b0195bf77aacba9971a618bb35f683dd07e)
 
 ## [1.3.0](https://github.com/loophp/iterators/compare/1.2.2...1.3.0) - 2021-12-19
