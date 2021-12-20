@@ -38,9 +38,9 @@ final class CachingIteratorAggregate implements IteratorAggregate
     }
 
     /**
-     * @return Traversable<TKey, T>
+     * @return Iterator<TKey, T>
      */
-    public function getIterator(): Traversable
+    public function getIterator(): Iterator
     {
         yield from new UnpackIterableAggregate($this->iterator->getIterator());
     }

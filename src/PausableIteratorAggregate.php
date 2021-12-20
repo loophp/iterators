@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace loophp\iterators;
 
 use ArrayIterator;
+use Generator;
 use Iterator;
 use IteratorAggregate;
 use loophp\iterators\Contract\PausableIteratorAggregateInterface;
@@ -19,7 +20,7 @@ use Traversable;
  * @template TKey
  * @template T
  *
- * @implements IteratorAggregate<TKey, T>
+ * @implements PausableIteratorAggregateInterface<TKey, T>
  */
 final class PausableIteratorAggregate implements PausableIteratorAggregateInterface
 {
@@ -47,15 +48,18 @@ final class PausableIteratorAggregate implements PausableIteratorAggregateInterf
      */
     public function getIterator(): Traversable
     {
-        $this->iterator = $this->iteratorAggregate->getIterator();
+        /** @var Iterator<TKey, T> $iterator */
+        $iterator = $this->iteratorAggregate->getIterator();
+
+        $this->iterator = $iterator;
 
         yield from $this->iterator;
     }
 
     /**
-     * @return Traversable<TKey, T>
+     * @return Generator<TKey, T>
      */
-    public function rest(): Traversable
+    public function rest(): Generator
     {
         $this->iterator->next();
 

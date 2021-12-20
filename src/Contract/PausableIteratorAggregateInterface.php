@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace loophp\iterators\Contract;
 
 use IteratorAggregate;
-use Traversable;
+use Iterator;
 
 /**
  * @template TKey
@@ -21,7 +21,7 @@ use Traversable;
 interface PausableIteratorAggregateInterface extends IteratorAggregate
 {
     /**
-     * @return Traversable<TKey, T>
+     * @return Iterator<TKey, T>
      */
-    public function rest(): Traversable;
+    public function rest(): Iterator;
 }
