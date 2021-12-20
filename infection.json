@@ -12,7 +12,7 @@
         "debug": "build/logs/infection/debug.log",
         "perMutator": "build/logs/infection/per-mutator.md",
         "badge": {
-            "branch": "master"
+            "branch": "main"
         }
     },
     "testFramework":"phpunit"
