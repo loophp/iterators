@@ -22,12 +22,16 @@ use Traversable;
  */
 final class SimpleCachingIteratorAggregate implements IteratorAggregate
 {
-    private bool $isDone = false;
+    private const IS_IDLE = true;
+
+    private const IS_ONGOING = false;
 
     /**
      * @var CachingIterator<int|string, T>
      */
     private CachingIterator $iterator;
+
+    private bool $status = self::IS_IDLE;
 
     /**
      * @param Iterator<int|string, T> $iterator
@@ -45,18 +49,26 @@ final class SimpleCachingIteratorAggregate implements IteratorAggregate
      */
     public function getIterator(): Traversable
     {
-        if (true === $this->isDone) {
-            return yield from $this->iterator->getCache();
+        if (self::IS_IDLE === $this->status) {
+            $this->status = self::IS_ONGOING;
+
+            $this->iterator->next();
+
+            for (; $this->iterator->valid(); $this->iterator->next()) {
+                yield $this->iterator->key() => $this->iterator->current();
+            }
+
+            return $this;
         }
 
-        $this->iterator->next();
+        if (self::IS_ONGOING === $this->status) {
+            $this->iterator->next();
 
-        for (; $this->iterator->valid(); $this->iterator->next()) {
-            $this->iterator->current();
+            for (; $this->iterator->valid(); $this->iterator->next()) {
+                $this->iterator->current();
+            }
         }
 
-        $this->isDone = true;
-
-        yield from $this->iterator->getCache();
+        return yield from $this->iterator->getCache();
     }
 }

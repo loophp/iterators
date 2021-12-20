@@ -74,7 +74,7 @@ final class CachingIteratorAggregateTest extends TestCase
             [2, 'c'],
         ];
 
-        self::assertTrue($b === $c);
+        self::assertEquals($b, $c);
         self::assertEquals($expected, $d);
     }
 }
