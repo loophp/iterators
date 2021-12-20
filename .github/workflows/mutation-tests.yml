@@ -52,6 +52,11 @@ jobs:
             - name: Run Grumphp
               run: vendor/bin/grumphp run --tasks=infection -n
 
+            - name: Send feedback on Stryker Dashboard
+              if: ${{ success() }}
+              run: |
+                  vendor/bin/infection -j2
+
             - name: Send feedback on Github
               if: ${{ failure() }}
               run: |
