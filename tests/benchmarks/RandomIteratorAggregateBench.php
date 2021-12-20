@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace benchmarks\loophp\iterators;
 
 use Generator;
-use loophp\iterators\RandomIterable;
+use loophp\iterators\RandomIteratorAggregate;
 use PhpBench\Benchmark\Metadata\Annotations\Groups;
 use PhpBench\Benchmark\Metadata\Annotations\Iterations;
 use PhpBench\Benchmark\Metadata\Annotations\Revs;
@@ -18,12 +18,12 @@ use PhpBench\Benchmark\Metadata\Annotations\Warmup;
 use Traversable;
 
 /**
- * @Groups({"GeneratorCache"})
+ * @Groups({"RandomIteratorAggregate"})
  * @Iterations(10)
  * @Warmup(1)
  * @Revs(100)
  */
-class RandomIterableAggregateBench
+class RandomIteratorAggregateBench
 {
     public function benchIteratorAggregate(): void
     {
@@ -33,7 +33,7 @@ class RandomIterableAggregateBench
 
         $seed = 4321;
 
-        $iterator = new RandomIterable($input(), $seed);
+        $iterator = new RandomIteratorAggregate($input(), $seed);
 
         $this->test($iterator);
     }
