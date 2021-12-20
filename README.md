@@ -5,6 +5,7 @@
  [![Scrutinizer code quality][code quality]][3]
  [![Type Coverage][type coverage]][4]
  [![Code Coverage][code coverage]][3]
+ [![Mutation testing badge][mutation testing badge]][6]
  [![License][license]][1]
  [![Donate!][donate github]][5]
 
@@ -16,8 +17,6 @@ The missing PHP iterators.
 
 ## Features
 
-7 Iterators:
-
 * `CachingIteratorAggregate`
 * `ClosureIterator`: `ClosureIterator(callable $callable, array $arguments = [])`
 * `ClosureIteratorAggregate`: `ClosureIteratorAggregate(callable $callable, array $arguments = [])`
@@ -25,6 +24,7 @@ The missing PHP iterators.
 * `IterableIteratorAggregate`: `IterableIteratorAggregate(iterable $iterable)`
 * `PackIterableAggregate`
 * `UnpackIterableAggregate`
+* `PausableIteratorAggregate`
 
 ## Installation
 
@@ -61,13 +61,6 @@ $iterator = new CachingIteratorAggregate($generator());
 foreach ($iterator as $key => $value); // This will work.
 foreach ($iterator as $key => $value); // This will also work.
 ```
-
-### SimpleCachingIteratorAggregate
-
-This iterator has the same features as `CachingIteratorAggregate`.
-
-The only difference is that this iterator only cache the values,
-not the keys.
 
 ### PackIterableAggregate
 
@@ -135,6 +128,26 @@ $iterator = new ClosureIterator($callable(10, 20));
 $iterator = new IterableIterator(range(1, 10));
 ```
 
+### PausableIteratorAggregate
+
+```php
+<?php
+
+$iterator = new PausableIteratorAggregate(range('a', 'e'));
+
+$i = 0;
+foreach ($iterator as $v) {
+    var_dump($v) // Print: 'a', 'b', 'c'
+    if (++$i === 2) {
+        break;
+    }
+}
+
+foreach ($iterator->rest() as $v) {
+    var_dump($v) // Print: 'd', 'e'
+}
+```
+
 ## Documentation
 
 ## Code quality, tests, benchmarks
@@ -159,8 +172,7 @@ Static analyzers are also controlling the code. [PHPStan][38] and
 
 Feel free to contribute by sending Github pull requests. I'm quite responsive :-)
 
-If you can't contribute to the code, you can also sponsor me on [Github][5] or
-[Paypal][6].
+If you can't contribute to the code, you can also sponsor me on [Github][5].
 
 ## Changelog
 
@@ -181,6 +193,8 @@ For more detailed changelogs, please check [the release changelogs][45].
 [license]: https://img.shields.io/packagist/l/loophp/iterators.svg?style=flat-square
 [donate github]: https://img.shields.io/badge/Sponsor-Github-brightgreen.svg?style=flat-square
 [donate paypal]: https://img.shields.io/badge/Sponsor-Paypal-brightgreen.svg?style=flat-square
+[mutation testing badge]: https://badge.stryker-mutator.io/github.com/loophp/iterators/main
+[6]: https://stryker-mutator.github.io
 [7]: https://packagist.org/?query=iterators
 [11]: https://en.wikipedia.org/wiki/Immutable_object
 [12]: https://www.php.net/manual/en/class.generator.php
@@ -211,7 +225,6 @@ For more detailed changelogs, please check [the release changelogs][45].
 [38]: https://github.com/phpstan/phpstan
 [39]: https://github.com/vimeo/psalm
 [5]: https://github.com/sponsors/drupol
-[6]: https://www.paypal.me/drupol
 [40]: https://www.reddit.com/r/PHP/comments/csxw23/a_stateless_and_modular_iterators_class/
 [41]: https://www.reddit.com/r/PHP/comments/i2u2le/release_of_version_200_of_loophpiterators/
 [42]: https://blog.jetbrains.com/phpstorm/2020/08/php-annotated-august-2020/
