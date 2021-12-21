@@ -5,7 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.4.0](https://github.com/loophp/iterators/compare/1.3.1...1.4.0)
+## [1.5.0](https://github.com/loophp/iterators/compare/1.4.0...1.5.0)
+
+### Merged
+
+- feat: Add `RandomIteratorAggregate`. [`#3`](https://github.com/loophp/iterators/pull/3)
+
+### Commits
+
+- docs: Update `README`. [`5e75734`](https://github.com/loophp/iterators/commit/5e75734408ef3c2b9dbe5f4c67074ca9058b49f5)
+- ci: Fix scrutinizer upload. [`5f093ec`](https://github.com/loophp/iterators/commit/5f093ece0a625c186bd6108277d6950b7654a38c)
+- ci: Fix scrutinizer upload. [`ed9e532`](https://github.com/loophp/iterators/commit/ed9e532797cf8c393d439b61f4451bc3da35b3ee)
+- Enable scrutinizer badge. [`d720355`](https://github.com/loophp/iterators/commit/d720355681692205a5413a19c851e9964f348848)
+- chore: Update Grumphp configuration. [`2c8e76e`](https://github.com/loophp/iterators/commit/2c8e76e08b4661af23fc56b3efbdd7bd526ae20e)
+- Enable infection tests badge. [`6c588bd`](https://github.com/loophp/iterators/commit/6c588bde808513721d4e63cac7d38f38e8db9279)
+- Autofix code style. [`dcceb78`](https://github.com/loophp/iterators/commit/dcceb78d3dd7918ab5703a86052cdb8f06fda741)
+- tests: Update benchmarks. [`61ebd70`](https://github.com/loophp/iterators/commit/61ebd70a6b04121797ce532a23f8386cf390b804)
+
+## [1.4.0](https://github.com/loophp/iterators/compare/1.3.1...1.4.0) - 2021-12-20
 
 ### Merged
 
@@ -13,6 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Commits
 
+- docs: Add/update CHANGELOG. [`dd965ff`](https://github.com/loophp/iterators/commit/dd965ffb0b6da0a740dd410bb4cb82cd393db584)
 - ci: Send Infection report to StrykerDashboard. [`9506c10`](https://github.com/loophp/iterators/commit/9506c10bc7ce968f80aeb846bdd93fd3a74f46e1)
 - ci: Fix branch name. [`bfcbaef`](https://github.com/loophp/iterators/commit/bfcbaef731b896131b6429d45bdeabe3259fc729)
 - docs: Update `README`. [`ebb8cdd`](https://github.com/loophp/iterators/commit/ebb8cdd0d14183dcf35a97c7fb4a595e06950626)
