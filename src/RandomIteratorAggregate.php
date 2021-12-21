@@ -27,7 +27,7 @@ use const PHP_INT_MIN;
 final class RandomIteratorAggregate implements IteratorAggregate
 {
     /**
-     * @var IteratorAggregate<TKey, T>
+     * @var IteratorAggregate<int, array{0: TKey, 1: T}>
      */
     private IteratorAggregate $iteratorAggregate;
 
@@ -53,11 +53,14 @@ final class RandomIteratorAggregate implements IteratorAggregate
     }
 
     /**
+     * @param Traversable<int, array{0: TKey, 1: T}> $traversable
+     *
      * @return Generator<TKey, T>
      */
     private function randomize(Traversable $traversable, int $seed): Generator
     {
         $isQueueEmpty = true;
+        /** @var ArrayIterator<int, array{0: TKey, 1: T}> $queue */
         $queue = new ArrayIterator([]);
 
         foreach (new UnpackIterableAggregate($traversable) as $key => $value) {
