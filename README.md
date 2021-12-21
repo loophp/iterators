@@ -162,10 +162,9 @@ zero and the value of `seed`. If that value is zero, then the
 iterator will yield else it will skip the value and start
 again with the next one.
 
-The bigger the `seed` is, the longer it will take to compute
-the iterator. It's up to the user to choose an appropriate
-value.
-
+The bigger the `seed` is, the bigger the entropy will be and
+the longer it will take to yield random items.
+It's then up to the user to choose an appropriate value.
 Usually a good value is twice the approximate amount of items
 the decorated iterator has.
 
