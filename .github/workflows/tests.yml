@@ -50,7 +50,9 @@ jobs:
               run: composer install --no-progress --prefer-dist --optimize-autoloader
 
             - name: Run Grumphp
-              run: vendor/bin/grumphp run --tasks=phpunit,coverage_clover
+              env:
+                XDEBUG_MODE: coverage
+              run: vendor/bin/grumphp run --tasks=phpunit,clover_coverage
 
             - name: Send Scrutinizer data
               run: |
