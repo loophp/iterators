@@ -24,7 +24,7 @@ use const PHP_INT_MIN;
  *
  * @implements IteratorAggregate<TKey, T>
  */
-final class RandomIteratorAggregate implements IteratorAggregate
+final class RandomIterableAggregate implements IteratorAggregate
 {
     /**
      * @var IteratorAggregate<int, array{0: TKey, 1: T}>
@@ -34,11 +34,11 @@ final class RandomIteratorAggregate implements IteratorAggregate
     private int $seed;
 
     /**
-     * @param Iterator<TKey, T> $iterator
+     * @param iterable<TKey, T> $iterable
      */
-    public function __construct(Iterator $iterator, int $seed = 0)
+    public function __construct(iterable $iterable, int $seed = 0)
     {
-        $this->iteratorAggregate = new PackIterableAggregate($iterator);
+        $this->iteratorAggregate = new PackIterableAggregate($iterable);
         $this->seed = $seed;
     }
 

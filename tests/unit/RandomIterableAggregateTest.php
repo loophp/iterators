@@ -10,14 +10,14 @@ declare(strict_types=1);
 namespace tests\loophp\iterators;
 
 use Generator;
-use loophp\iterators\RandomIteratorAggregate;
+use loophp\iterators\RandomIterableAggregate;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
  * @coversDefaultClass \loophp\iterators
  */
-final class RandomIteratorAggregateTest extends TestCase
+final class RandomIterableAggregateTest extends TestCase
 {
     public function testSimple(): void
     {
@@ -27,7 +27,7 @@ final class RandomIteratorAggregateTest extends TestCase
 
         $seed = 4321;
 
-        $iterator = (new RandomIteratorAggregate($input(), $seed));
+        $iterator = (new RandomIterableAggregate($input(), $seed));
 
         $a = [];
 
