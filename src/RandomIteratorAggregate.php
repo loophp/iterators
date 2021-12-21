@@ -36,10 +36,10 @@ final class RandomIteratorAggregate implements IteratorAggregate
     /**
      * @param Iterator<TKey, T> $iterator
      */
-    public function __construct(Iterator $iterator, ?int $seed = null)
+    public function __construct(Iterator $iterator, int $seed = 0)
     {
         $this->iteratorAggregate = new PackIterableAggregate($iterator);
-        $this->seed = $seed ?? random_int(PHP_INT_MIN, PHP_INT_MAX);
+        $this->seed = $seed;
     }
 
     /**
@@ -61,7 +61,7 @@ final class RandomIteratorAggregate implements IteratorAggregate
     {
         $isQueueEmpty = true;
         /** @var ArrayIterator<int, array{0: TKey, 1: T}> $queue */
-        $queue = new ArrayIterator([]);
+        $queue = new ArrayIterator();
 
         foreach (new UnpackIterableAggregate($traversable) as $key => $value) {
             if (mt_rand(0, $seed) === 0) {
