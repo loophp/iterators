@@ -172,25 +172,28 @@ the decorated iterator has.
 If you're willing to iterate multiple times on this, use the
 `CachingIteratorAggregate` to cache the results.
 
+This iterator works on keys and values, of any type.
 
 ```php
 <?php
 
-$seed = 4321;
+$seed = random_int(0, 1000);
 $inputIterator = new ArrayIterator(range('a', 'e'));
 $iterator = new RandomIteratorAggregate($inputIterator, $seed);
 
 foreach ($iterator as $v) {
-    var_dump($v) // Print: 'e', 'd', 'c', 'b', 'a'
+    var_dump($v);
 }
 
-$iterator = new CachingIteratorAggregate((new RandomIteratorAggregate($inputIterator, $seed))->getIterator());
+$iterator = new CachingIteratorAggregate(
+    (new RandomIteratorAggregate($inputIterator, $seed))->getIterator()
+);
 
 foreach ($iterator as $v) {
-    var_dump($v) // Print: 'e', 'd', 'c', 'b', 'a'
+    var_dump($v);
 }
 foreach ($iterator as $v) {
-    var_dump($v) // Print: 'e', 'd', 'c', 'b', 'a'
+    var_dump($v);
 }
 ```
 
