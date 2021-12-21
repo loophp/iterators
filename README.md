@@ -149,7 +149,29 @@ foreach ($iteratorAggregate->rest() as $v) {
     var_dump($v) // Print: 'd', 'e'
 }
 ```
+
 ### RandomIteratorAggregate
+
+In order to properly use this iterator, the user need to
+provide an extra parameter `seed`. By default, this parameter
+is set to zero and thus, the resulting iterator will be
+identical to the original one.
+
+Random items are selected by choosing a random integer between
+zero and the value of `seed`. If that value is zero, then the
+iterator will yield else it will skip the value and start
+again with the next one.
+
+The bigger the `seed` is, the longer it will take to compute
+the iterator. It's up to the user to choose an appropriate
+value.
+
+Usually a good value is twice the approximate amount of items
+the decorated iterator has.
+
+If you're willing to iterate multiple times on this, use the
+`CachingIteratorAggregate` to cache the results.
+
 
 ```php
 <?php
@@ -158,7 +180,15 @@ $seed = 4321;
 $inputIterator = new ArrayIterator(range('a', 'e'));
 $iterator = new RandomIteratorAggregate($inputIterator, $seed);
 
-$i = 0;
+foreach ($iterator as $v) {
+    var_dump($v) // Print: 'e', 'd', 'c', 'b', 'a'
+}
+
+$iterator = new CachingIteratorAggregate((new RandomIteratorAggregate($inputIterator, $seed))->getIterator());
+
+foreach ($iterator as $v) {
+    var_dump($v) // Print: 'e', 'd', 'c', 'b', 'a'
+}
 foreach ($iterator as $v) {
     var_dump($v) // Print: 'e', 'd', 'c', 'b', 'a'
 }
