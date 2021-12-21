@@ -57,5 +57,5 @@ jobs:
             - name: Send Scrutinizer data
               run: |
                   wget https://scrutinizer-ci.com/ocular.phar
-                  php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
+                  php ocular.phar code-coverage:upload --format=php-clover build/logs/coverage/clover.xml
               continue-on-error: true
