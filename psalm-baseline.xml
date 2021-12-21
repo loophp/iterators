@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="v4.15.0@a1b5e489e6fcebe40cb804793d964e99fc347820">
-  <file src="src/RandomIteratorAggregate.php">
+  <file src="src/RandomIterableAggregate.php">
     <InvalidPropertyAssignmentValue occurrences="1">
-      <code>new PackIterableAggregate($iterator)</code>
+      <code>new PackIterableAggregate($iterable)</code>
     </InvalidPropertyAssignmentValue>
   </file>
 </files>

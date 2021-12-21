@@ -11,12 +11,8 @@ namespace loophp\iterators;
 
 use ArrayIterator;
 use Generator;
-use Iterator;
 use IteratorAggregate;
 use Traversable;
-
-use const PHP_INT_MAX;
-use const PHP_INT_MIN;
 
 /**
  * @template TKey
