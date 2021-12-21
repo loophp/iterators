@@ -12,6 +12,7 @@ namespace benchmarks\loophp\iterators;
 use Exception;
 use Generator;
 use loophp\iterators\CachingIteratorAggregate;
+use loophp\iterators\SimpleCachingIteratorAggregate;
 use PhpBench\Benchmark\Metadata\Annotations\Groups;
 use PhpBench\Benchmark\Metadata\Annotations\Iterations;
 use PhpBench\Benchmark\Metadata\Annotations\Revs;
@@ -20,27 +21,19 @@ use Psl\Iter\Iterator as IterIterator;
 use Traversable;
 
 /**
- * @Groups({"GeneratorCache"})
+ * @Groups({"CachingIteratorsBench"})
  * @Iterations(10)
  * @Warmup(1)
  * @Revs(100)
  */
-class GeneratorCacheBench
+class CachingIteratorsBench
 {
     /**
      * @ParamProviders("provideGenerators")
      */
     public function benchIterators(array $params): void
     {
-        $generator = static function (): Generator {
-            yield true => true;
-
-            yield false => false;
-
-            yield ['a'] => ['a'];
-
-            yield from range(0, 250);
-        };
+        $generator = static fn (): Generator => yield from range(0, $params['items']);
 
         $iterator = new $params['class']($generator());
 
@@ -49,39 +42,27 @@ class GeneratorCacheBench
 
     public function provideGenerators(): Generator
     {
-        yield 'loophp/iterators' => ['class' => CachingIteratorAggregate::class];
+        $items = 1000;
 
-        yield 'azjezz/psl' => ['class' => IterIterator::class];
+        yield 'loophp\iterators\SimpleCachingIteratorAggregate' => ['class' => SimpleCachingIteratorAggregate::class, 'items' => $items];
+
+        yield 'loophp\iterators\CachingIteratorAggregate' => ['class' => CachingIteratorAggregate::class, 'items' => $items];
+
+        yield 'Psl\Iter\Iterator' => ['class' => IterIterator::class, 'items' => $items];
     }
 
     private function test(Traversable $input): void
     {
         $a = $b = [];
-
-        $i = 0;
-
         foreach ($input as $key => $value) {
-            $a = [$key, $value];
-
-            if (2 === $i++) {
-                break;
-            }
+            $a[] = [$key, $value];
         }
-
         foreach ($input as $key => $value) {
             $b[] = [$key, $value];
         }
 
-        foreach ($input as $key => $value) {
-            $c[] = [$key, $value];
-        }
-
-        if ($b !== $c) {
-            throw new Exception('$b !== $c');
-        }
-
-        if ($a !== $b[2]) {
-            throw new Exception('$a !== $b[2]');
+        if ($a !== $b) {
+            throw new Exception('$a !== $b => Invalid benchmark.');
         }
     }
 }

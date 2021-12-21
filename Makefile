@@ -2,7 +2,7 @@ help:                                                                           
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_\-\.]+:.*?## / {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 install-benchmarks:                                                             ## install all required dependencies to run benchmarks
-	composer require phpbench/phpbench azjezz/psl:2.0.x-dev
+	composer require phpbench/phpbench azjezz/psl:2.0.x-dev --ignore-platform-reqs
 
 benchmarks: install-benchmarks                                                  ## run benchmarks
 	./vendor/bin/phpbench run
