@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace loophp\iterators;
 
+use ArrayIterator;
+use Generator;
 use Iterator;
 use IteratorAggregate;
 use Traversable;
@@ -36,7 +38,7 @@ final class RandomIteratorAggregate implements IteratorAggregate
      */
     public function __construct(Iterator $iterator, ?int $seed = null)
     {
-        $this->iteratorAggregate = new CachingIteratorAggregate($iterator);
+        $this->iteratorAggregate = new PackIterableAggregate($iterator);
         $this->seed = $seed ?? random_int(PHP_INT_MIN, PHP_INT_MAX);
     }
 
@@ -45,36 +47,32 @@ final class RandomIteratorAggregate implements IteratorAggregate
      */
     public function getIterator(): Traversable
     {
-        $indexes = $this->predictableRandomArray(
-            range(0, iterator_count($this->iteratorAggregate->getIterator()) - 1),
-            $this->seed
-        );
+        mt_srand($this->seed);
 
-        $i = 0;
-
-        foreach ($indexes as $index) {
-            foreach ($this->iteratorAggregate as $k => $v) {
-                if ($indexes[$index] === $i++) {
-                    yield $k => $v;
-                    $i = 0;
-
-                    continue 2;
-                }
-            }
-        }
+        yield from $this->randomize($this->iteratorAggregate, $this->seed);
     }
 
     /**
-     * @param array<int, int> $array
-     *
-     * @return array<int, int>
+     * @return Generator<TKey, T>
      */
-    private function predictableRandomArray(array $array, int $seed): array
+    private function randomize(Traversable $traversable, int $seed): Generator
     {
-        mt_srand($seed);
-        shuffle($array);
-        mt_srand();
+        $isQueueEmpty = true;
+        $queue = new ArrayIterator([]);
 
-        return $array;
+        foreach (new UnpackIterableAggregate($traversable) as $key => $value) {
+            if (mt_rand(0, $seed) === 0) {
+                yield $key => $value;
+
+                continue;
+            }
+
+            $queue->append([$key, $value]);
+            $isQueueEmpty = false;
+        }
+
+        if (false === $isQueueEmpty) {
+            yield from $this->randomize($queue, $seed);
+        }
     }
 }

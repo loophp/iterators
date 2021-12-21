@@ -29,23 +29,17 @@ final class RandomIteratorAggregateTest extends TestCase
 
         $iterator = (new RandomIteratorAggregate($input(), $seed));
 
-        $a = $b = [];
+        $a = [];
 
         foreach ($iterator as $key => $value) {
             $a[] = [$key, $value];
         }
 
-        foreach ($iterator as $key => $value) {
-            $b[] = [$key, $value];
-        }
-
-        self::assertEquals($a, $b);
-
         $expected = [
-            ['b', 'b'],
             ['e', 'e'],
-            ['c', 'c'],
             ['d', 'd'],
+            ['c', 'c'],
+            ['b', 'b'],
             ['a', 'a'],
         ];
 
