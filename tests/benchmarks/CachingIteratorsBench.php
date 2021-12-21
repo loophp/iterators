@@ -54,9 +54,11 @@ class CachingIteratorsBench
     private function test(Traversable $input): void
     {
         $a = $b = [];
+
         foreach ($input as $key => $value) {
             $a[] = [$key, $value];
         }
+
         foreach ($input as $key => $value) {
             $b[] = [$key, $value];
         }
