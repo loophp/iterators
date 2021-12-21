@@ -150,7 +150,7 @@ foreach ($iteratorAggregate->rest() as $v) {
 }
 ```
 
-### RandomIteratorAggregate
+### RandomIterableAggregate
 
 In order to properly use this iterator, the user need to
 provide an extra parameter `seed`. By default, this parameter
@@ -178,14 +178,14 @@ This iterator works on keys and values, of any type.
 
 $seed = random_int(0, 1000);
 $inputIterator = new ArrayIterator(range('a', 'e'));
-$iterator = new RandomIteratorAggregate($inputIterator, $seed);
+$iterator = new RandomIterableAggregate($inputIterator, $seed);
 
 foreach ($iterator as $v) {
     var_dump($v);
 }
 
 $iterator = new CachingIteratorAggregate(
-    (new RandomIteratorAggregate($inputIterator, $seed))->getIterator()
+    (new RandomIterableAggregate($inputIterator, $seed))->getIterator()
 );
 
 foreach ($iterator as $v) {
