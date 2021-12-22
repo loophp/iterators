@@ -52,7 +52,7 @@ final class SimpleCachingIteratorAggregate implements IteratorAggregate
                 yield $this->iterator->key() => $this->iterator->current();
             }
 
-            return $this;
+            return;
         }
 
         $this->iterator->next();
