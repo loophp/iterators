@@ -25,7 +25,7 @@ The missing PHP iterators.
 * `PackIterableAggregate`
 * `UnpackIterableAggregate`
 * `PausableIteratorAggregate`
-* `RandomIteratorAggregate`
+* `RandomIterableAggregate`
 
 ## Installation
 
