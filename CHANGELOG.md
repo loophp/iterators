@@ -5,10 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.5.2](https://github.com/loophp/iterators/compare/1.5.1...1.5.2)
+## [1.5.3](https://github.com/loophp/iterators/compare/1.5.2...1.5.3)
 
 ### Commits
 
+- fix: Update return types. [`bac7423`](https://github.com/loophp/iterators/commit/bac7423211133ec9f1f7a778fdc3954e626d263e)
+
+## [1.5.2](https://github.com/loophp/iterators/compare/1.5.1...1.5.2) - 2021-12-22
+
+### Commits
+
+- docs: Add/update CHANGELOG. [`fa6a59e`](https://github.com/loophp/iterators/commit/fa6a59edfd2e6d41a6b9d4b5e41942121e3a8a75)
 - fix: Update return types. [`c48eebf`](https://github.com/loophp/iterators/commit/c48eebf18c2638997dbb59ecc2b2b41a9e7fb3ea)
 
 ## [1.5.1](https://github.com/loophp/iterators/compare/1.5.0...1.5.1) - 2021-12-22
