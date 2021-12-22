@@ -12,7 +12,6 @@ namespace loophp\iterators;
 use CachingIterator;
 use Iterator;
 use IteratorAggregate;
-use Traversable;
 
 /**
  * @template TKey of array-key
@@ -41,9 +40,9 @@ final class SimpleCachingIteratorAggregate implements IteratorAggregate
     }
 
     /**
-     * @return Traversable<int|string, T>
+     * @return Iterator<int|string, T>
      */
-    public function getIterator(): Traversable
+    public function getIterator(): Iterator
     {
         if (false === $this->hasStarted) {
             $this->hasStarted = true;

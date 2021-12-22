@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 namespace loophp\iterators;
 
+use Iterator;
 use IteratorAggregate;
-use Traversable;
 
 /**
  * @template TKey
@@ -40,7 +40,10 @@ final class ClosureIteratorAggregate implements IteratorAggregate
         $this->parameters = $parameters;
     }
 
-    public function getIterator(): Traversable
+    /**
+     * @return Iterator<TKey, T>
+     */
+    public function getIterator(): Iterator
     {
         yield from ($this->callable)(...$this->parameters);
     }

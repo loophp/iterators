@@ -14,7 +14,6 @@ use Generator;
 use Iterator;
 use IteratorAggregate;
 use loophp\iterators\Contract\PausableIteratorAggregateInterface;
-use Traversable;
 
 /**
  * @template TKey
@@ -44,9 +43,9 @@ final class PausableIteratorAggregate implements PausableIteratorAggregateInterf
     }
 
     /**
-     * @return Traversable<TKey, T>
+     * @return Iterator<TKey, T>
      */
-    public function getIterator(): Traversable
+    public function getIterator(): Iterator
     {
         /** @var Iterator<TKey, T> $iterator */
         $iterator = $this->iteratorAggregate->getIterator();

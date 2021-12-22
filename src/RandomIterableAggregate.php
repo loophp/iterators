@@ -11,6 +11,7 @@ namespace loophp\iterators;
 
 use ArrayIterator;
 use Generator;
+use Iterator;
 use IteratorAggregate;
 use Traversable;
 
@@ -39,9 +40,9 @@ final class RandomIterableAggregate implements IteratorAggregate
     }
 
     /**
-     * @return Traversable<TKey, T>
+     * @return Iterator<TKey, T>
      */
-    public function getIterator(): Traversable
+    public function getIterator(): Iterator
     {
         mt_srand($this->seed);
 
