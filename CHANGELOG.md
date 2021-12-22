@@ -5,7 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.5.0](https://github.com/loophp/iterators/compare/1.4.0...1.5.0)
+## [1.5.1](https://github.com/loophp/iterators/compare/1.5.0...1.5.1)
+
+### Merged
+
+- Fix typo in class name [`#4`](https://github.com/loophp/iterators/pull/4)
+
+### Commits
+
+- fix: Make it work with PHP 8.1 [`e119ca7`](https://github.com/loophp/iterators/commit/e119ca73c788aebe1f1c49bdd8b136db9afdf3f4)
+- docs: Update badge. [`9050b64`](https://github.com/loophp/iterators/commit/9050b64f1b5de597f6480ea680ccf554c7b5fb4c)
+
+## [1.5.0](https://github.com/loophp/iterators/compare/1.4.0...1.5.0) - 2021-12-21
 
 ### Merged
 
@@ -13,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Commits
 
+- docs: Add/update CHANGELOG. [`5ee7b03`](https://github.com/loophp/iterators/commit/5ee7b033a29ec401eb5f9ed5be036b1a971fb730)
 - docs: Update `README`. [`5e75734`](https://github.com/loophp/iterators/commit/5e75734408ef3c2b9dbe5f4c67074ca9058b49f5)
 - ci: Fix scrutinizer upload. [`5f093ec`](https://github.com/loophp/iterators/commit/5f093ece0a625c186bd6108277d6950b7654a38c)
 - ci: Fix scrutinizer upload. [`ed9e532`](https://github.com/loophp/iterators/commit/ed9e532797cf8c393d439b61f4451bc3da35b3ee)
