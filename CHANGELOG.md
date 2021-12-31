@@ -5,10 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.5.3](https://github.com/loophp/iterators/compare/1.5.2...1.5.3)
+## [1.5.4](https://github.com/loophp/iterators/compare/1.5.3...1.5.4)
 
 ### Commits
 
+- fix: Update `SimpleCachingIteratorAggregate` to reach 100% type inference. [`9c82c58`](https://github.com/loophp/iterators/commit/9c82c582f8c25c611c2d190f3e4395c0346b4a41)
+
+## [1.5.3](https://github.com/loophp/iterators/compare/1.5.2...1.5.3) - 2021-12-22
+
+### Commits
+
+- docs: Add/update CHANGELOG. [`baf3352`](https://github.com/loophp/iterators/commit/baf3352762eac1061eb01efedd7dcbc9e48291e2)
 - fix: Update return types. [`bac7423`](https://github.com/loophp/iterators/commit/bac7423211133ec9f1f7a778fdc3954e626d263e)
 
 ## [1.5.2](https://github.com/loophp/iterators/compare/1.5.1...1.5.2) - 2021-12-22
