@@ -24,12 +24,12 @@ final class SimpleCachingIteratorAggregate implements IteratorAggregate
     private bool $hasStarted = false;
 
     /**
-     * @var CachingIterator<int|string, T>
+     * @var CachingIterator<array-key, T>
      */
     private CachingIterator $iterator;
 
     /**
-     * @param Iterator<int|string, T> $iterator
+     * @param Iterator<array-key, T> $iterator
      */
     public function __construct(Iterator $iterator)
     {
@@ -40,7 +40,7 @@ final class SimpleCachingIteratorAggregate implements IteratorAggregate
     }
 
     /**
-     * @return Iterator<int|string, T>
+     * @return Iterator<array-key, T>
      */
     public function getIterator(): Iterator
     {
@@ -61,6 +61,6 @@ final class SimpleCachingIteratorAggregate implements IteratorAggregate
             $this->iterator->current();
         }
 
-        return yield from $this->iterator->getCache();
+        yield from $this->iterator->getCache();
     }
 }
