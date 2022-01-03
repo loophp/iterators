@@ -24,7 +24,7 @@ use Traversable;
 final class RandomIterableAggregate implements IteratorAggregate
 {
     /**
-     * @var IteratorAggregate<int, array{0: TKey, 1: T}>
+     * @var IteratorAggregate<array-key, array{0: TKey, 1: T}>
      */
     private IteratorAggregate $iteratorAggregate;
 
@@ -57,8 +57,7 @@ final class RandomIterableAggregate implements IteratorAggregate
     private function randomize(Traversable $traversable, int $seed): Generator
     {
         $isQueueEmpty = true;
-        /** @var ArrayIterator<int, array{0: TKey, 1: T}> $queue */
-        $queue = new ArrayIterator();
+        $queue = [];
 
         foreach (new UnpackIterableAggregate($traversable) as $key => $value) {
             if (mt_rand(0, $seed) === 0) {
@@ -67,12 +66,12 @@ final class RandomIterableAggregate implements IteratorAggregate
                 continue;
             }
 
-            $queue->append([$key, $value]);
+            $queue[] = [$key, $value];
             $isQueueEmpty = false;
         }
 
         if (false === $isQueueEmpty) {
-            yield from $this->randomize($queue, $seed);
+            yield from $this->randomize(new ArrayIterator($queue), $seed);
         }
     }
 }

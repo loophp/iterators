@@ -19,12 +19,13 @@ use PhpBench\Benchmark\Metadata\Annotations\Revs;
 use PhpBench\Benchmark\Metadata\Annotations\Warmup;
 use Psl\Iter\Iterator as IterIterator;
 use Traversable;
+use function count;
 
 /**
  * @Groups({"CachingIteratorsBench"})
  * @Iterations(10)
- * @Warmup(1)
- * @Revs(100)
+ * @Warmup(5)
+ * @Revs(200)
  */
 class CachingIteratorsBench
 {
@@ -33,38 +34,73 @@ class CachingIteratorsBench
      */
     public function benchIterators(array $params): void
     {
-        $generator = static fn (): Generator => yield from range(0, $params['items']);
+        $generator = static function (int $from, int $to): Generator {
+            for ($i = $from; $i < $to; ++$i) {
+                yield $i;
+            }
+        };
 
-        $iterator = new $params['class']($generator());
+        $iterator = new $params['class']($generator(0, $params['size']));
 
-        $this->test($iterator);
+        $this->test($iterator, $params['size']);
     }
 
     public function provideGenerators(): Generator
     {
-        $items = 1000;
+        $items = 5000;
 
-        yield 'loophp\iterators\SimpleCachingIteratorAggregate' => ['class' => SimpleCachingIteratorAggregate::class, 'items' => $items];
+        yield 'loophp\iterators\SimpleCachingIteratorAggregate' => [
+            'class' => SimpleCachingIteratorAggregate::class,
+            'size' => $items,
+        ];
 
-        yield 'loophp\iterators\CachingIteratorAggregate' => ['class' => CachingIteratorAggregate::class, 'items' => $items];
+        yield 'loophp\iterators\CachingIteratorAggregate' => [
+            'class' => CachingIteratorAggregate::class,
+            'size' => $items,
+        ];
 
-        yield 'Psl\Iter\Iterator' => ['class' => IterIterator::class, 'items' => $items];
+        yield 'Psl\Iter\Iterator' => [
+            'class' => IterIterator::class,
+            'size' => $items,
+        ];
     }
 
-    private function test(Traversable $input): void
+    private function loop(Traversable $input, int $breakAt): Generator
     {
-        $a = $b = [];
+        $i = 0;
 
         foreach ($input as $key => $value) {
-            $a[] = [$key, $value];
+            if ($breakAt / 2 === $i++) {
+                break;
+            }
         }
 
         foreach ($input as $key => $value) {
-            $b[] = [$key, $value];
+            yield [$key, $value];
+        }
+    }
+
+    private function test(Traversable $input, int $size): void
+    {
+        $a = iterator_to_array($this->loop($input, $size));
+        $b = iterator_to_array($this->loop($input, $size));
+        $c = iterator_to_array($this->loop($input, $size));
+        $d = iterator_to_array($this->loop($input, $size));
+
+        if (count($a) !== $size) {
+            throw new Exception('$a !== $size => Invalid benchmark.');
         }
 
         if ($a !== $b) {
             throw new Exception('$a !== $b => Invalid benchmark.');
+        }
+
+        if ($b !== $c) {
+            throw new Exception('$b !== $c => Invalid benchmark.');
+        }
+
+        if ($c !== $d) {
+            throw new Exception('$c !== $d => Invalid benchmark.');
         }
     }
 }
