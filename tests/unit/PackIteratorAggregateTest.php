@@ -29,12 +29,12 @@ final class PackIteratorAggregateTest extends TestCase
         $iterator = (new PackIterableAggregate($input()))->getIterator();
         $iterator->rewind();
 
-        self::assertEquals(0, $iterator->key());
-        self::assertEquals([true, true], $iterator->current());
+        self::assertSame(0, $iterator->key());
+        self::assertSame([true, true], $iterator->current());
 
         $iterator->next();
 
-        self::assertEquals(1, $iterator->key());
-        self::assertEquals([['foo'], ['foo']], $iterator->current());
+        self::assertSame(1, $iterator->key());
+        self::assertSame([['foo'], ['foo']], $iterator->current());
     }
 }

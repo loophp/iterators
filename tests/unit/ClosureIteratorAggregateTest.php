@@ -31,7 +31,7 @@ final class ClosureIteratorAggregateTest extends TestCase
 
         self::assertTrue($iterator->getIterator()->valid());
 
-        self::assertEquals(
+        self::assertSame(
             self::LIST_DATA,
             iterator_to_array($iterator->getIterator())
         );
@@ -45,12 +45,12 @@ final class ClosureIteratorAggregateTest extends TestCase
         );
         $newIterator = $iterator->getIterator();
 
-        self::assertEquals(1, $newIterator->current());
+        self::assertSame(1, $newIterator->current());
         $newIterator->next();
-        self::assertEquals(2, $newIterator->current());
+        self::assertSame(2, $newIterator->current());
 
         $newIterator = $iterator->getIterator();
 
-        self::assertEquals(1, $newIterator->current());
+        self::assertSame(1, $newIterator->current());
     }
 }

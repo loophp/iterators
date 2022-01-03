@@ -43,6 +43,6 @@ final class RandomIterableAggregateTest extends TestCase
             ['a', 'a'],
         ];
 
-        self::assertEquals($expected, $a);
+        self::assertSame($expected, $a);
     }
 }

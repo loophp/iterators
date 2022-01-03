@@ -34,7 +34,7 @@ final class UnpackIteratorAggregateTest extends TestCase
 
         $iterator->next();
 
-        self::assertEquals(['foo'], $iterator->key());
-        self::assertEquals(['foo'], $iterator->current());
+        self::assertSame(['foo'], $iterator->key());
+        self::assertSame(['foo'], $iterator->current());
     }
 }

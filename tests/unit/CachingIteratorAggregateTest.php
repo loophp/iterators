@@ -12,6 +12,7 @@ namespace tests\loophp\iterators;
 use Generator;
 use loophp\iterators\CachingIteratorAggregate;
 use PHPUnit\Framework\TestCase;
+use Traversable;
 
 /**
  * @internal
@@ -22,59 +23,48 @@ final class CachingIteratorAggregateTest extends TestCase
     public function testWithAGenerator(): void
     {
         $input = static function (): Generator {
-            yield true => true;
+            $range = range('a', 'e');
 
-            yield false => false;
-
-            yield ['a'] => ['a'];
-
-            yield from range('a', 'c');
+            yield from array_combine($range, $range);
         };
 
         $iterator = (new CachingIteratorAggregate($input()));
+        $breakAt = 2;
 
-        $a = $b = [];
+        $a = iterator_to_array($this->doTheLoop($iterator, $breakAt));
+        $b = iterator_to_array($this->doTheLoop($iterator, $breakAt));
+        $c = iterator_to_array($this->doTheLoop($iterator, $breakAt));
+        $d = iterator_to_array($this->doTheLoop($iterator, $breakAt));
 
-        $i = 0;
+        $expected = [
+            ['a', 'a'],
+            ['b', 'b'],
+            ['c', 'c'],
+            ['a', 'a'],
+            ['b', 'b'],
+            ['c', 'c'],
+            ['d', 'd'],
+            ['e', 'e'],
+        ];
 
+        self::assertSame($a, $b);
+        self::assertSame($b, $c);
+        self::assertSame($c, $d);
+        self::assertSame($expected, $a);
+    }
+
+    private function doTheLoop(Traversable $iterator, int $breakAt): Generator
+    {
         foreach ($iterator as $key => $value) {
-            $a[] = [$key, $value];
-            $d[] = [$key, $value];
+            yield [$key, $value];
 
-            if (2 === $i++) {
+            if (0 === $breakAt--) {
                 break;
             }
         }
 
         foreach ($iterator as $key => $value) {
-            $b[] = [$key, $value];
-            $d[] = [$key, $value];
+            yield [$key, $value];
         }
-
-        foreach ($iterator as $key => $value) {
-            $c[] = [$key, $value];
-            $d[] = [$key, $value];
-        }
-
-        $expected = [
-            [true, true],
-            [false, false],
-            [['a'], ['a']],
-            [true, true],
-            [false, false],
-            [['a'], ['a']],
-            [0, 'a'],
-            [1, 'b'],
-            [2, 'c'],
-            [true, true],
-            [false, false],
-            [['a'], ['a']],
-            [0, 'a'],
-            [1, 'b'],
-            [2, 'c'],
-        ];
-
-        self::assertEquals($b, $c);
-        self::assertEquals($expected, $d);
     }
 }

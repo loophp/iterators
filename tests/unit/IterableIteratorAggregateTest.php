@@ -24,24 +24,24 @@ final class IterableIteratorAggregateTest extends TestCase
     {
         $iterator = (new IterableIteratorAggregate(range(1, 5)))->getIterator();
 
-        self::assertEquals(0, $iterator->key());
+        self::assertSame(0, $iterator->key());
         $iterator->next();
-        self::assertEquals(1, $iterator->key());
+        self::assertSame(1, $iterator->key());
     }
 
     public function testGetAStringKey(): void
     {
         $iterator = (new IterableIteratorAggregate(['foo' => 1, 'bar' => 2]))->getIterator();
-        self::assertEquals('foo', $iterator->key());
+        self::assertSame('foo', $iterator->key());
         $iterator->next();
-        self::assertEquals('bar', $iterator->key());
+        self::assertSame('bar', $iterator->key());
     }
 
     public function testIsInitializableFromArray(): void
     {
         $iterator = (new IterableIteratorAggregate(['foo', 'bar', 'baz']))->getIterator();
 
-        self::assertEquals('foo', $iterator->current());
+        self::assertSame('foo', $iterator->current());
     }
 
     public function testIsInitializableFromGenerator(): void
@@ -50,14 +50,14 @@ final class IterableIteratorAggregateTest extends TestCase
 
         $iterator = (new IterableIteratorAggregate($gen()))->getIterator();
 
-        self::assertEquals('foo', $iterator->current());
+        self::assertSame('foo', $iterator->current());
     }
 
     public function testIsInitializableFromIterator(): void
     {
         $iterator = (new IterableIteratorAggregate(new ArrayIterator(['foo', 'bar', 'baz'])))->getIterator();
 
-        self::assertEquals('foo', $iterator->current());
+        self::assertSame('foo', $iterator->current());
     }
 
     public function testRenewGenerator(): void
@@ -65,14 +65,14 @@ final class IterableIteratorAggregateTest extends TestCase
         $iia = new IterableIteratorAggregate(['foo']);
         $iterator = $iia->getIterator();
 
-        self::assertEquals('foo', $iterator->current());
+        self::assertSame('foo', $iterator->current());
         $iterator->next();
         self::assertNull($iterator->current());
 
         // Iterator renewal here (instead of using rewind)
         $iterator = $iia->getIterator();
 
-        self::assertEquals('foo', $iterator->current());
+        self::assertSame('foo', $iterator->current());
     }
 
     public function testUseNext(): void
@@ -81,6 +81,6 @@ final class IterableIteratorAggregateTest extends TestCase
 
         self::assertNull($iterator->next());
 
-        self::assertEquals(2, $iterator->current());
+        self::assertSame(2, $iterator->current());
     }
 }

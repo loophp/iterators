@@ -23,24 +23,24 @@ final class IterableIteratorTest extends TestCase
     public function testGetAnIntKey(): void
     {
         $iterator = new IterableIterator(range(1, 5));
-        self::assertEquals(0, $iterator->key());
+        self::assertSame(0, $iterator->key());
         $iterator->next();
-        self::assertEquals(1, $iterator->key());
+        self::assertSame(1, $iterator->key());
     }
 
     public function testGetAStringKey(): void
     {
         $iterator = new IterableIterator(['foo' => 1, 'bar' => 2]);
-        self::assertEquals('foo', $iterator->key());
+        self::assertSame('foo', $iterator->key());
         $iterator->next();
-        self::assertEquals('bar', $iterator->key());
+        self::assertSame('bar', $iterator->key());
     }
 
     public function testIsInitializableFromArray(): void
     {
         $iterator = new IterableIterator(['foo', 'bar', 'baz']);
 
-        self::assertEquals('foo', $iterator->current());
+        self::assertSame('foo', $iterator->current());
     }
 
     public function testIsInitializableFromGenerator(): void
@@ -49,27 +49,27 @@ final class IterableIteratorTest extends TestCase
 
         $iterator = new IterableIterator($gen());
 
-        self::assertEquals('foo', $iterator->current());
+        self::assertSame('foo', $iterator->current());
     }
 
     public function testIsInitializableFromIterator(): void
     {
         $iterator = new IterableIterator(new ArrayIterator(['foo', 'bar', 'baz']));
 
-        self::assertEquals('foo', $iterator->current());
+        self::assertSame('foo', $iterator->current());
     }
 
     public function testRewind(): void
     {
         $iterator = new IterableIterator(['foo']);
 
-        self::assertEquals('foo', $iterator->current());
+        self::assertSame('foo', $iterator->current());
         $iterator->next();
         self::assertNull($iterator->current());
 
         $iterator->rewind();
 
-        self::assertEquals('foo', $iterator->current());
+        self::assertSame('foo', $iterator->current());
     }
 
     public function testUseNext(): void
@@ -78,6 +78,6 @@ final class IterableIteratorTest extends TestCase
 
         self::assertNull($iterator->next());
 
-        self::assertEquals(2, $iterator->current());
+        self::assertSame(2, $iterator->current());
     }
 }

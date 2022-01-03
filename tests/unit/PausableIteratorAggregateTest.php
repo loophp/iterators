@@ -65,7 +65,7 @@ final class PausableIteratorAggregateTest extends TestCase
             [4, 'e'],
         ];
 
-        self::assertEquals($expected, $a);
+        self::assertSame($expected, $a);
     }
 
     public function testSimple(): void
@@ -111,6 +111,6 @@ final class PausableIteratorAggregateTest extends TestCase
             [4, 'e'],
         ];
 
-        self::assertEquals($expected, $a);
+        self::assertSame($expected, $a);
     }
 }
