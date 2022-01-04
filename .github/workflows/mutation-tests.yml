@@ -33,7 +33,6 @@ jobs:
               uses: shivammathur/setup-php@2.16.0
               with:
                   php-version: ${{ matrix.php-versions }}
-                  extensions: gd,mbstring,pcov
 
             - name: Get Composer Cache Directory
               id: composer-cache
@@ -54,8 +53,8 @@ jobs:
                   STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
               run: XDEBUG_MODE=coverage vendor/bin/grumphp run --tasks=infection -n
 
-            - name: Send feedback on Github
+            - name: Run infection manually
               env:
                   STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
               run: |
-                  XDEBUG_MODE=coverage vendor/bin/infection -j2 --logger-github
+                  XDEBUG_MODE=coverage vendor/bin/infection --logger-github
