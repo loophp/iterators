@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace loophp\iterators;
 
+use Generator;
 use Iterator;
 use IteratorAggregate;
 
@@ -30,7 +31,15 @@ final class IterableIteratorAggregate implements IteratorAggregate
      */
     public function __construct(iterable $iterable)
     {
-        $this->iterator = new ClosureIteratorAggregate(static fn () => yield from $iterable);
+        $this->iterator = new ClosureIteratorAggregate(
+            /**
+             * @param iterable<TKey, T> $iterable
+             *
+             * @return Generator<TKey, T>
+             */
+            static fn (iterable $iterable): Generator => yield from $iterable,
+            [$iterable]
+        );
     }
 
     /**

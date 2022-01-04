@@ -27,7 +27,7 @@ final class SimpleCachingIteratorAggregateTest extends TestCase
             foreach (array_combine($input, $input) as $key => $value) {
                 $stack[] = [$key, $value];
 
-                yield [$key, $value];
+                yield $key => $value;
             }
         };
 
@@ -39,9 +39,9 @@ final class SimpleCachingIteratorAggregateTest extends TestCase
         self::assertSame($a, $b);
 
         $expected = [
-            ['a', 'a'],
-            ['b', 'b'],
-            ['c', 'c'],
+            'a' => 'a',
+            'b' => 'b',
+            'c' => 'c',
         ];
 
         self::assertSame($expected, $a);
