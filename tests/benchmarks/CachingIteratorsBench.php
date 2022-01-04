@@ -23,9 +23,9 @@ use function count;
 
 /**
  * @Groups({"CachingIteratorsBench"})
- * @Iterations(10)
- * @Warmup(5)
- * @Revs(200)
+ * @Iterations(15)
+ * @Warmup(10)
+ * @Revs(100)
  */
 class CachingIteratorsBench
 {
@@ -67,10 +67,8 @@ class CachingIteratorsBench
 
     private function loop(Traversable $input, int $breakAt): Generator
     {
-        $i = 0;
-
         foreach ($input as $key => $value) {
-            if ($breakAt / 2 === $i++) {
+            if (0 === $breakAt--) {
                 break;
             }
         }
@@ -82,10 +80,12 @@ class CachingIteratorsBench
 
     private function test(Traversable $input, int $size): void
     {
-        $a = iterator_to_array($this->loop($input, $size));
-        $b = iterator_to_array($this->loop($input, $size));
-        $c = iterator_to_array($this->loop($input, $size));
-        $d = iterator_to_array($this->loop($input, $size));
+        $breakAt = $size / 2;
+
+        $a = iterator_to_array($this->loop($input, $breakAt));
+        $b = iterator_to_array($this->loop($input, $breakAt));
+        $c = iterator_to_array($this->loop($input, $breakAt));
+        $d = iterator_to_array($this->loop($input, $breakAt));
 
         if (count($a) !== $size) {
             throw new Exception('$a !== $size => Invalid benchmark.');
