@@ -38,8 +38,8 @@ final class UnpackIterableAggregate implements IteratorAggregate
      */
     public function getIterator(): Generator
     {
-        foreach ($this->iterable as $value) {
-            yield $value[0] => $value[1];
+        foreach ($this->iterable as [$key, $value]) {
+            yield $key => $value;
         }
     }
 }

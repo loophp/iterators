@@ -9,10 +9,8 @@ declare(strict_types=1);
 
 namespace loophp\iterators;
 
-use ArrayIterator;
 use Generator;
 use IteratorAggregate;
-use Traversable;
 
 /**
  * @template TKey
@@ -49,28 +47,26 @@ final class RandomIterableAggregate implements IteratorAggregate
     }
 
     /**
-     * @param Traversable<int, array{0: TKey, 1: T}> $traversable
+     * @param iterable<int, array{0: TKey, 1: T}> $iterable
      *
      * @return Generator<TKey, T>
      */
-    private function randomize(Traversable $traversable, int $seed): Generator
+    private function randomize(iterable $iterable, int $seed): Generator
     {
-        $isQueueEmpty = true;
         $queue = [];
 
-        foreach (new UnpackIterableAggregate($traversable) as $key => $value) {
-            if (mt_rand(0, $seed) === 0) {
+        foreach (new UnpackIterableAggregate($iterable) as $key => $value) {
+            if (0 === mt_rand(0, $seed)) {
                 yield $key => $value;
 
                 continue;
             }
 
             $queue[] = [$key, $value];
-            $isQueueEmpty = false;
         }
 
-        if (false === $isQueueEmpty) {
-            yield from $this->randomize(new ArrayIterator($queue), $seed);
+        if ([] !== $queue) {
+            yield from $this->randomize($queue, $seed);
         }
     }
 }

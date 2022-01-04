@@ -12,6 +12,7 @@ namespace tests\loophp\iterators;
 use Generator;
 use loophp\iterators\RandomIterableAggregate;
 use PHPUnit\Framework\TestCase;
+use function count;
 
 /**
  * @internal
@@ -22,10 +23,10 @@ final class RandomIterableAggregateTest extends TestCase
     public function testSimple(): void
     {
         $input = static function (): Generator {
-            yield from array_combine(range('a', 'e'), range('a', 'e'));
+            yield from array_combine(range('a', 'f'), range('a', 'f'));
         };
 
-        $seed = 4321;
+        $seed = 2;
 
         $iterator = (new RandomIterableAggregate($input(), $seed));
 
@@ -36,13 +37,15 @@ final class RandomIterableAggregateTest extends TestCase
         }
 
         $expected = [
-            ['e', 'e'],
-            ['d', 'd'],
-            ['c', 'c'],
-            ['b', 'b'],
             ['a', 'a'],
+            ['b', 'b'],
+            ['d', 'd'],
+            ['f', 'f'],
+            ['c', 'c'],
+            ['e', 'e'],
         ];
 
+        self::assertSame(iterator_count($input()), count($expected));
         self::assertSame($expected, $a);
     }
 }

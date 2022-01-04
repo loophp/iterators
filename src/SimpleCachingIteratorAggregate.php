@@ -10,8 +10,11 @@ declare(strict_types=1);
 namespace loophp\iterators;
 
 use CachingIterator;
+use Generator;
 use Iterator;
 use IteratorAggregate;
+
+// phpcs:disable Generic.Files.LineLength.TooLong
 
 /**
  * @template TKey of array-key
@@ -40,27 +43,20 @@ final class SimpleCachingIteratorAggregate implements IteratorAggregate
     }
 
     /**
-     * @return Iterator<array-key, T>
+     * @return Generator<array-key, T>
      */
-    public function getIterator(): Iterator
+    public function getIterator(): Generator
     {
-        if (false === $this->hasStarted) {
-            $this->hasStarted = true;
-            $this->iterator->next();
+        if ($this->hasStarted) {
+            do {
+                $this->iterator->next();
+            } while ($this->iterator->valid());
 
-            for (; $this->iterator->valid(); $this->iterator->next()) {
-                yield $this->iterator->key() => $this->iterator->current();
-            }
-
-            return;
+            return yield from $this->iterator->getCache();
         }
 
-        $this->iterator->next();
-
-        for (; $this->iterator->valid(); $this->iterator->next()) {
-            $this->iterator->current();
+        for ($this->hasStarted = true,$this->iterator->next(); $this->iterator->valid(); $this->iterator->next()) {
+            yield $this->iterator->key() => $this->iterator->current();
         }
-
-        yield from $this->iterator->getCache();
     }
 }
