@@ -1,0 +1,73 @@
+# https://help.github.com/en/categories/automating-your-workflow-with-github-actions
+
+on:
+    pull_request:
+
+name: "Benchmarks"
+
+jobs:
+    run:
+        name: "Benchmarks"
+        runs-on: ${{ matrix.operating-system }}
+        strategy:
+            fail-fast: false
+            matrix:
+                operating-system: [ubuntu-latest]
+                php-versions: ["8.1"]
+
+        steps:
+            - name: Set git to use LF
+              run: |
+                  git config --global core.autocrlf false
+                  git config --global core.eol lf
+
+            - name: Install PHP
+              uses: shivammathur/setup-php@2.16.0
+              with:
+                  php-version: ${{ matrix.php-versions }}
+                  coverage: none
+
+            - name: Get Composer Cache Directory
+              id: composer-cache
+              run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+            - name: Cache dependencies
+              uses: actions/cache@v2.1.7
+              with:
+                  path: ${{ steps.composer-cache.outputs.dir }}
+                  key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
+                  restore-keys: ${{ runner.os }}-composer-
+
+            - name: Checkout
+              uses: actions/checkout@v2.4.0
+              with:
+                  ref: main
+                  fetch-depth: 1
+
+            - name: Install dependencies
+              run: composer install --no-progress --prefer-dist --optimize-autoloader
+
+            - name: Install dependencies required for benchmarks
+              run: make install-benchmarks
+
+            - name: Run benchmarks
+              run: "vendor/bin/phpbench run --php-config='opcache.enable_cli: true' tests/benchmarks --report=test --tag=main"
+
+            - name: Clear vendor files
+              run: |
+                rm -rf vendor composer.lock
+
+            - name: Checkout
+              uses: actions/checkout@v2.4.0
+              with:
+                clean: false
+                fetch-depth: 1
+
+            - name: Install dependencies
+              run: composer install --no-progress --prefer-dist --optimize-autoloader
+
+            - name: Install dependencies required for benchmarks
+              run: make install-benchmarks
+
+            - name: Run benchmarks
+              run: "vendor/bin/phpbench run --php-config='opcache.enable_cli: true' tests/benchmarks --report=test --ref=main"
