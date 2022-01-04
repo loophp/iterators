@@ -22,17 +22,17 @@ use Traversable;
 use function count;
 
 /**
- * @Groups({"CachingIteratorsBench"})
+ * @Groups({"CachingIteratorsAggregateBench"})
  * @Iterations(15)
  * @Warmup(10)
  * @Revs(100)
  */
-class CachingIteratorsBench
+class CachingIteratorsAggregateBench
 {
     /**
      * @ParamProviders("provideGenerators")
      */
-    public function benchIterators(array $params): void
+    public function benchIterator(array $params): void
     {
         $generator = static function (int $from, int $to): Generator {
             for ($i = $from; $i < $to; ++$i) {
@@ -49,17 +49,17 @@ class CachingIteratorsBench
     {
         $items = 5000;
 
-        yield 'loophp\iterators\SimpleCachingIteratorAggregate' => [
+        yield SimpleCachingIteratorAggregate::class => [
             'class' => SimpleCachingIteratorAggregate::class,
             'size' => $items,
         ];
 
-        yield 'loophp\iterators\CachingIteratorAggregate' => [
+        yield CachingIteratorAggregate::class => [
             'class' => CachingIteratorAggregate::class,
             'size' => $items,
         ];
 
-        yield 'Psl\Iter\Iterator' => [
+        yield IterIterator::class => [
             'class' => IterIterator::class,
             'size' => $items,
         ];
