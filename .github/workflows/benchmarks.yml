@@ -51,7 +51,7 @@ jobs:
               run: make install-benchmarks
 
             - name: Run benchmarks
-              run: "vendor/bin/phpbench run --php-config='opcache.enable_cli: true' tests/benchmarks --report=test --tag=main"
+              run: "vendor/bin/phpbench run --php-config='opcache.enable_cli: true' --report=benchmark_compare --tag=main_branch --progress=plain --retry-threshold=3 --ansi tests/benchmarks"
 
             - name: Clear vendor files
               run: |
@@ -69,5 +69,5 @@ jobs:
             - name: Install dependencies required for benchmarks
               run: make install-benchmarks
 
-            - name: Run benchmarks
-              run: "vendor/bin/phpbench run --php-config='opcache.enable_cli: true' tests/benchmarks --report=test --ref=main"
+            - name: Run benchmarks and compare
+              run: "vendor/bin/phpbench run --php-config='opcache.enable_cli: true' --report=benchmark_compare --ref=main_branch --progress=plain --retry-threshold=3 --ansi tests/benchmarks"
