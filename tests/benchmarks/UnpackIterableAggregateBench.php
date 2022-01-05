@@ -20,9 +20,9 @@ use Traversable;
 use function count;
 
 /**
- * @Groups({"UnpackIterableBench"})
+ * @Groups({"internal"})
  * @Iterations(10)
- * @Warmup(1)
+ * @Warmup(5)
  * @Revs(100)
  */
 final class UnpackIterableAggregateBench
