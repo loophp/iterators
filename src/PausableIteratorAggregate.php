@@ -43,9 +43,9 @@ final class PausableIteratorAggregate implements PausableIteratorAggregateInterf
     }
 
     /**
-     * @return Iterator<TKey, T>
+     * @return Generator<TKey, T>
      */
-    public function getIterator(): Iterator
+    public function getIterator(): Generator
     {
         /** @var Iterator<TKey, T> $iterator */
         $iterator = $this->iteratorAggregate->getIterator();
@@ -60,9 +60,7 @@ final class PausableIteratorAggregate implements PausableIteratorAggregateInterf
      */
     public function rest(): Generator
     {
-        $this->iterator->next();
-
-        for (; $this->iterator->valid(); $this->iterator->next()) {
+        for ($this->iterator->next(); $this->iterator->valid(); $this->iterator->next()) {
             yield $this->iterator->key() => $this->iterator->current();
         }
     }

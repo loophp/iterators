@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace loophp\iterators;
 
-use Iterator;
+use Generator;
 use IteratorAggregate;
 
 /**
@@ -41,9 +41,9 @@ final class ClosureIteratorAggregate implements IteratorAggregate
     }
 
     /**
-     * @return Iterator<TKey, T>
+     * @return Generator<TKey, T>
      */
-    public function getIterator(): Iterator
+    public function getIterator(): Generator
     {
         yield from ($this->callable)(...$this->parameters);
     }

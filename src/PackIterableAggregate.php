@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace loophp\iterators;
 
-use Iterator;
+use Generator;
 use IteratorAggregate;
 
 /**
@@ -34,9 +34,9 @@ final class PackIterableAggregate implements IteratorAggregate
     }
 
     /**
-     * @return Iterator<int, array{0: TKey, 1: T}>
+     * @return Generator<int, array{0: TKey, 1: T}>
      */
-    public function getIterator(): Iterator
+    public function getIterator(): Generator
     {
         foreach ($this->iterable as $key => $value) {
             yield [$key, $value];

@@ -27,14 +27,17 @@
         }
     ],
     "require": {
-        "php": ">= 7.4"
+        "php": ">= 7.4",
+        "azjezz/psl": "2.0.x-dev",
+        "phpbench/phpbench": "^1.2"
     },
     "require-dev": {
         "drupol/php-conventions": "^5",
         "infection/infection": ">= 0.24.0",
         "phpstan/phpstan-strict-rules": "^1.0",
         "phpunit/php-code-coverage": "^9.2",
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "symfony/var-dumper": "^6.0"
     },
     "autoload": {
         "psr-4": {

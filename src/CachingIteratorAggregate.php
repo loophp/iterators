@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace loophp\iterators;
 
+use Generator;
 use Iterator;
 use IteratorAggregate;
 
@@ -34,9 +35,9 @@ final class CachingIteratorAggregate implements IteratorAggregate
     }
 
     /**
-     * @return Iterator<TKey, T>
+     * @return Generator<TKey, T>
      */
-    public function getIterator(): Iterator
+    public function getIterator(): Generator
     {
         yield from new UnpackIterableAggregate($this->iterator->getIterator());
     }

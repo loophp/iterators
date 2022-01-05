@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 namespace loophp\iterators;
 
+use Generator;
 use IteratorAggregate;
-use Traversable;
 
 /**
  * @template TKey
@@ -34,9 +34,9 @@ final class UnpackIterableAggregate implements IteratorAggregate
     }
 
     /**
-     * @return Traversable<TKey, T>
+     * @return Generator<TKey, T>
      */
-    public function getIterator(): Traversable
+    public function getIterator(): Generator
     {
         foreach ($this->iterable as $value) {
             yield $value[0] => $value[1];

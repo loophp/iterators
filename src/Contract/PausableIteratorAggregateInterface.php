@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace loophp\iterators\Contract;
 
-use Iterator;
+use Generator;
 use IteratorAggregate;
 
 /**
@@ -21,7 +21,7 @@ use IteratorAggregate;
 interface PausableIteratorAggregateInterface extends IteratorAggregate
 {
     /**
-     * @return Iterator<TKey, T>
+     * @return Generator<TKey, T>
      */
-    public function rest(): Iterator;
+    public function rest(): Generator;
 }
