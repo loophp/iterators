@@ -27,9 +27,7 @@
         }
     ],
     "require": {
-        "php": ">= 7.4",
-        "azjezz/psl": "2.0.x-dev",
-        "phpbench/phpbench": "^1.2"
+        "php": ">= 7.4"
     },
     "require-dev": {
         "drupol/php-conventions": "^5",
