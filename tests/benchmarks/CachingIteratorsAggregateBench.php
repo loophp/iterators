@@ -23,7 +23,7 @@ use Traversable;
  * @Groups({"CachingIteratorsAggregateBench"})
  * @Iterations(15)
  * @Warmup(10)
- * @Revs(100)
+ * @Revs({10, 50, 100, 150})
  */
 class CachingIteratorsAggregateBench
 {

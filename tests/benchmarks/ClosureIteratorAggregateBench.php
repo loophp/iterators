@@ -20,9 +20,9 @@ use Traversable;
 
 /**
  * @Groups({"internal"})
- * @Iterations(10)
+ * @Iterations(5)
  * @Warmup(5)
- * @Revs(100)
+ * @Revs({10, 50, 100, 150})
  */
 final class ClosureIteratorAggregateBench
 {
