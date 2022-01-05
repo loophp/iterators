@@ -20,7 +20,7 @@ use Traversable;
 /**
  * @Groups({"internal"})
  * @Iterations(5)
- * @Warmup(5)
+ * @Warmup({1, 5, 10})
  * @Revs({10, 50, 100, 150})
  */
 final class UnpackIterableAggregateBench
