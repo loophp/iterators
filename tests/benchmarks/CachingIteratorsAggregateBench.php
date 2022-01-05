@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace benchmarks\loophp\iterators;
 
-use Exception;
 use Generator;
 use loophp\iterators\CachingIteratorAggregate;
 use loophp\iterators\SimpleCachingIteratorAggregate;
@@ -19,7 +18,6 @@ use PhpBench\Benchmark\Metadata\Annotations\Revs;
 use PhpBench\Benchmark\Metadata\Annotations\Warmup;
 use Psl\Iter\Iterator as IterIterator;
 use Traversable;
-use function count;
 
 /**
  * @Groups({"CachingIteratorsAggregateBench"})
@@ -80,27 +78,6 @@ class CachingIteratorsAggregateBench
 
     private function test(Traversable $input, int $size): void
     {
-        $breakAt = $size / 2;
-
-        $a = iterator_to_array($this->loop($input, $breakAt));
-        $b = iterator_to_array($this->loop($input, $breakAt));
-        $c = iterator_to_array($this->loop($input, $breakAt));
-        $d = iterator_to_array($this->loop($input, $breakAt));
-
-        if (count($a) !== $size) {
-            throw new Exception('$a !== $size => Invalid benchmark.');
-        }
-
-        if ($a !== $b) {
-            throw new Exception('$a !== $b => Invalid benchmark.');
-        }
-
-        if ($b !== $c) {
-            throw new Exception('$b !== $c => Invalid benchmark.');
-        }
-
-        if ($c !== $d) {
-            throw new Exception('$c !== $d => Invalid benchmark.');
-        }
+        iterator_to_array($this->loop($input, $size / 2));
     }
 }

@@ -41,15 +41,17 @@ final class ClosureIteratorTest extends TestCase
     {
         $iterator = new ClosureIterator(
             static fn (array $iterable): array => $iterable,
-            [self::MAP_DATA]
+            [range('a', 'e')]
         );
 
-        self::assertSame(1, $iterator->current());
+        self::assertSame('a', $iterator->current());
         $iterator->next();
-        self::assertSame(2, $iterator->current());
+        self::assertSame('b', $iterator->current());
+        $iterator->next();
+        self::assertSame('c', $iterator->current());
 
         $iterator->rewind();
 
-        self::assertSame(1, $iterator->current());
+        self::assertSame('a', $iterator->current());
     }
 }

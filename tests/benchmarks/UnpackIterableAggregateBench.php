@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace benchmarks\loophp\iterators;
 
-use Exception;
 use Generator;
 use loophp\iterators\UnpackIterableAggregate;
 use PhpBench\Benchmark\Metadata\Annotations\Groups;
@@ -17,7 +16,6 @@ use PhpBench\Benchmark\Metadata\Annotations\Iterations;
 use PhpBench\Benchmark\Metadata\Annotations\Revs;
 use PhpBench\Benchmark\Metadata\Annotations\Warmup;
 use Traversable;
-use function count;
 
 /**
  * @Groups({"internal"})
@@ -64,10 +62,6 @@ final class UnpackIterableAggregateBench
 
     private function test(Traversable $input, int $size): void
     {
-        $a = iterator_to_array($this->loop($input));
-
-        if (count($a) !== $size) {
-            throw new Exception('$a !== $size => Invalid benchmark.');
-        }
+        iterator_to_array($this->loop($input));
     }
 }
