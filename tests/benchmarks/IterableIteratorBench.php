@@ -34,7 +34,7 @@ final class IterableIteratorBench extends IteratorBenchmark
     {
         $items = 5000;
 
-        yield IterableIterator::class => [
+        yield 'IterableIterator' => [
             'class' => IterableIterator::class,
             'size' => $items,
         ];

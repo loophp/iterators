@@ -35,7 +35,7 @@ final class PausableIteratorAggregateBench extends IteratorBenchmark
     {
         $items = 5000;
 
-        yield PausableIteratorAggregate::class => [
+        yield 'PausableIteratorAggregate' => [
             'class' => PausableIteratorAggregate::class,
             'size' => $items,
         ];

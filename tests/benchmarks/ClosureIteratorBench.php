@@ -36,7 +36,7 @@ final class ClosureIteratorBench extends IteratorBenchmark
     {
         $items = 5000;
 
-        yield ClosureIterator::class => [
+        yield 'ClosureIterator' => [
             'class' => ClosureIterator::class,
             'size' => $items,
         ];

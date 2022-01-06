@@ -34,7 +34,7 @@ final class PackIterableAggregateBench extends IteratorBenchmark
     {
         $items = 5000;
 
-        yield PackIterableAggregate::class => [
+        yield 'PackIterableAggregate' => [
             'class' => PackIterableAggregate::class,
             'size' => $items,
         ];

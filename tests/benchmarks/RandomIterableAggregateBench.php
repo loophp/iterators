@@ -34,7 +34,7 @@ final class RandomIterableAggregateBench extends IteratorBenchmark
     {
         $items = 5000;
 
-        yield RandomIterableAggregate::class => [
+        yield 'RandomIterableAggregate' => [
             'class' => RandomIterableAggregate::class,
             'size' => $items,
         ];

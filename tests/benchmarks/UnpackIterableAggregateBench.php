@@ -34,7 +34,7 @@ final class UnpackIterableAggregateBench extends IteratorBenchmark
     {
         $items = 5000;
 
-        yield UnpackIterableAggregate::class => [
+        yield 'UnpackIterableAggregate' => [
             'class' => UnpackIterableAggregate::class,
             'size' => $items,
         ];

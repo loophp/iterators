@@ -34,7 +34,7 @@ final class SimpleCachingIteratorsAggregateBench extends IteratorBenchmark
     {
         $items = 5000;
 
-        yield SimpleCachingIteratorAggregate::class => [
+        yield 'SimpleCachingIteratorAggregate' => [
             'class' => SimpleCachingIteratorAggregate::class,
             'size' => $items,
         ];
