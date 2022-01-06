@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace tests\loophp\iterators;
 
+use Generator;
 use loophp\iterators\UnpackIterableAggregate;
 use PHPUnit\Framework\TestCase;
 
@@ -18,7 +19,7 @@ use PHPUnit\Framework\TestCase;
  */
 final class UnpackIteratorAggregateTest extends TestCase
 {
-    public function testWithAGenerator(): void
+    public function testRewind(): void
     {
         $input = static function () {
             yield [true, true];
@@ -36,5 +37,28 @@ final class UnpackIteratorAggregateTest extends TestCase
 
         self::assertSame(['foo'], $iterator->key());
         self::assertSame(['foo'], $iterator->current());
+    }
+
+    public function testWithAGenerator(): void
+    {
+        $input = static function (): Generator {
+            yield ['a', 'a'];
+
+            yield ['b', 'b'];
+
+            yield ['c', 'c'];
+        };
+
+        $iterator = (new UnpackIterableAggregate($input()));
+
+        $a = iterator_to_array($iterator);
+
+        $expected = [
+            'a' => 'a',
+            'b' => 'b',
+            'c' => 'c',
+        ];
+
+        self::assertSame($expected, $a);
     }
 }
