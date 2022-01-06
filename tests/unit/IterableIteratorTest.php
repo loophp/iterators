@@ -50,6 +50,7 @@ final class IterableIteratorTest extends TestCase
         $iterator = new IterableIterator($gen());
 
         self::assertSame('foo', $iterator->current());
+        self::assertTrue($iterator->valid());
     }
 
     public function testIsInitializableFromIterator(): void
@@ -57,6 +58,7 @@ final class IterableIteratorTest extends TestCase
         $iterator = new IterableIterator(new ArrayIterator(['foo', 'bar', 'baz']));
 
         self::assertSame('foo', $iterator->current());
+        self::assertTrue($iterator->valid());
     }
 
     public function testRewind(): void
@@ -70,6 +72,7 @@ final class IterableIteratorTest extends TestCase
         $iterator->rewind();
 
         self::assertSame('foo', $iterator->current());
+        self::assertTrue($iterator->valid());
     }
 
     public function testUseNext(): void
@@ -79,5 +82,6 @@ final class IterableIteratorTest extends TestCase
         self::assertNull($iterator->next());
 
         self::assertSame(2, $iterator->current());
+        self::assertTrue($iterator->valid());
     }
 }
