@@ -13,9 +13,6 @@ use Closure;
 use Generator;
 use loophp\iterators\ClosureIteratorAggregate;
 use PhpBench\Benchmark\Metadata\Annotations\Groups;
-use PhpBench\Benchmark\Metadata\Annotations\Iterations;
-use PhpBench\Benchmark\Metadata\Annotations\Revs;
-use PhpBench\Benchmark\Metadata\Annotations\Warmup;
 use Traversable;
 
 /**

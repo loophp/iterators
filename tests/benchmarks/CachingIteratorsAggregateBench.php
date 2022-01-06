@@ -13,9 +13,6 @@ use Generator;
 use loophp\iterators\CachingIteratorAggregate;
 use loophp\iterators\SimpleCachingIteratorAggregate;
 use PhpBench\Benchmark\Metadata\Annotations\Groups;
-use PhpBench\Benchmark\Metadata\Annotations\Iterations;
-use PhpBench\Benchmark\Metadata\Annotations\Revs;
-use PhpBench\Benchmark\Metadata\Annotations\Warmup;
 use Psl\Iter\Iterator as IterIterator;
 use Traversable;
 
