@@ -47,11 +47,8 @@ jobs:
             - name: Install dependencies
               run: composer install --no-progress --prefer-dist --optimize-autoloader
 
-            - name: Install dependencies required for benchmarks
-              run: make install-benchmarks
-
             - name: Run benchmarks baseline
-              run: "vendor/bin/phpbench run --php-config='opcache.enable_cli: true' --report=aggregate --tag=main_branch --progress=plain --retry-threshold=2 --ansi --group=internal tests/benchmarks"
+              run: "vendor/bin/phpbench run --profile=ci --report=aggregate --tag=main_branch --group=internal"
 
             - name: Clear vendor files
               run: |
@@ -66,8 +63,5 @@ jobs:
             - name: Install dependencies
               run: composer install --no-progress --prefer-dist --optimize-autoloader
 
-            - name: Install dependencies required for benchmarks
-              run: make install-benchmarks
-
             - name: Run benchmarks and compare
-              run: "vendor/bin/phpbench run --php-config='opcache.enable_cli: true' --report=benchmark_compare --ref=main_branch --progress=plain --retry-threshold=2 --ansi --group=internal tests/benchmarks"
+              run: "vendor/bin/phpbench run --profile=ci --report=aggregate --ref=main_branch --group=internal"

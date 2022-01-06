@@ -19,10 +19,7 @@ use PhpBench\Benchmark\Metadata\Annotations\Warmup;
 use Traversable;
 
 /**
- * @Groups({"internal"})
- * @Iterations(5)
- * @Warmup({1, 5, 10})
- * @Revs({10, 50, 100, 150})
+ * @Groups({"ci", "local"})
  */
 final class ClosureIteratorBench
 {
@@ -34,8 +31,7 @@ final class ClosureIteratorBench
         $callable = Closure::fromCallable([ClosureIteratorBench::class, 'loop']);
 
         $this->test(
-            new $params['class']($callable, [$this->getGenerator($params)]),
-            $params['size']
+            new $params['class']($callable, [$this->getGenerator($params)])
         );
     }
 

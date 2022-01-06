@@ -2,9 +2,26 @@
     "$schema":"./vendor/phpbench/phpbench/phpbench.schema.json",
     "runner.bootstrap": "vendor/autoload.php",
     "runner.path": "tests/benchmarks",
-    "report.generators": {
-        "test": {
-            "extends": "aggregate"
+    "runner.php_config": {
+        "opcache.enable_cli": true,
+        "xdebug.mode": "off"
+    },
+    "runner.time_unit": "microseconds",
+    "core.profiles": {
+        "local": {
+            "runner.progress": "plain",
+            "runner.iterations": [1, 5],
+            "runner.revs": [10, 50],
+            "runner.warmup": [1, 5],
+            "runner.retry_threshold": 2
+        },
+        "ci": {
+            "console.ansi": true,
+            "runner.progress": "plain",
+            "runner.iterations": [1, 5, 10, 15, 20],
+            "runner.revs": [10, 50, 100, 150],
+            "runner.warmup": [1, 5, 10],
+            "runner.retry_threshold": 2
         }
     }
 }

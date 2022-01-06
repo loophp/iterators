@@ -21,11 +21,8 @@ use Traversable;
 
 /**
  * @Groups({"CachingIteratorsAggregateBench"})
- * @Iterations({1, 5, 10, 15,20})
- * @Warmup({1, 5, 10})
- * @Revs({10, 50, 100, 150})
  */
-class CachingIteratorsAggregateBench
+final class CachingIteratorsAggregateBench
 {
     /**
      * @ParamProviders("provideGenerators")

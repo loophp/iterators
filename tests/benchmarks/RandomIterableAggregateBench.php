@@ -18,12 +18,9 @@ use PhpBench\Benchmark\Metadata\Annotations\Warmup;
 use Traversable;
 
 /**
- * @Groups({"internal"})
- * @Iterations(5)
- * @Warmup({1, 5, 10})
- * @Revs({10, 50, 100, 150})
+ * @Groups({"ci", "local"})
  */
-class RandomIterableAggregateBench
+final class RandomIterableAggregateBench
 {
     /**
      * @ParamProviders("provideGenerators")
