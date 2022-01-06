@@ -13,23 +13,22 @@ use Closure;
 use Generator;
 use loophp\iterators\ClosureIteratorAggregate;
 use PhpBench\Benchmark\Metadata\Annotations\Groups;
+use PhpBench\Benchmark\Metadata\Annotations\ParamProviders;
 use Traversable;
 
 /**
  * @Groups({"ci", "local"})
  */
-final class ClosureIteratorAggregateBench
+final class ClosureIteratorAggregateBench extends IteratorBenchmark
 {
     /**
      * @ParamProviders("provideGenerators")
      */
-    public function benchIterator(array $params): void
+    public function bench(array $params): void
     {
-        $callable = Closure::fromCallable([ClosureIteratorAggregateBench::class, 'loop']);
-
-        $this->test(
-            new $params['class']($callable, [$this->getGenerator($params)]),
-            $params['size']
+        $this->doBench(
+            $this->getSubject($params),
+            $params
         );
     }
 
@@ -43,22 +42,8 @@ final class ClosureIteratorAggregateBench
         ];
     }
 
-    private function getGenerator(array $params): Generator
+    protected function getSubject(array $params): Traversable
     {
-        for ($i = 0; $i < $params['size']; ++$i) {
-            yield [$i, sprintf('*%s*', $i)];
-        }
-    }
-
-    private function loop(Traversable $input): Generator
-    {
-        foreach ($input as $key => $value) {
-            yield [$key, $value];
-        }
-    }
-
-    private function test(ClosureIteratorAggregate $input): void
-    {
-        iterator_to_array($this->loop($input));
+        return new $params['class'](Closure::fromCallable([__CLASS__, 'loop']), [$this->getGenerator($params)]);
     }
 }

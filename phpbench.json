@@ -6,6 +6,7 @@
         "opcache.enable_cli": true,
         "xdebug.mode": "off"
     },
+    "runner.file_pattern": "*Bench.php",
     "runner.time_unit": "microseconds",
     "core.profiles": {
         "local": {

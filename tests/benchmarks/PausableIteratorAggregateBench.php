@@ -12,21 +12,22 @@ namespace benchmarks\loophp\iterators;
 use Generator;
 use loophp\iterators\PausableIteratorAggregate;
 use PhpBench\Benchmark\Metadata\Annotations\Groups;
+use PhpBench\Benchmark\Metadata\Annotations\ParamProviders;
 use Traversable;
 
 /**
  * @Groups({"ci", "local"})
  */
-final class PausableIteratorAggregateBench
+final class PausableIteratorAggregateBench extends IteratorBenchmark
 {
     /**
      * @ParamProviders("provideGenerators")
      */
-    public function benchIterator(array $params): void
+    public function bench(array $params): void
     {
-        $this->test(
-            new $params['class']($this->getGenerator($params)),
-            $params['size']
+        $this->doBench(
+            $this->getSubject($params),
+            $params
         );
     }
 
@@ -40,34 +41,9 @@ final class PausableIteratorAggregateBench
         ];
     }
 
-    private function getGenerator(array $params): Generator
+    protected function doBench(Traversable $input, array $params): void
     {
-        for ($i = 0; $i < $params['size']; ++$i) {
-            yield [$i, sprintf('*%s*', $i)];
-        }
-    }
-
-    private function loop(Traversable $input): Generator
-    {
-        foreach ($input as $key => $value) {
-            yield [$key, $value];
-        }
-    }
-
-    private function loopUntil(Traversable $input, int $size): Generator
-    {
-        foreach ($input as $key => $value) {
-            yield [$key, $value];
-
-            if (0 === $size--) {
-                break;
-            }
-        }
-    }
-
-    private function test(PausableIteratorAggregate $input, int $size): void
-    {
-        iterator_to_array($this->loopUntil($input, $size / 2));
+        iterator_to_array($this->loopUntil($input, $params));
         iterator_to_array($this->loop($input->rest()));
     }
 }
