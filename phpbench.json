@@ -18,9 +18,9 @@
         "ci": {
             "console.ansi": true,
             "runner.progress": "plain",
-            "runner.iterations": [1, 5, 10, 15, 20],
-            "runner.revs": [10, 50, 100, 150],
-            "runner.warmup": [1, 5, 10],
+            "runner.iterations": [1, 5, 10],
+            "runner.revs": [10, 50, 100],
+            "runner.warmup": [5, 5, 5],
             "runner.retry_threshold": 2
         }
     }
