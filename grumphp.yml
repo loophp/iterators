@@ -64,5 +64,5 @@ parameters:
             threads: 10
             test_framework: phpunit
             configuration: infection.json
-            min_msi: 50
-            min_covered_msi: 50
+            min_msi: 90
+            min_covered_msi: 90
