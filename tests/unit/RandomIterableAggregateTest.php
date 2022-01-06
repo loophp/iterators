@@ -20,6 +20,26 @@ use function count;
  */
 final class RandomIterableAggregateTest extends TestCase
 {
+    public function testSeed(): void
+    {
+        $input = static function (): Generator {
+            yield from array_combine(range('a', 'z'), range('a', 'z'));
+        };
+
+        $iterator = (new RandomIterableAggregate($input()));
+
+        $a = [];
+
+        foreach ($iterator as $key => $value) {
+            $a[$key] = $value;
+        }
+
+        $expected = array_combine(range('a', 'z'), range('a', 'z'));
+
+        self::assertSame(iterator_count($input()), count($expected));
+        self::assertSame($expected, $a);
+    }
+
     public function testSimple(): void
     {
         $input = static function (): Generator {
