@@ -21,7 +21,7 @@ use IteratorAggregate;
 final class RandomIterableAggregate implements IteratorAggregate
 {
     /**
-     * @var IteratorAggregate<array-key, array{0: TKey, 1: T}>
+     * @var IteratorAggregate<int, array{0: TKey, 1: T}>
      */
     private IteratorAggregate $iteratorAggregate;
 
