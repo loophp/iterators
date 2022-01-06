@@ -64,4 +64,4 @@ jobs:
               run: composer install --no-progress --prefer-dist --optimize-autoloader
 
             - name: Run benchmarks and compare
-              run: "vendor/bin/phpbench run --profile=ci --report=aggregate --ref=main_branch --group=ci"
+              run: "vendor/bin/phpbench run --profile=ci --report=overview --ref=main_branch --group=ci"
