@@ -53,6 +53,38 @@ final class CachingIteratorAggregateTest extends TestCase
         self::assertSame($expected, $a);
     }
 
+    public function testWithAGeneratorHavingUncommonKeys(): void
+    {
+        $input = static function (): Generator {
+            yield ['a'] => 'array';
+
+            yield true => 'bool';
+
+            yield false => 'bool';
+        };
+
+        $iterator = (new CachingIteratorAggregate($input()));
+        $breakAt = 1;
+
+        $a = iterator_to_array($this->doTheLoop($iterator, $breakAt));
+        $b = iterator_to_array($this->doTheLoop($iterator, $breakAt));
+        $c = iterator_to_array($this->doTheLoop($iterator, $breakAt));
+        $d = iterator_to_array($this->doTheLoop($iterator, $breakAt));
+
+        $expected = [
+            [['a'], 'array'],
+            [true, 'bool'],
+            [['a'], 'array'],
+            [true, 'bool'],
+            [false, 'bool'],
+        ];
+
+        self::assertSame($a, $b);
+        self::assertSame($b, $c);
+        self::assertSame($c, $d);
+        self::assertSame($expected, $a);
+    }
+
     private function doTheLoop(Traversable $iterator, int $breakAt): Generator
     {
         foreach ($iterator as $key => $value) {
