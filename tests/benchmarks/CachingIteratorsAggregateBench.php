@@ -17,12 +17,10 @@ use PhpBench\Benchmark\Metadata\Annotations\ParamProviders;
 use Psl\Iter\Iterator as IterIterator;
 use Traversable;
 
-/**
- * @Groups({"CachingIteratorsAggregateBench"})
- */
 final class CachingIteratorsAggregateBench extends IteratorBenchmark
 {
     /**
+     * @Groups({"ci", "local"})
      * @ParamProviders("provideGenerators")
      */
     public function bench(array $params): void
@@ -33,7 +31,29 @@ final class CachingIteratorsAggregateBench extends IteratorBenchmark
         );
     }
 
+    /**
+     * @Groups({"others"})
+     * @ParamProviders("provideGeneratorsWithOthers")
+     */
+    public function benchWithOthers(array $params): void
+    {
+        $this->doBench(
+            $this->getSubject($params),
+            $params
+        );
+    }
+
     public function provideGenerators(): Generator
+    {
+        $items = 5000;
+
+        yield 'CachingIteratorAggregate' => [
+            'class' => CachingIteratorAggregate::class,
+            'size' => $items,
+        ];
+    }
+
+    public function provideGeneratorsWithOthers(): Generator
     {
         $items = 5000;
 
