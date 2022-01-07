@@ -13,6 +13,8 @@ use Generator;
 use Iterator;
 use IteratorAggregate;
 
+// phpcs:disable Generic.Files.LineLength.TooLong
+
 /**
  * @template TKey
  * @template T
@@ -22,16 +24,16 @@ use IteratorAggregate;
 final class CachingIteratorAggregate implements IteratorAggregate
 {
     /**
-     * @var IteratorAggregate<array-key, array{0: TKey, 1: T}>
+     * @var UnpackIterableAggregate<TKey, T>
      */
-    private IteratorAggregate $iterator;
+    private UnpackIterableAggregate $iteratorAggregate;
 
     /**
      * @param Iterator<TKey, T> $iterator
      */
     public function __construct(Iterator $iterator)
     {
-        $this->iterator = new SimpleCachingIteratorAggregate((new PackIterableAggregate($iterator))->getIterator());
+        $this->iteratorAggregate = (new UnpackIterableAggregate(new SimpleCachingIteratorAggregate((new PackIterableAggregate($iterator))->getIterator())));
     }
 
     /**
@@ -39,6 +41,6 @@ final class CachingIteratorAggregate implements IteratorAggregate
      */
     public function getIterator(): Generator
     {
-        yield from new UnpackIterableAggregate($this->iterator->getIterator());
+        yield from $this->iteratorAggregate->getIterator();
     }
 }

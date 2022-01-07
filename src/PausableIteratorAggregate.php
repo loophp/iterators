@@ -60,6 +60,8 @@ final class PausableIteratorAggregate implements PausableIteratorAggregateInterf
      */
     public function rest(): Generator
     {
+        $this->iterator->next();
+
         for ($this->iterator->next(); $this->iterator->valid(); $this->iterator->next()) {
             yield $this->iterator->key() => $this->iterator->current();
         }
