@@ -1,6 +1,7 @@
 # https://help.github.com/en/categories/automating-your-workflow-with-github-actions
 
 on:
+    workflow_dispatch:
     pull_request:
 
 name: "Benchmarks"
