@@ -20,7 +20,7 @@ use IteratorAggregate;
  * @template TKey of array-key
  * @template T
  *
- * @implements IteratorAggregate<int|string, T>
+ * @implements IteratorAggregate<array-key, T>
  */
 final class SimpleCachingIteratorAggregate implements IteratorAggregate
 {

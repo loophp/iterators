@@ -21,12 +21,12 @@ use IteratorAggregate;
 final class UnpackIterableAggregate implements IteratorAggregate
 {
     /**
-     * @var iterable<int|string, array{0: TKey, 1: T}>
+     * @var iterable<array-key, array{0: TKey, 1: T}>
      */
     private iterable $iterable;
 
     /**
-     * @param iterable<int|string, array{0: TKey, 1: T}> $iterable
+     * @param iterable<array-key, array{0: TKey, 1: T}> $iterable
      */
     public function __construct(iterable $iterable)
     {
