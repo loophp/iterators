@@ -57,25 +57,26 @@ final class CachingIteratorsAggregateBench extends IteratorBenchmark
     {
         $items = 5000;
 
-        yield SimpleCachingIteratorAggregate::class => [
+        yield 'SimpleCachingIteratorAggregate' => [
             'class' => SimpleCachingIteratorAggregate::class,
             'size' => $items,
         ];
 
-        yield CachingIteratorAggregate::class => [
+        yield 'CachingIteratorAggregate' => [
             'class' => CachingIteratorAggregate::class,
             'size' => $items,
         ];
 
-        yield IterIterator::class => [
+        yield 'IterIterator' => [
             'class' => IterIterator::class,
             'size' => $items,
         ];
     }
 
+
     protected function doBench(Traversable $input, array $params): void
     {
         iterator_to_array($this->loopUntil($input, $params));
-        iterator_to_array($this->loop($input));
+        parent::doBench($input, $params);
     }
 }
