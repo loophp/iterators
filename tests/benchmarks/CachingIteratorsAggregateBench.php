@@ -49,7 +49,7 @@ final class CachingIteratorsAggregateBench extends IteratorBenchmark
 
     public function provideGenerators(): Generator
     {
-        $items = 5000;
+        $items = 2500;
 
         yield 'CachingIteratorAggregate' => [
             'class' => CachingIteratorAggregate::class,
@@ -59,7 +59,7 @@ final class CachingIteratorsAggregateBench extends IteratorBenchmark
 
     public function provideGeneratorsWithOthers(): Generator
     {
-        $items = 5000;
+        $items = 2500;
 
         yield 'SimpleCachingIteratorAggregate' => [
             'class' => SimpleCachingIteratorAggregate::class,

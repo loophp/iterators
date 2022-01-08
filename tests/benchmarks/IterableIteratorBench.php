@@ -34,7 +34,7 @@ final class IterableIteratorBench extends IteratorBenchmark
 
     public function provideGenerators(): Generator
     {
-        $items = 5000;
+        $items = 2500;
 
         yield 'IterableIterator' => [
             'class' => IterableIterator::class,

@@ -34,7 +34,7 @@ final class RandomIterableAggregateBench extends IteratorBenchmark
 
     public function provideGenerators(): Generator
     {
-        $items = 5000;
+        $items = 2500;
 
         yield 'RandomIterableAggregate' => [
             'class' => RandomIterableAggregate::class,
