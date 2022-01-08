@@ -10,6 +10,7 @@
     "runner.time_unit": "microseconds",
     "core.profiles": {
         "local": {
+            "runner.time_unit": "milliseconds",
             "runner.progress": "plain",
             "runner.iterations": [1, 5],
             "runner.revs": [10, 50],
