@@ -17,7 +17,7 @@ use PhpBench\Benchmark\Metadata\Annotations\ParamProviders;
 /**
  * @Groups({"ci", "local"})
  */
-final class SimpleCachingIteratorsAggregateBench extends IteratorBenchmark
+final class SimpleCachingIteratorAggregateBench extends IteratorBenchmark
 {
     /**
      * @ParamProviders("provideGenerators")
