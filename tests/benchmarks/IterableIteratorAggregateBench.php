@@ -13,9 +13,11 @@ use Generator;
 use loophp\iterators\IterableIteratorAggregate;
 use PhpBench\Benchmark\Metadata\Annotations\Groups;
 use PhpBench\Benchmark\Metadata\Annotations\ParamProviders;
+use PhpBench\Benchmark\Metadata\Annotations\Sleep;
 
 /**
  * @Groups({"ci", "local"})
+ * @Sleep(500)
  */
 final class IterableIteratorAggregateBench extends IteratorBenchmark
 {

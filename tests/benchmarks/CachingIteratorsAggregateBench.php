@@ -14,9 +14,13 @@ use loophp\iterators\CachingIteratorAggregate;
 use loophp\iterators\SimpleCachingIteratorAggregate;
 use PhpBench\Benchmark\Metadata\Annotations\Groups;
 use PhpBench\Benchmark\Metadata\Annotations\ParamProviders;
+use PhpBench\Benchmark\Metadata\Annotations\Sleep;
 use Psl\Iter\Iterator as IterIterator;
 use Traversable;
 
+/**
+ * @Sleep(500)
+ */
 final class CachingIteratorsAggregateBench extends IteratorBenchmark
 {
     /**
@@ -67,12 +71,11 @@ final class CachingIteratorsAggregateBench extends IteratorBenchmark
             'size' => $items,
         ];
 
-        yield 'IterIterator' => [
+        yield 'Psl\Iter\Iterator' => [
             'class' => IterIterator::class,
             'size' => $items,
         ];
     }
-
 
     protected function doBench(Traversable $input, array $params): void
     {

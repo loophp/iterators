@@ -14,10 +14,12 @@ use Generator;
 use loophp\iterators\ClosureIterator;
 use PhpBench\Benchmark\Metadata\Annotations\Groups;
 use PhpBench\Benchmark\Metadata\Annotations\ParamProviders;
+use PhpBench\Benchmark\Metadata\Annotations\Sleep;
 use Traversable;
 
 /**
  * @Groups({"ci", "local"})
+ * @Sleep(500)
  */
 final class ClosureIteratorBench extends IteratorBenchmark
 {

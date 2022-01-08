@@ -10,13 +10,16 @@ declare(strict_types=1);
 namespace benchmarks\loophp\iterators;
 
 use Generator;
+use loophp\iterators\Contract\PausableIteratorAggregateInterface;
 use loophp\iterators\PausableIteratorAggregate;
 use PhpBench\Benchmark\Metadata\Annotations\Groups;
 use PhpBench\Benchmark\Metadata\Annotations\ParamProviders;
+use PhpBench\Benchmark\Metadata\Annotations\Sleep;
 use Traversable;
 
 /**
  * @Groups({"ci", "local"})
+ * @Sleep(500)
  */
 final class PausableIteratorAggregateBench extends IteratorBenchmark
 {
@@ -41,6 +44,9 @@ final class PausableIteratorAggregateBench extends IteratorBenchmark
         ];
     }
 
+    /**
+     * @param PausableIteratorAggregateInterface $input
+     */
     protected function doBench(Traversable $input, array $params): void
     {
         iterator_to_array($this->loopUntil($input, $params));
