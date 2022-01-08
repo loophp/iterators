@@ -13,6 +13,7 @@ use Generator;
 use loophp\iterators\SimpleCachingIteratorAggregate;
 use PhpBench\Benchmark\Metadata\Annotations\Groups;
 use PhpBench\Benchmark\Metadata\Annotations\ParamProviders;
+use Traversable;
 
 /**
  * @Groups({"ci", "local"})
@@ -38,5 +39,11 @@ final class SimpleCachingIteratorAggregateBench extends IteratorBenchmark
             'class' => SimpleCachingIteratorAggregate::class,
             'size' => $items,
         ];
+    }
+
+    protected function doBench(Traversable $input, array $params): void
+    {
+        iterator_to_array($this->loopUntil($input, $params));
+        parent::doBench($input, $params);
     }
 }
