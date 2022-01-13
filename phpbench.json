@@ -3,7 +3,8 @@
     "runner.bootstrap": "vendor/autoload.php",
     "runner.path": "tests/benchmarks",
     "runner.php_config": {
-        "opcache.enable_cli": true,
+        "opcache.enable_cli": 1,
+        "opcache.enable": 1,
         "xdebug.mode": "off"
     },
     "runner.file_pattern": "*Bench.php",
@@ -11,11 +12,9 @@
     "core.profiles": {
         "local": {
             "runner.time_unit": "milliseconds",
-            "runner.progress": "plain",
-            "runner.iterations": [1, 5],
-            "runner.revs": [10, 50],
-            "runner.warmup": [5, 5],
-            "runner.retry_threshold": 2
+            "runner.iterations": [1, 10, 50],
+            "runner.revs": [10],
+            "runner.retry_threshold": 5
         },
         "ci": {
             "console.ansi": true,

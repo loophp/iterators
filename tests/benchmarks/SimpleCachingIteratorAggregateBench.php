@@ -35,7 +35,7 @@ final class SimpleCachingIteratorAggregateBench extends IteratorBenchmark
 
     public function provideGenerators(): Generator
     {
-        $items = 2500;
+        $items = 1000;
 
         yield 'SimpleCachingIteratorAggregate' => [
             'class' => SimpleCachingIteratorAggregate::class,

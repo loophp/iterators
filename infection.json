@@ -13,7 +13,7 @@
         "perMutator": "build/logs/infection/per-mutator.md",
         "html": "build/logs/infection/report.html",
         "stryker": {
-            "branch": "main"
+            "report": "main"
         }
     },
     "testFramework":"phpunit"
