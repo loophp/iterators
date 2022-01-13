@@ -31,7 +31,7 @@
     },
     "require-dev": {
         "drupol/php-conventions": "^5",
-        "infection/infection": ">= 0.25",
+        "infection/infection": "^0.26",
         "phpbench/phpbench": "^1.2",
         "phpstan/phpstan-strict-rules": "^1.0",
         "phpunit/php-code-coverage": "^9.2",

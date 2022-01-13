@@ -11,7 +11,8 @@
         "summary": "build/logs/infection/summary.log",
         "debug": "build/logs/infection/debug.log",
         "perMutator": "build/logs/infection/per-mutator.md",
-        "badge": {
+        "html": "build/logs/infection/report.html",
+        "stryker": {
             "branch": "main"
         }
     },
