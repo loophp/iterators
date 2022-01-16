@@ -24,8 +24,6 @@ use IteratorAggregate;
  */
 final class SimpleCachingIteratorAggregate implements IteratorAggregate
 {
-    private bool $hasStarted = false;
-
     /**
      * @var CachingIterator<array-key, T>
      */
@@ -47,15 +45,11 @@ final class SimpleCachingIteratorAggregate implements IteratorAggregate
      */
     public function getIterator(): Generator
     {
-        if ($this->hasStarted) {
-            do {
-                $this->iterator->next();
-            } while ($this->iterator->valid());
+        yield from $this->iterator->getCache();
 
-            yield from $this->iterator->getCache();
-        }
+        while ($this->iterator->hasNext()) {
+            $this->iterator->next();
 
-        for ($this->hasStarted = true,$this->iterator->next(); $this->iterator->valid(); $this->iterator->next()) {
             yield $this->iterator->key() => $this->iterator->current();
         }
     }
