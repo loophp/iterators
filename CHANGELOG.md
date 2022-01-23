@@ -5,10 +5,67 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.5.5](https://github.com/loophp/iterators/compare/1.5.4...1.5.5)
+## [1.5.6](https://github.com/loophp/iterators/compare/1.5.5...1.5.6)
+
+### Merged
+
+- optim: Minor optimizations here and there. [`#9`](https://github.com/loophp/iterators/pull/9)
+- Minor optimizations [`#8`](https://github.com/loophp/iterators/pull/8)
 
 ### Commits
 
+- Normalize composer.json [`624839b`](https://github.com/loophp/iterators/commit/624839bd9a187724c96c24ab98e4061c47332dd7)
+- feat: Add `StringIteratorAggregate`. [`4cadd48`](https://github.com/loophp/iterators/commit/4cadd487aa39d2f00f803d6d9054e68244b94768)
+- refactor: Simplify logic. [`7a20ecb`](https://github.com/loophp/iterators/commit/7a20ecb9ea516bbd9da71178119910ed9409d016)
+- tests: Enable HTML infection reports. [`4396013`](https://github.com/loophp/iterators/commit/439601301bf5c5f946d06dcb8933c416288e3e27)
+- tests: Enable HTML infection reports. [`51cad5a`](https://github.com/loophp/iterators/commit/51cad5a0ce4fe7c1bc77547b2ce231092f6b76cc)
+- tests: Reduce amount of items in input dataset to speed up benchmarks. [`055a23a`](https://github.com/loophp/iterators/commit/055a23ad9b85ac99b554912a50c90e2d52e5082a)
+- tests: Add `@sleep` annotation. [`4540106`](https://github.com/loophp/iterators/commit/45401063c61051f0471954e2609e2340f9c0e694)
+- chore: Update PHPBench configuration. [`59f003a`](https://github.com/loophp/iterators/commit/59f003a9d3798ab1a04e65b9b5fed650b71bcbfc)
+- tests: Update `CachingIteratorsAggregateBench`. [`6bfccf1`](https://github.com/loophp/iterators/commit/6bfccf199c0abf63d52440695675943d8f339374)
+- tests: Update `SimpleCachingIteratorAggregateBench`. [`e351ad0`](https://github.com/loophp/iterators/commit/e351ad0a8a7b34e4103553bb2e6ccc104d7f7a7f)
+- fix: Fix class and filename. [`0405fe3`](https://github.com/loophp/iterators/commit/0405fe3a4ea038fbf31a7f56c1d0a1c4926e9305)
+- fix: Use `array-key` instead of `int|string` . [`0e5610a`](https://github.com/loophp/iterators/commit/0e5610a65274cf780bb21fad395bef57662a16a0)
+- ci: Update benchmarks workflow. [`152423a`](https://github.com/loophp/iterators/commit/152423af07210fad08be15a38b617d2e2ee3bfd5)
+- tests: Add more benchmarks. [`89510e0`](https://github.com/loophp/iterators/commit/89510e00a961bd4cc12c861b2959f45e4d55c44a)
+- tests: Update benchmarks configuration. [`8d4f63e`](https://github.com/loophp/iterators/commit/8d4f63e8c67b653c71d24e034f9111dcdd226209)
+- tests: Add more tests. [`13bf01c`](https://github.com/loophp/iterators/commit/13bf01c409789a92892c7ede8a960ed5644f99fb)
+- sa: Fix type. [`dca22ca`](https://github.com/loophp/iterators/commit/dca22ca4196196e3ee80d92ad6870c13a0a59553)
+- tests: Add more tests. [`4b30552`](https://github.com/loophp/iterators/commit/4b3055265ad5bd94c350782ad90bd1502544b1c3)
+- sa: Fix type. [`be26f78`](https://github.com/loophp/iterators/commit/be26f7820ccd78ed545cc825f711058033a682c4)
+- ci: Update benchmarks. [`e8b7752`](https://github.com/loophp/iterators/commit/e8b77522426af43e185f95b9eb81bee3c8c822af)
+- tests: Add unit tests. [`c3ec816`](https://github.com/loophp/iterators/commit/c3ec8164f0117bf2b0d66fa12bd015e116ffb6e3)
+- tests: Add unit tests. [`6ecd612`](https://github.com/loophp/iterators/commit/6ecd612f5938323ae5822f7e0cc8b6a989cf8905)
+- tests: Rename benchmarks providers. [`ec7005b`](https://github.com/loophp/iterators/commit/ec7005b7c4c027203ab64cbc3486a95b76b05a7e)
+- tests: Refactor benchmarks. [`d80150d`](https://github.com/loophp/iterators/commit/d80150decb007f846bbe47ec3d66d817cdaf1814)
+- ci: Update benchmarks - Reduce amount of tests. [`a069835`](https://github.com/loophp/iterators/commit/a0698357c162a1d2a8e26833966bd52d6fd7bb49)
+- ci: Update benchmarks. [`bf550d0`](https://github.com/loophp/iterators/commit/bf550d0f8878fd4c683e3c6979eca41158f2b8c8)
+- Autofix code style. [`3b4b7de`](https://github.com/loophp/iterators/commit/3b4b7decc29ddd69e23082bd16526826389e7837)
+- ci: Update benchmarks. [`aeb268e`](https://github.com/loophp/iterators/commit/aeb268eb237f5fa2e292ea1ffd3a8045e927f842)
+- Autofix code style. [`5d41205`](https://github.com/loophp/iterators/commit/5d412056510e8b8b4bfec905e4131d607868a946)
+- tests: Benchmarks revs update. [`dbd7f90`](https://github.com/loophp/iterators/commit/dbd7f90990a57c2fe90d790bb7e5d83f99ba8b1e)
+- tests: Benchmarks revs update. [`3033091`](https://github.com/loophp/iterators/commit/3033091249c8e1ee9866bb18172900cf2e028dc5)
+- refactor: Do not make unit assertions in benchmarks. [`8117ebb`](https://github.com/loophp/iterators/commit/8117ebbe49592736fa592d13400bfb40bde3c957)
+- chore: Update composer.json [`aedcb38`](https://github.com/loophp/iterators/commit/aedcb3875dc4d5c41ca999015099395da1718c78)
+- refactor: Update return types. [`a011304`](https://github.com/loophp/iterators/commit/a011304df52bd96a69a63b111750fd5de0dad165)
+- tests: Add more benchmarks [`f7c8446`](https://github.com/loophp/iterators/commit/f7c844641c919a16403a4b64caa9237d8f56b435)
+- Normalize composer.json [`c96fb0c`](https://github.com/loophp/iterators/commit/c96fb0cfca9a44451720175c00739e17595fbb3b)
+- Revert "ci: Update benchmarks reporting." [`d2d62c3`](https://github.com/loophp/iterators/commit/d2d62c350cef8efec20b63560fa4c7c3f5736c5e)
+- ci: Make benchmark groups. [`f7690eb`](https://github.com/loophp/iterators/commit/f7690eb844175ee48a16ffe128e3502860b34681)
+- ci: Update benchmarks reporting. [`5aa6161`](https://github.com/loophp/iterators/commit/5aa6161a860139048afc1b3757d534310cf5f7aa)
+- feat: Minor optimizations. [`7db1132`](https://github.com/loophp/iterators/commit/7db1132c32214cc60de580d2f1a530051c9fe925)
+- tests: Increase Infection timeout [`177f995`](https://github.com/loophp/iterators/commit/177f995b336b1b10a8814c53f8ec4715a90e747f)
+- tests: Update benchmarks. [`02198fc`](https://github.com/loophp/iterators/commit/02198fc8e57e4d9d1f95619f547210ed754f1a18)
+- ci: Add PHPBench reporting. [`8c2d6c7`](https://github.com/loophp/iterators/commit/8c2d6c78c2312dfade1a20d1c8bbc33a95323f2c)
+- tests: Update `CachingIteratorsBench` benchmarks. [`8790e85`](https://github.com/loophp/iterators/commit/8790e85fcb07d37a9447d31f0018ed44a6f92914)
+- ci: Update mutation tests. [`a121d7c`](https://github.com/loophp/iterators/commit/a121d7cd6152481330d499a484c8b22a5ab987f4)
+- chore: Update license [`b3547a6`](https://github.com/loophp/iterators/commit/b3547a6676d56523c619b3f03ba0625f4b5f4d31)
+
+## [1.5.5](https://github.com/loophp/iterators/compare/1.5.4...1.5.5) - 2022-01-03
+
+### Commits
+
+- docs: Add/update CHANGELOG. [`28102a6`](https://github.com/loophp/iterators/commit/28102a679bc8bdd682f8516904a1aa5eadd09ad4)
 - refactor: Minor update in benchmarks. [`d6fc838`](https://github.com/loophp/iterators/commit/d6fc838d9ff90dd1aebf4ff83f7ae587d5a80d6a)
 
 ## [1.5.4](https://github.com/loophp/iterators/compare/1.5.3...1.5.4) - 2021-12-31
