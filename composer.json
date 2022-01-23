@@ -35,7 +35,8 @@
         "phpbench/phpbench": "^1.2",
         "phpstan/phpstan-strict-rules": "^1.0",
         "phpunit/php-code-coverage": "^9.2",
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "symfony/var-dumper": "^6.0"
     },
     "autoload": {
         "psr-4": {
@@ -44,17 +45,17 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "tests\\loophp\\iterators\\": "./tests/unit/",
-            "benchmarks\\loophp\\iterators\\": "./tests/benchmarks/"
+            "benchmarks\\loophp\\iterators\\": "./tests/benchmarks/",
+            "tests\\loophp\\iterators\\": "./tests/unit/"
         }
     },
     "config": {
         "allow-plugins": {
-            "phpstan/extension-installer": true,
-            "ergebnis/composer-normalize": true,
-            "phpro/grumphp": true,
             "composer/package-versions-deprecated": true,
-            "infection/extension-installer": true
+            "ergebnis/composer-normalize": true,
+            "infection/extension-installer": true,
+            "phpro/grumphp": true,
+            "phpstan/extension-installer": true
         },
         "sort-packages": true
     },
