@@ -23,9 +23,13 @@ The missing PHP iterators.
 * `IterableIterator`: `IterableIterator(iterable $iterable)`
 * `IterableIteratorAggregate`: `IterableIteratorAggregate(iterable $iterable)`
 * `PackIterableAggregate`
-* `UnpackIterableAggregate`
 * `PausableIteratorAggregate`
 * `RandomIterableAggregate`
+* `ResourceIteratorAggregate`
+* `SimpleCachingIteratorAggregate`
+* `StringIteratorAggregate`
+* `TypedIteratorAggregate`
+* `UnpackIterableAggregate`
 
 ## Installation
 
