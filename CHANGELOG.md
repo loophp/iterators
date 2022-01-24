@@ -5,7 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.5.6](https://github.com/loophp/iterators/compare/1.5.5...1.5.6)
+## [1.5.7](https://github.com/loophp/iterators/compare/1.5.6...1.5.7)
+
+### Commits
+
+- docs: Update `README`. [`a35dfe6`](https://github.com/loophp/iterators/commit/a35dfe643e8c54b6407974a3e244e6be665043b1)
+- feat: Add `ResourceIteratorAggregate`. [`124d4bd`](https://github.com/loophp/iterators/commit/124d4bdb21e229080570245a3ed5ea1015a88e71)
+- tests: Update tests for `TypedIteratorAggregate`. [`6008d71`](https://github.com/loophp/iterators/commit/6008d710a5be4660454c19aa4ebc3112445d09a7)
+- cs: Autofix code-style. [`076cfea`](https://github.com/loophp/iterators/commit/076cfea3f824203c6e675dff84924d485a12973a)
+- feat: Add `TypedIteratorAggregate`. [`8adcf3e`](https://github.com/loophp/iterators/commit/8adcf3e397cf9362260b7c482689c6ba13b89e67)
+- feat: Add `TypedIteratorAggregate`. [`651ed86`](https://github.com/loophp/iterators/commit/651ed86e058f669f77537647fef0f5b3691622d1)
+- tests: Add more `StringIteratorAggregate` tests. [`86bd0c0`](https://github.com/loophp/iterators/commit/86bd0c034ef5f4a8dc30b7d13fc0cfccd869e0ab)
+- chore: Remove obsolete dev dependency. [`3a318db`](https://github.com/loophp/iterators/commit/3a318db89ab52db5e5023e4d184659947c2b6ef6)
+
+## [1.5.6](https://github.com/loophp/iterators/compare/1.5.5...1.5.6) - 2022-01-23
 
 ### Merged
 
@@ -14,6 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Commits
 
+- docs: Add/update CHANGELOG. [`1df4353`](https://github.com/loophp/iterators/commit/1df4353f0de4cb27bcdb0e2965d474e1bbe94c3a)
 - Normalize composer.json [`624839b`](https://github.com/loophp/iterators/commit/624839bd9a187724c96c24ab98e4061c47332dd7)
 - feat: Add `StringIteratorAggregate`. [`4cadd48`](https://github.com/loophp/iterators/commit/4cadd487aa39d2f00f803d6d9054e68244b94768)
 - refactor: Simplify logic. [`7a20ecb`](https://github.com/loophp/iterators/commit/7a20ecb9ea516bbd9da71178119910ed9409d016)
