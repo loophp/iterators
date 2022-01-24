@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace loophp\iterators;
 
-use Closure;
 use Generator;
 use InvalidArgumentException;
 use Iterator;
@@ -28,9 +27,9 @@ use function is_object;
 final class TypedIteratorAggregate implements IteratorAggregate
 {
     /**
-     * @var Closure(mixed): string
+     * @var callable(mixed): string
      */
-    private Closure $getType;
+    private $getType;
 
     /**
      * @var Iterator<TKey, T>
@@ -39,9 +38,9 @@ final class TypedIteratorAggregate implements IteratorAggregate
 
     /**
      * @param Iterator<TKey, T> $iterator
-     * @param Closure(mixed): string $getType
+     * @param callable(mixed): string $getType
      */
-    public function __construct(Iterator $iterator, ?Closure $getType = null)
+    public function __construct(Iterator $iterator, ?callable $getType = null)
     {
         $this->iterator = $iterator;
 
