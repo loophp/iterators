@@ -14,6 +14,7 @@ use Generator;
 use InvalidArgumentException;
 use Iterator;
 use IteratorAggregate;
+
 use function get_class;
 use function gettype;
 use function is_object;
@@ -36,7 +37,11 @@ final class TypedIteratorAggregate implements IteratorAggregate
      */
     private Iterator $iterator;
 
-    public function __construct(Iterator $iterator, ?callable $getType = null)
+    /**
+     * @param Iterator<TKey, T> $iterator
+     * @param Closure(mixed): string $getType
+     */
+    public function __construct(Iterator $iterator, ?Closure $getType = null)
     {
         $this->iterator = $iterator;
 
