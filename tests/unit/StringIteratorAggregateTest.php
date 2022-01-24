@@ -18,25 +18,47 @@ use PHPUnit\Framework\TestCase;
  */
 final class StringIteratorAggregateTest extends TestCase
 {
-    public function testBasicStringWithDelimiter()
+    public function stringIteratorAggregateProvider()
     {
-        $input = 'hello world';
-        $delimiter = 'o';
-        $iterator = new StringIteratorAggregate($input, $delimiter);
-        $output = [
-            'hell',
-            ' w',
-            'rld',
+        yield [
+            'hello world',
+            'o',
+            [
+                'hell',
+                ' w',
+                'rld',
+            ],
         ];
 
-        self::assertSame($output, iterator_to_array($iterator));
+        yield [
+            'hello world',
+            '',
+            str_split('hello world'),
+        ];
+
+        yield [
+            '😃😁😂',
+            '',
+            mb_str_split('😃😁😂'),
+        ];
+
+        yield [
+            'a😃b😃c',
+            '😃',
+            range('a', 'c'),
+        ];
     }
 
-    public function testBasicStringWithoutDelimiter()
+    /**
+     * @dataProvider stringIteratorAggregateProvider
+     *
+     * @param mixed $expected
+     */
+    public function testBasic(string $input, string $delimiter, $expected)
     {
-        $input = 'hello world';
-        $iterator = new StringIteratorAggregate($input);
-
-        self::assertSame(str_split($input), iterator_to_array($iterator));
+        self::assertSame(
+            $expected,
+            iterator_to_array(new StringIteratorAggregate($input, $delimiter))
+        );
     }
 }
