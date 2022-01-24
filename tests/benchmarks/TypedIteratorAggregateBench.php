@@ -28,7 +28,7 @@ final class TypedIteratorAggregateBench extends IteratorBenchmark
     {
         $this->doBench(
             $this->getSubject($params),
-            []
+            $params
         );
     }
 
