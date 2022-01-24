@@ -73,7 +73,7 @@ final class TypedIteratorAggregateTest extends TestCase
             }
         };
 
-        $obj2 = new class() implements Countable, JsonSerializable {
+        $obj2 = new class() implements JsonSerializable, Countable {
             public function count(): int
             {
                 return 0;
