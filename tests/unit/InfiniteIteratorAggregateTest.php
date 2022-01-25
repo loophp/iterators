@@ -11,7 +11,7 @@ namespace tests\loophp\iterators;
 
 use LimitIterator;
 use loophp\iterators\InfiniteIteratorAggregate;
-use loophp\iterators\NormalizeIteratorAggregate;
+use loophp\iterators\NormalizeIterableAggregate;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -26,7 +26,7 @@ final class InfiniteIteratorAggregateTest extends TestCase
             yield from range('a', 'c');
         };
 
-        $iterator = new NormalizeIteratorAggregate(
+        $iterator = new NormalizeIterableAggregate(
             new LimitIterator(
                 (new InfiniteIteratorAggregate($input()))->getIterator(),
                 0,
