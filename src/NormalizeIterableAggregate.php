@@ -19,7 +19,7 @@ use Traversable;
  *
  * @implements IteratorAggregate<int, T>
  */
-final class NormalizeIteratorAggregate implements IteratorAggregate
+final class NormalizeIterableAggregate implements IteratorAggregate
 {
     /**
      * @var iterable<TKey, T>

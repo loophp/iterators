@@ -9,14 +9,14 @@ declare(strict_types=1);
 
 namespace tests\loophp\iterators;
 
-use loophp\iterators\NormalizeIteratorAggregate;
+use loophp\iterators\NormalizeIterableAggregate;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
  * @coversDefaultClass \loophp\iterators
  */
-final class NormalizeIteratorAggregateTest extends TestCase
+final class NormalizeIterableAggregateTest extends TestCase
 {
     public function testBasic(): void
     {
@@ -24,7 +24,7 @@ final class NormalizeIteratorAggregateTest extends TestCase
             yield from array_combine(range('a', 'c'), range('a', 'c'));
         };
 
-        $iterator = new NormalizeIteratorAggregate($input());
+        $iterator = new NormalizeIterableAggregate($input());
 
         $expected = ['a', 'b', 'c'];
         self::assertSame($expected, iterator_to_array($iterator));
