@@ -5,10 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.5.8](https://github.com/loophp/iterators/compare/1.5.7...1.5.8)
+## [1.5.9](https://github.com/loophp/iterators/compare/1.5.8...1.5.9)
 
 ### Commits
 
+- Fix coverage. [`864906d`](https://github.com/loophp/iterators/commit/864906dd47713edd7b30355bd18fa4861f548714)
+- feat: Add `NormalizeIteratorAggregate`. [`24d2e8c`](https://github.com/loophp/iterators/commit/24d2e8c3086f589a880ab9c0571521fced75f28f)
+- feat: Add `InfiniteIteratorAggregate`. [`4c0a797`](https://github.com/loophp/iterators/commit/4c0a7979a982d1c30a5678216fd900fe4fd66c7b)
+- feat: Improve performance of `IterableIteratorAggregate`. [`f9c2e1c`](https://github.com/loophp/iterators/commit/f9c2e1c93c7f9caf26e64ea55e7502c1df1ffd25)
+
+## [1.5.8](https://github.com/loophp/iterators/compare/1.5.7...1.5.8) - 2022-01-24
+
+### Commits
+
+- docs: Add/update CHANGELOG. [`2c3026f`](https://github.com/loophp/iterators/commit/2c3026f8052d3513dfd505eebc172b22929cd7e4)
 - fix: Change `Closure` to `callable`. [`e4454ea`](https://github.com/loophp/iterators/commit/e4454ea91b6f18a26dd5a6798247e161da69fcd3)
 
 ## [1.5.7](https://github.com/loophp/iterators/compare/1.5.6...1.5.7) - 2022-01-24
