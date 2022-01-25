@@ -5,10 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.5.9](https://github.com/loophp/iterators/compare/1.5.8...1.5.9)
+## [1.5.10](https://github.com/loophp/iterators/compare/1.5.9...1.5.10)
 
 ### Commits
 
+- Rename `NormalizeIteratorAggregate` class. [`9b4d23b`](https://github.com/loophp/iterators/commit/9b4d23b9e2f1b1b22c30ffee76088dac5f08f1f1)
+
+## [1.5.9](https://github.com/loophp/iterators/compare/1.5.8...1.5.9) - 2022-01-25
+
+### Commits
+
+- docs: Add/update CHANGELOG. [`a5262ed`](https://github.com/loophp/iterators/commit/a5262ed09a283ec39149091d9ba8046e6f1e9b83)
 - Fix coverage. [`864906d`](https://github.com/loophp/iterators/commit/864906dd47713edd7b30355bd18fa4861f548714)
 - feat: Add `NormalizeIteratorAggregate`. [`24d2e8c`](https://github.com/loophp/iterators/commit/24d2e8c3086f589a880ab9c0571521fced75f28f)
 - feat: Add `InfiniteIteratorAggregate`. [`4c0a797`](https://github.com/loophp/iterators/commit/4c0a7979a982d1c30a5678216fd900fe4fd66c7b)
