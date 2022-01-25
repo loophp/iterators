@@ -10,8 +10,8 @@ declare(strict_types=1);
 namespace loophp\iterators;
 
 use Generator;
-use Iterator;
 use IteratorAggregate;
+use Traversable;
 
 /**
  * @template TKey
@@ -22,31 +22,23 @@ use IteratorAggregate;
 final class IterableIteratorAggregate implements IteratorAggregate
 {
     /**
-     * @var IteratorAggregate<TKey, T>
+     * @var iterable<TKey, T>
      */
-    private IteratorAggregate $iterator;
+    private iterable $iterable;
 
     /**
      * @param iterable<TKey, T> $iterable
      */
     public function __construct(iterable $iterable)
     {
-        $this->iterator = new ClosureIteratorAggregate(
-            /**
-             * @param iterable<TKey, T> $iterable
-             *
-             * @return Generator<TKey, T>
-             */
-            static fn (iterable $iterable): Generator => yield from $iterable,
-            [$iterable]
-        );
+        $this->iterable = $iterable;
     }
 
     /**
-     * @return Iterator<TKey, T>
+     * @return Generator<TKey, T>
      */
-    public function getIterator(): Iterator
+    public function getIterator(): Traversable
     {
-        yield from $this->iterator->getIterator();
+        yield from $this->iterable;
     }
 }
