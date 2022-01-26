@@ -41,26 +41,22 @@ final class ResourceIteratorAggregate implements IteratorAggregate
         $this->closeResource = $closeResource;
     }
 
+    /**
+     * @return Generator<int, string>
+     */
     public function getIterator(): Traversable
     {
-        yield from new ClosureIteratorAggregate(
-            /**
-             * @param resource $resource
-             *
-             * @return Generator<int, string, mixed, void>
-             */
-            static function ($resource, bool $closeResource = false): Generator {
-                try {
-                    while (false !== $chunk = fgetc($resource)) {
-                        yield $chunk;
-                    }
-                } finally {
-                    if ($closeResource) {
-                        fclose($resource);
-                    }
-                }
-            },
-            [$this->resource, $this->closeResource]
-        );
+        $resource = $this->resource;
+        $closeResource = $this->closeResource;
+
+        try {
+            while (false !== $chunk = fgetc($resource)) {
+                yield $chunk;
+            }
+        } finally {
+            if ($closeResource) {
+                fclose($resource);
+            }
+        }
     }
 }
