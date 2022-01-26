@@ -5,10 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.5.11](https://github.com/loophp/iterators/compare/1.5.10...1.5.11)
+## [1.5.12](https://github.com/loophp/iterators/compare/1.5.11...1.5.12)
 
 ### Commits
 
+- feat: Performance improvements. [`0b9afd7`](https://github.com/loophp/iterators/commit/0b9afd7039063c2e60092b39efbb266bf91976bf)
+
+## [1.5.11](https://github.com/loophp/iterators/compare/1.5.10...1.5.11) - 2022-01-25
+
+### Commits
+
+- docs: Add/update CHANGELOG. [`082e62a`](https://github.com/loophp/iterators/commit/082e62a5e8d8f744915e031f2743c2a80f8d6036)
 - Fix tests. [`e831ac2`](https://github.com/loophp/iterators/commit/e831ac2de668e764cfdbf090e1f1196b77663b1e)
 
 ## [1.5.10](https://github.com/loophp/iterators/compare/1.5.9...1.5.10) - 2022-01-25
