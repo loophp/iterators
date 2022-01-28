@@ -14,11 +14,13 @@ use IteratorAggregate;
 use MultipleIterator;
 use Traversable;
 
+// phpcs:disable Generic.Files.LineLength.TooLong
+
 /**
  * @template TKey
  * @template T
  *
- * @implements IteratorAggregate<int, array<TKey, T>>
+ * @implements IteratorAggregate<array<int, TKey|null>, array<int, T|null>>
  */
 final class MultipleIterableAggregate implements IteratorAggregate
 {
@@ -28,12 +30,12 @@ final class MultipleIterableAggregate implements IteratorAggregate
     private int $flags;
 
     /**
-     * @var iterable<mixed, iterable<TKey, T>>
+     * @var iterable<array-key, iterable<TKey, T>>
      */
     private iterable $iterables;
 
     /**
-     * @param iterable<mixed, iterable<TKey, T>> $iterables
+     * @param iterable<array-key, iterable<TKey, T>> $iterables
      * @param (0|1|2|3) $flags
      */
     public function __construct(iterable $iterables, int $flags = MultipleIterator::MIT_NEED_ALL | MultipleIterator::MIT_KEYS_NUMERIC)
@@ -43,15 +45,16 @@ final class MultipleIterableAggregate implements IteratorAggregate
     }
 
     /**
-     * @return Generator<int, array<TKey, T>>
+     * @return Generator<array<int, TKey|null>, array<int, T|null>>
      */
     public function getIterator(): Traversable
     {
         $mit = new MultipleIterator($this->flags);
 
-        foreach ($this->iterables as $iterable) {
+        foreach ($this->iterables as $key => $iterable) {
             $mit->attachIterator(
-                (new IterableIteratorAggregate($iterable))->getIterator()
+                (new IterableIteratorAggregate($iterable))->getIterator(),
+                $key
             );
         }
 
