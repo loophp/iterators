@@ -20,8 +20,10 @@ The missing PHP iterators.
 * `CachingIteratorAggregate`
 * `ClosureIterator`: `ClosureIterator(callable $callable, array $arguments = [])`
 * `ClosureIteratorAggregate`: `ClosureIteratorAggregate(callable $callable, array $arguments = [])`
+* `ConcatIterableAggregate`
 * `IterableIterator`: `IterableIterator(iterable $iterable)`
 * `IterableIteratorAggregate`: `IterableIteratorAggregate(iterable $iterable)`
+* `MultipleIterableAggregate`
 * `PackIterableAggregate`
 * `PausableIteratorAggregate`
 * `RandomIterableAggregate`
