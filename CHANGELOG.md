@@ -5,10 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.5.13](https://github.com/loophp/iterators/compare/1.5.12...1.5.13)
+## [1.5.14](https://github.com/loophp/iterators/compare/1.5.13...1.5.14)
 
 ### Commits
 
+- feat: Add `LimitIterableAggregator`. [`0a1955e`](https://github.com/loophp/iterators/commit/0a1955e6b52440c38fdd6c50677de6889f835fca)
+
+## [1.5.13](https://github.com/loophp/iterators/compare/1.5.12...1.5.13) - 2022-01-28
+
+### Commits
+
+- docs: Add/update CHANGELOG. [`815497d`](https://github.com/loophp/iterators/commit/815497d6c0c2009e41117ab76546991bfd9b4b7a)
 - fix: Fix SA annotations. [`6a66d07`](https://github.com/loophp/iterators/commit/6a66d0774cd796de3b00dba18614f2f73b247b73)
 - feat: Add new Iterator aggregates. [`04db72d`](https://github.com/loophp/iterators/commit/04db72deaa16effda94b00fb7b6edf86c137ce0a)
 
