@@ -5,10 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.5.14](https://github.com/loophp/iterators/compare/1.5.13...1.5.14)
+## [1.6.0](https://github.com/loophp/iterators/compare/1.5.14...1.6.0)
+
+### Merged
+
+- chore(deps): Bump actions/checkout from 2.4.0 to 3 [`#12`](https://github.com/loophp/iterators/pull/12)
+- chore(deps): Bump shivammathur/setup-php from 2.17.0 to 2.17.1 [`#13`](https://github.com/loophp/iterators/pull/13)
+- chore(deps): Bump shivammathur/setup-php from 2.16.0 to 2.17.0 [`#11`](https://github.com/loophp/iterators/pull/11)
 
 ### Commits
 
+- feat: Add `hasNext` method to Caching iterator aggregates. [`0d80e09`](https://github.com/loophp/iterators/commit/0d80e0938c416fee63b3546eb884861fbd85de88)
+
+## [1.5.14](https://github.com/loophp/iterators/compare/1.5.13...1.5.14) - 2022-01-30
+
+### Commits
+
+- docs: Add/update CHANGELOG. [`f1959ff`](https://github.com/loophp/iterators/commit/f1959fff47d0015dfa8cf94954eea21990d15f41)
 - feat: Add `LimitIterableAggregator`. [`0a1955e`](https://github.com/loophp/iterators/commit/0a1955e6b52440c38fdd6c50677de6889f835fca)
 
 ## [1.5.13](https://github.com/loophp/iterators/compare/1.5.12...1.5.13) - 2022-01-28
