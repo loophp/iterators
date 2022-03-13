@@ -24,16 +24,16 @@ use IteratorAggregate;
 final class CachingIteratorAggregate implements IteratorAggregate
 {
     /**
-     * @var UnpackIterableAggregate<TKey, T>
+     * @var SimpleCachingIteratorAggregate<int, array{0: TKey, 1:T}>
      */
-    private UnpackIterableAggregate $iteratorAggregate;
+    private SimpleCachingIteratorAggregate $cachingIterator;
 
     /**
      * @param Iterator<TKey, T> $iterator
      */
     public function __construct(Iterator $iterator)
     {
-        $this->iteratorAggregate = (new UnpackIterableAggregate(new SimpleCachingIteratorAggregate((new PackIterableAggregate($iterator))->getIterator())));
+        $this->cachingIterator = new SimpleCachingIteratorAggregate((new PackIterableAggregate($iterator))->getIterator());
     }
 
     /**
@@ -41,6 +41,11 @@ final class CachingIteratorAggregate implements IteratorAggregate
      */
     public function getIterator(): Generator
     {
-        yield from $this->iteratorAggregate->getIterator();
+        yield from (new UnpackIterableAggregate($this->cachingIterator))->getIterator();
+    }
+
+    public function hasNext(): bool
+    {
+        return $this->cachingIterator->hasNext();
     }
 }

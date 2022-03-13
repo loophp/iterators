@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace tests\loophp\iterators;
 
+use ArrayIterator;
 use Generator;
 use loophp\iterators\SimpleCachingIteratorAggregate;
 use PHPUnit\Framework\TestCase;
@@ -19,6 +20,19 @@ use PHPUnit\Framework\TestCase;
  */
 final class SimpleCachingIteratorAggregateTest extends TestCase
 {
+    public function testHasNext(): void
+    {
+        $range = range('a', 'c');
+        $iteratorAggregate = new SimpleCachingIteratorAggregate(new ArrayIterator($range));
+        $iterator = $iteratorAggregate->getIterator();
+
+        self::assertTrue($iteratorAggregate->hasNext());
+        $iterator->next();
+        self::assertTrue($iteratorAggregate->hasNext());
+        $iterator->next();
+        self::assertFalse($iteratorAggregate->hasNext());
+    }
+
     public function testWithAGenerator(): void
     {
         $input = static function () use (&$stack): Generator {

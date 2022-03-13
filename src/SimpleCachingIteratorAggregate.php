@@ -53,4 +53,9 @@ final class SimpleCachingIteratorAggregate implements IteratorAggregate
             yield $this->iterator->key() => $this->iterator->current();
         }
     }
+
+    public function hasNext(): bool
+    {
+        return $this->iterator->hasNext();
+    }
 }
