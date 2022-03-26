@@ -11,6 +11,7 @@ namespace loophp\iterators;
 
 use Generator;
 use IteratorAggregate;
+use Throwable;
 use Traversable;
 
 /**
@@ -39,6 +40,9 @@ final class IterableIteratorAggregate implements IteratorAggregate
      */
     public function getIterator(): Traversable
     {
-        yield from $this->iterable;
+        try {
+            yield from $this->iterable;
+        } catch (Throwable $exception) {
+        }
     }
 }
