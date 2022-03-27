@@ -5,7 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.6.1](https://github.com/loophp/iterators/compare/1.6.0...1.6.1)
+## [1.6.2](https://github.com/loophp/iterators/compare/1.6.1...1.6.2)
+
+### Commits
+
+- Revert "Prevent errors when the iterable is an already closed generator." [`e5690c7`](https://github.com/loophp/iterators/commit/e5690c7d3be2f833330af5b39b27a8dc4bfd565c)
+
+## [1.6.1](https://github.com/loophp/iterators/compare/1.6.0...1.6.1) - 2022-03-26
 
 ### Merged
 
@@ -14,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Commits
 
+- docs: Add/update CHANGELOG. [`cf1232f`](https://github.com/loophp/iterators/commit/cf1232f0d7cf1bdcf30e6425dd098e25e0ab9dfc)
 - Prevent errors when the iterable is an already closed generator. [`43e4e43`](https://github.com/loophp/iterators/commit/43e4e4391d5756a9cd1f4f6d1ea38707670254d2)
 
 ## [1.6.0](https://github.com/loophp/iterators/compare/1.5.14...1.6.0) - 2022-03-13
