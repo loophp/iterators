@@ -83,19 +83,4 @@ final class IterableIteratorAggregateTest extends TestCase
 
         self::assertSame(2, $iterator->current());
     }
-
-    public function testWithAClosedGenerator(): void
-    {
-        $generator = (static function () {
-            yield 'foo';
-
-            yield 'bar';
-        })();
-
-        iterator_to_array($generator);
-
-        $subject = (new IterableIteratorAggregate($generator))->getIterator();
-
-        self::assertSame([], iterator_to_array($subject));
-    }
 }
