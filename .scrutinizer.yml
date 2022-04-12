@@ -1,16 +1,10 @@
 build:
+    image: default-bionic
     nodes:
-        php74:
+        php81:
             environment:
                 php:
-                    version: 7.4
-            tests:
-                override:
-                    - php-scrutinizer-run
-        php80:
-            environment:
-                php:
-                    version: 8.0
+                    version: 8.1
             tests:
                 override:
                     - php-scrutinizer-run
