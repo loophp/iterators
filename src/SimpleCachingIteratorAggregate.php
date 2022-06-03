@@ -17,20 +17,20 @@ use IteratorAggregate;
 // phpcs:disable Generic.Files.LineLength.TooLong
 
 /**
- * @template TKey of array-key
+ * @template TKey
  * @template T
  *
- * @implements IteratorAggregate<array-key, T>
+ * @implements IteratorAggregate<TKey, T>
  */
 final class SimpleCachingIteratorAggregate implements IteratorAggregate
 {
     /**
-     * @var CachingIterator<array-key, T>
+     * @var CachingIterator<TKey, T>
      */
     private CachingIterator $iterator;
 
     /**
-     * @param Iterator<array-key, T> $iterator
+     * @param Iterator<TKey, T> $iterator
      */
     public function __construct(Iterator $iterator)
     {
@@ -41,7 +41,7 @@ final class SimpleCachingIteratorAggregate implements IteratorAggregate
     }
 
     /**
-     * @return Generator<array-key, T>
+     * @return Generator<TKey, T>
      */
     public function getIterator(): Generator
     {
