@@ -62,8 +62,6 @@ final class MersenneTwisterRNGIteratorAggregate implements IteratorAggregate
         $clone = clone $this;
         $clone->seed = $seed;
 
-        mt_srand($seed);
-
         return $clone;
     }
 }
