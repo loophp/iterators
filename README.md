@@ -21,6 +21,7 @@ The missing PHP iterators.
 * `ClosureIterator`: `ClosureIterator(callable $callable, array $arguments = [])`
 * `ClosureIteratorAggregate`: `ClosureIteratorAggregate(callable $callable, array $arguments = [])`
 * `ConcatIterableAggregate`
+* `InterruptableIterableAggregate`: `InterruptableIterableAggregate(iterable $iterable)`
 * `IterableIterator`: `IterableIterator(iterable $iterable)`
 * `IterableIteratorAggregate`: `IterableIteratorAggregate(iterable $iterable)`
 * `MultipleIterableAggregate`
@@ -67,6 +68,35 @@ $iterator = new CachingIteratorAggregate($generator());
 
 foreach ($iterator as $key => $value); // This will work.
 foreach ($iterator as $key => $value); // This will also work.
+```
+
+### InterruptableIterableAggregate
+
+Let you break the iterator at anytime.
+
+Useful when working with infinite collection of items.
+
+```php
+<?php
+
+// Generator
+$naturals = static function () {
+    $i = 0;
+
+    while (true) {
+        yield $i++;
+    }
+};
+
+$iterator = new InterruptableIterableAggregate($generator());
+
+foreach ($iterator as $generator => [$key, $value]) {
+    var_dump($value);
+
+    if (10 === $value) {
+        $generator->send(InterruptableIterableAggregate::BREAK);
+    }
+}
 ```
 
 ### PackIterableAggregate
