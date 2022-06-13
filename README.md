@@ -24,6 +24,7 @@ The missing PHP iterators.
 * `InterruptableIterableAggregate`: `InterruptableIterableAggregate(iterable $iterable)`
 * `IterableIterator`: `IterableIterator(iterable $iterable)`
 * `IterableIteratorAggregate`: `IterableIteratorAggregate(iterable $iterable)`
+* `MersenneTwisterRNGIteratorAggregate`
 * `MultipleIterableAggregate`
 * `PackIterableAggregate`
 * `PausableIteratorAggregate`
@@ -97,6 +98,19 @@ foreach ($iterator as $generator => [$key, $value]) {
         $generator->send(InterruptableIterableAggregate::BREAK);
     }
 }
+```
+
+### MersenneTwisterRNGIteratorAggregate
+
+```php
+<?php
+
+$rngGenerator = (new MersenneTwisterRNGIteratorAggregate())
+    ->withMin(1)
+    ->withMax(10)
+    ->withSeed($seed);
+
+foreach ($rngGenerator as $randomValue) {} // Random integers in [1, 10]
 ```
 
 ### PackIterableAggregate
