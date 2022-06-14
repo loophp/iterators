@@ -33,6 +33,7 @@ The missing PHP iterators.
 * `SimpleCachingIteratorAggregate`
 * `StringIteratorAggregate`
 * `TypedIteratorAggregate`
+* `UniqueIterableAggregate`
 * `UnpackIterableAggregate`
 
 ## Installation
@@ -135,6 +136,22 @@ $value will yield the following values:
 - [false, 'bar']
 - [['foo', 'bar'], 'foobar']
 */
+```
+
+### UniqueIterableAggregate
+
+```php
+<?php
+
+$generator = static function(): Generator {
+    while (true) {
+        yield mt_rand(0, 9);
+    }
+};
+
+$iterator = new UniqueIterableAggregate($generator(), 1000);
+
+foreach ($iterator as $value) {} // 9 random values only.
 ```
 
 ### UnpackIterableAggregate
