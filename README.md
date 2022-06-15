@@ -21,9 +21,11 @@ The missing PHP iterators.
 * `ClosureIterator`: `ClosureIterator(callable $callable, array $arguments = [])`
 * `ClosureIteratorAggregate`: `ClosureIteratorAggregate(callable $callable, array $arguments = [])`
 * `ConcatIterableAggregate`
+* `FilterIterableAggregate`
 * `InterruptableIterableAggregate`: `InterruptableIterableAggregate(iterable $iterable)`
 * `IterableIterator`: `IterableIterator(iterable $iterable)`
 * `IterableIteratorAggregate`: `IterableIteratorAggregate(iterable $iterable)`
+* `MapIterableAggregate`
 * `MersenneTwisterRNGIteratorAggregate`
 * `MultipleIterableAggregate`
 * `PackIterableAggregate`
@@ -72,6 +74,20 @@ foreach ($iterator as $key => $value); // This will work.
 foreach ($iterator as $key => $value); // This will also work.
 ```
 
+### FilterIterableAggregate
+
+```php
+<?php
+
+$iterator = (new FilterIterableAggregate(
+    range(0, 5),
+    static fn (int $v, int $key, iterable $iterable): bool =>
+        0 === (($v + 2 * $key + count($iterable)) % 2)
+));
+
+foreach ($iterator as $filteredValue) {} // 0, 2, 4
+```
+
 ### InterruptableIterableAggregate
 
 Let you break the iterator at anytime.
@@ -99,6 +115,25 @@ foreach ($iterator as $generator => [$key, $value]) {
         $generator->send(InterruptableIterableAggregate::BREAK);
     }
 }
+```
+
+### MapIterableAggregate
+
+```php
+<?php
+
+$iterator = (new MapIterableAggregate(
+    range('a', 'c'),
+    static fn (string $letter, int $key, iterable $iterable): string =>
+        sprintf(
+            '%s::%s::%s',
+            $key,
+            $letter,
+            gettype($iterable)
+        )
+));
+
+foreach ($iterator as $tranformedValue) {}
 ```
 
 ### MersenneTwisterRNGIteratorAggregate
