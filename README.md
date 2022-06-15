@@ -18,6 +18,7 @@ The missing PHP iterators.
 ## Features
 
 * `CachingIteratorAggregate`
+* `ChunkIterableAggregate`
 * `ClosureIterator`: `ClosureIterator(callable $callable, array $arguments = [])`
 * `ClosureIteratorAggregate`: `ClosureIteratorAggregate(callable $callable, array $arguments = [])`
 * `ConcatIterableAggregate`
@@ -72,6 +73,19 @@ $iterator = new CachingIteratorAggregate($generator());
 
 foreach ($iterator as $key => $value); // This will work.
 foreach ($iterator as $key => $value); // This will also work.
+```
+
+### ChunkIterableAggregate
+
+```php
+<?php
+
+$iterator = (new ChunkIterableAggregate(
+    range('a', 'j'),
+    2
+));
+
+foreach ($iterator as $chunk) {} // ['a', 'b'], ['c', 'd'], ...
 ```
 
 ### FilterIterableAggregate
