@@ -18,7 +18,7 @@ use IteratorAggregate;
  *
  * @implements IteratorAggregate<TKey, T>
  */
-final class InterruptableIteratorAggregate implements IteratorAggregate
+final class InterruptableIterableIteratorAggregate implements IteratorAggregate
 {
     public const BREAK = 'break';
 

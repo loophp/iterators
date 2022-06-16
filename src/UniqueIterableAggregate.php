@@ -11,7 +11,6 @@ namespace loophp\iterators;
 
 use Generator;
 use IteratorAggregate;
-use Traversable;
 
 use function in_array;
 
@@ -26,9 +25,9 @@ use const PHP_INT_MAX;
 final class UniqueIterableAggregate implements IteratorAggregate
 {
     /**
-     * @var iterable<TKey, T>
+     * @var InterruptableIterableIteratorAggregate<TKey, T>
      */
-    private iterable $iterable;
+    private InterruptableIterableIteratorAggregate $iterable;
 
     private int $retries;
 
@@ -37,21 +36,21 @@ final class UniqueIterableAggregate implements IteratorAggregate
      */
     public function __construct(iterable $iterable, int $retries = PHP_INT_MAX)
     {
-        $this->iterable = $iterable;
+        $this->iterable = new InterruptableIterableIteratorAggregate($iterable);
         $this->retries = $retries;
     }
 
     /**
      * @return Generator<TKey, T>
      */
-    public function getIterator(): Traversable
+    public function getIterator(): Generator
     {
         $retries = $this->retries;
         $seen = [];
 
-        foreach ($this->iterable as $key => $value) {
+        foreach ($this->iterable as $generator => [$key, $value]) {
             if (0 === $retries) {
-                break;
+                $generator->send(InterruptableIterableIteratorAggregate::BREAK);
             }
 
             if (in_array($value, $seen, true)) {

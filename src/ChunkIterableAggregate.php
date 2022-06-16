@@ -11,6 +11,7 @@ namespace loophp\iterators;
 
 use Generator;
 use IteratorAggregate;
+
 use function count;
 
 /**

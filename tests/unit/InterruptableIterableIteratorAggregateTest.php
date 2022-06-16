@@ -11,14 +11,14 @@ namespace tests\loophp\iterators;
 
 use Generator;
 use IteratorAggregate;
-use loophp\iterators\InterruptableIteratorAggregate;
+use loophp\iterators\InterruptableIterableIteratorAggregate;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
  * @coversDefaultClass \loophp\iterators
  */
-final class InterruptableIteratorAggregateTest extends TestCase
+final class InterruptableIterableIteratorAggregateTest extends TestCase
 {
     public function testBreakInterruption()
     {
@@ -30,7 +30,7 @@ final class InterruptableIteratorAggregateTest extends TestCase
             }
         };
 
-        $subject = new InterruptableIteratorAggregate($naturals());
+        $subject = new InterruptableIterableIteratorAggregate($naturals());
 
         self::assertSame(
             range(0, 10),
@@ -44,7 +44,7 @@ final class InterruptableIteratorAggregateTest extends TestCase
             yield $key => $value;
 
             if (10 === $value) {
-                $generator->send(InterruptableIteratorAggregate::BREAK);
+                $generator->send(InterruptableIterableIteratorAggregate::BREAK);
             }
         }
     }

@@ -23,7 +23,7 @@ The missing PHP iterators.
 * `ClosureIteratorAggregate`: `ClosureIteratorAggregate(callable $callable, array $arguments = [])`
 * `ConcatIterableAggregate`
 * `FilterIterableAggregate`
-* `InterruptableIterableAggregate`: `InterruptableIterableAggregate(iterable $iterable)`
+* `InterruptableIterableIteratorAggregate`: `InterruptableIterableIteratorAggregate(iterable $iterable)`
 * `IterableIterator`: `IterableIterator(iterable $iterable)`
 * `IterableIteratorAggregate`: `IterableIteratorAggregate(iterable $iterable)`
 * `MapIterableAggregate`
@@ -102,7 +102,7 @@ $iterator = (new FilterIterableAggregate(
 foreach ($iterator as $filteredValue) {} // 0, 2, 4
 ```
 
-### InterruptableIterableAggregate
+### InterruptableIterableIteratorAggregate
 
 Let you break the iterator at anytime.
 
@@ -120,13 +120,13 @@ $naturals = static function () {
     }
 };
 
-$iterator = new InterruptableIterableAggregate($generator());
+$iterator = new InterruptableIterableIteratorAggregate($generator());
 
 foreach ($iterator as $generator => [$key, $value]) {
     var_dump($value);
 
     if (10 === $value) {
-        $generator->send(InterruptableIterableAggregate::BREAK);
+        $generator->send(InterruptableIterableIteratorAggregate::BREAK);
     }
 }
 ```
