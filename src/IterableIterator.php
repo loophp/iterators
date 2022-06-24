@@ -22,9 +22,9 @@ use ReturnTypeWillChange;
 final class IterableIterator implements Iterator
 {
     /**
-     * @var Iterator<TKey, T>
+     * @var ClosureIterator<TKey, T>
      */
-    private Iterator $iterator;
+    private ClosureIterator $iterator;
 
     /**
      * @param iterable<TKey, T> $iterable

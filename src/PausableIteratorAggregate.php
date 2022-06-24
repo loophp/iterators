@@ -12,7 +12,6 @@ namespace loophp\iterators;
 use ArrayIterator;
 use Generator;
 use Iterator;
-use IteratorAggregate;
 use loophp\iterators\Contract\PausableIteratorAggregateInterface;
 
 /**
@@ -29,9 +28,9 @@ final class PausableIteratorAggregate implements PausableIteratorAggregateInterf
     private Iterator $iterator;
 
     /**
-     * @var IteratorAggregate<TKey, T>
+     * @var CachingIteratorAggregate<TKey, T>
      */
-    private IteratorAggregate $iteratorAggregate;
+    private CachingIteratorAggregate $iteratorAggregate;
 
     /**
      * @param Iterator<TKey, T> $iterator
@@ -47,7 +46,6 @@ final class PausableIteratorAggregate implements PausableIteratorAggregateInterf
      */
     public function getIterator(): Generator
     {
-        /** @var Iterator<TKey, T> $iterator */
         $iterator = $this->iteratorAggregate->getIterator();
 
         $this->iterator = $iterator;
