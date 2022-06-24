@@ -12,7 +12,6 @@ namespace loophp\iterators;
 use Generator;
 use InvalidArgumentException;
 use IteratorAggregate;
-use Traversable;
 
 use function is_resource;
 
@@ -44,7 +43,7 @@ final class ResourceIteratorAggregate implements IteratorAggregate
     /**
      * @return Generator<int, string>
      */
-    public function getIterator(): Traversable
+    public function getIterator(): Generator
     {
         $resource = $this->resource;
         $closeResource = $this->closeResource;

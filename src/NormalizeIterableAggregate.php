@@ -11,7 +11,6 @@ namespace loophp\iterators;
 
 use Generator;
 use IteratorAggregate;
-use Traversable;
 
 /**
  * @template TKey
@@ -37,7 +36,7 @@ final class NormalizeIterableAggregate implements IteratorAggregate
     /**
      * @return Generator<int, T>
      */
-    public function getIterator(): Traversable
+    public function getIterator(): Generator
     {
         foreach ($this->iterable as $c) {
             yield $c;

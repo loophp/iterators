@@ -12,7 +12,6 @@ namespace loophp\iterators;
 use Generator;
 use IteratorAggregate;
 use LimitIterator;
-use Traversable;
 
 /**
  * @template TKey
@@ -44,7 +43,7 @@ final class LimitIterableAggregate implements IteratorAggregate
     /**
      * @return Generator<TKey, T>
      */
-    public function getIterator(): Traversable
+    public function getIterator(): Generator
     {
         yield from new LimitIterator(
             (new IterableIteratorAggregate($this->iterable))->getIterator(),

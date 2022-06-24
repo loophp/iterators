@@ -12,7 +12,6 @@ namespace loophp\iterators;
 use Generator;
 use IteratorAggregate;
 use MultipleIterator;
-use Traversable;
 
 // phpcs:disable Generic.Files.LineLength.TooLong
 
@@ -47,7 +46,7 @@ final class MultipleIterableAggregate implements IteratorAggregate
     /**
      * @return Generator<array<int, TKey|null>, array<int, T|null>>
      */
-    public function getIterator(): Traversable
+    public function getIterator(): Generator
     {
         $mit = new MultipleIterator($this->flags);
 
