@@ -41,6 +41,6 @@ final class InfiniteIteratorAggregate implements IteratorAggregate
     {
         yield from $this->iterator;
 
-        return yield from $this->getIterator();
+        yield from $this->getIterator();
     }
 }
