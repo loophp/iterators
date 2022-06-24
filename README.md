@@ -32,6 +32,7 @@ The missing PHP iterators.
 * `PackIterableAggregate`
 * `PausableIteratorAggregate`
 * `RandomIterableAggregate`
+* `ReductionIterableAggregate`
 * `ResourceIteratorAggregate`
 * `SimpleCachingIteratorAggregate`
 * `StringIteratorAggregate`
@@ -310,6 +311,20 @@ foreach ($iterator as $v) {
 foreach ($iterator as $v) {
     var_dump($v);
 }
+```
+
+### ReductionIterableAggregate
+
+```php
+<?php
+
+$iterator = (new ReductionIterableAggregate(
+    range(0, 10),
+    static fn (int $carry, int $value, int $key, iterable $iterable): int => $carry + $value,
+    0
+));
+
+foreach ($iterator as $reduction) {} // [0, 1, 3, 6, 10, 15, 21, 28, 36, 45, 55]
 ```
 
 ## Code quality, tests, benchmarks
