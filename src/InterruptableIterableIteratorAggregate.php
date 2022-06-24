@@ -16,7 +16,7 @@ use IteratorAggregate;
  * @template TKey
  * @template T
  *
- * @implements IteratorAggregate<TKey, T>
+ * @implements IteratorAggregate<Generator<TKey, T>, array{0: TKey, 1: T}>
  */
 final class InterruptableIterableIteratorAggregate implements IteratorAggregate
 {
@@ -53,7 +53,7 @@ final class InterruptableIterableIteratorAggregate implements IteratorAggregate
     private function getGenerator(): Generator
     {
         foreach ($this->iterable as $key => $value) {
-            /** @var mixed $return */
+            /** @var string $return */
             $return = yield $key => $value;
 
             if (self::BREAK === $return) {
