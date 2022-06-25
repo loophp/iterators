@@ -5,10 +5,87 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.6.2](https://github.com/loophp/iterators/compare/1.6.1...1.6.2)
+## [1.6.13](https://github.com/loophp/iterators/compare/1.6.12...1.6.13)
 
 ### Commits
 
+- chore: Update commands to generate changelogs, get rid of docker. [`5887473`](https://github.com/loophp/iterators/commit/5887473c49e6ca87a9a4648ae392450b31048bfc)
+- Fix typing information [`171c65b`](https://github.com/loophp/iterators/commit/171c65ba6876e0277b77f7de33abd7861e6b61a6)
+
+## [1.6.12](https://github.com/loophp/iterators/compare/1.6.11...1.6.12) - 2022-06-24
+
+### Commits
+
+- feat: Add `ReductionIterableAggregate`. [`47c28f5`](https://github.com/loophp/iterators/commit/47c28f5e25ba89ad3f9f827cfeb4b3eec26ad4fc)
+- Minor change. [`d9b765b`](https://github.com/loophp/iterators/commit/d9b765b4aad65561e93d00a42d2180e711e35de1)
+
+## [1.6.11](https://github.com/loophp/iterators/compare/1.6.10...1.6.11) - 2022-06-24
+
+### Commits
+
+- Update typing information. [`cce4a61`](https://github.com/loophp/iterators/commit/cce4a61793fcedbac63fc05f1767ee22ad424a85)
+- Update typing information. [`1e17fc6`](https://github.com/loophp/iterators/commit/1e17fc66aabfc3fd92cb5ad7d4fa6a91b9c8dc91)
+- Replace `Traversable` with `Generator`. [`8b8ea0b`](https://github.com/loophp/iterators/commit/8b8ea0ba32f79974b8a113bf2228895f4ed08bc2)
+
+## [1.6.10](https://github.com/loophp/iterators/compare/1.6.9...1.6.10) - 2022-06-16
+
+### Commits
+
+- refactor: Update `UniqueIterableAggregate`. [`c356e63`](https://github.com/loophp/iterators/commit/c356e6360f4c3346bc524ad0e1e7514f021596b7)
+
+## [1.6.9](https://github.com/loophp/iterators/compare/1.6.8...1.6.9) - 2022-06-15
+
+### Commits
+
+- feat: add `ChunkIterableAggregate`. [`b736ca3`](https://github.com/loophp/iterators/commit/b736ca3531e479153da6b115990e48aa587bee33)
+
+## [1.6.8](https://github.com/loophp/iterators/compare/1.6.7...1.6.8) - 2022-06-15
+
+### Commits
+
+- feat: Add `MapIterableAggregate` and `FilterIterableAggregate`. [`6ea3e45`](https://github.com/loophp/iterators/commit/6ea3e45482564e5fd2a62c8e26eb5a5557a3b8bc)
+
+## [1.6.7](https://github.com/loophp/iterators/compare/1.6.6...1.6.7) - 2022-06-14
+
+### Commits
+
+- feat: Add `UniqueIterableAggregate`. [`eef38bc`](https://github.com/loophp/iterators/commit/eef38bcef437517919c455a23e97ccb9751125ac)
+
+## [1.6.6](https://github.com/loophp/iterators/compare/1.6.5...1.6.6) - 2022-06-13
+
+### Commits
+
+- fix: remove `mt_srand` from constructor method. [`3a55e45`](https://github.com/loophp/iterators/commit/3a55e45df7952ab6af34a7deeb65b9cdf7ec651d)
+
+## [1.6.5](https://github.com/loophp/iterators/compare/1.6.4...1.6.5) - 2022-06-13
+
+### Commits
+
+- feat: add `MersenneTwisterRNGIteratorAggregate`. [`f487185`](https://github.com/loophp/iterators/commit/f4871855be191488a9c4f284a54e9b949c1b7991)
+
+## [1.6.4](https://github.com/loophp/iterators/compare/1.6.3...1.6.4) - 2022-06-13
+
+### Commits
+
+- feat: Add `InterruptableIterableAggregate`. [`11c558a`](https://github.com/loophp/iterators/commit/11c558ad574ec47d805d572fe89682eae25284b7)
+
+## [1.6.3](https://github.com/loophp/iterators/compare/1.6.2...1.6.3) - 2022-06-03
+
+### Merged
+
+- chore(deps): Bump actions/stale from 4 to 5 [`#17`](https://github.com/loophp/iterators/pull/17)
+- chore(deps): Bump shivammathur/setup-php from 2.18.0 to 2.18.1 [`#16`](https://github.com/loophp/iterators/pull/16)
+
+### Commits
+
+- fix: Update SA of `SimpleCachingIteratorAggregate`. [`1010776`](https://github.com/loophp/iterators/commit/1010776a4c0f70ceb2eb4a7d71fc9246940138b7)
+- Fix Scrutinizer. [`856c521`](https://github.com/loophp/iterators/commit/856c5213259a3b024cbcbc8fc0c08ae9439dc1cf)
+
+## [1.6.2](https://github.com/loophp/iterators/compare/1.6.1...1.6.2) - 2022-03-27
+
+### Commits
+
+- docs: Add/update CHANGELOG. [`9f915e4`](https://github.com/loophp/iterators/commit/9f915e4a24c96690d7b543bd18ddc45310e8e093)
 - Revert "Prevent errors when the iterable is an already closed generator." [`e5690c7`](https://github.com/loophp/iterators/commit/e5690c7d3be2f833330af5b39b27a8dc4bfd565c)
 
 ## [1.6.1](https://github.com/loophp/iterators/compare/1.6.0...1.6.1) - 2022-03-26
