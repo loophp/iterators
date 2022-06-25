@@ -40,7 +40,7 @@ final class ReductionIterableAggregate implements IteratorAggregate
     /**
      * @param iterable<TKey, T> $iterable
      * @param (Closure(W, T, TKey, iterable<TKey, T>): W) $closure
-     * @param mixed $initial
+     * @param W $initial
      */
     public function __construct(iterable $iterable, Closure $closure, $initial)
     {
