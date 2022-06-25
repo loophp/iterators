@@ -59,8 +59,8 @@
         "sort-packages": true
     },
     "scripts": {
-        "changelog-unreleased": "docker-compose run auto_changelog -c .auto-changelog -u",
-        "changelog-version": "docker-compose run auto_changelog -c .auto-changelog -v",
+        "changelog-unreleased": "nix run github:loophp/nix-auto-changelog -- -c .auto-changelog -u",
+        "changelog-version": "nix run github:loophp/nix-auto-changelog -- -c .auto-changelog -v",
         "grumphp": "./vendor/bin/grumphp run",
         "infection": "vendor/bin/infection run -j 2"
     }
