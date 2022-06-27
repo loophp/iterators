@@ -46,11 +46,7 @@ final class PausableIteratorAggregate implements PausableIteratorAggregateInterf
      */
     public function getIterator(): Generator
     {
-        $iterator = $this->iteratorAggregate->getIterator();
-
-        $this->iterator = $iterator;
-
-        yield from $this->iterator;
+        yield from $this->iterator = $this->iteratorAggregate->getIterator();
     }
 
     /**
