@@ -5,10 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.6.13](https://github.com/loophp/iterators/compare/1.6.12...1.6.13)
+## [Unreleased](https://github.com/loophp/iterators/compare/1.6.13...HEAD)
 
 ### Commits
 
+- chore: Remove obsolete docker stuff. [`92d439c`](https://github.com/loophp/iterators/commit/92d439c212ad3f6f01fa2831d84567b866a687a0)
+- Autofix code style [`a727898`](https://github.com/loophp/iterators/commit/a727898ae511bf18c60b2982cce287ec162c997d)
+- Fix typing information. [`d58062e`](https://github.com/loophp/iterators/commit/d58062e524795c7e81fe5d4528782df8563e68a6)
+- Minor optimization. [`4513b92`](https://github.com/loophp/iterators/commit/4513b92acec0e2331f1318068821a0ec6e82431a)
+
+## [1.6.13](https://github.com/loophp/iterators/compare/1.6.12...1.6.13) - 2022-06-25
+
+### Commits
+
+- docs: Add/update CHANGELOG. [`4c04f6a`](https://github.com/loophp/iterators/commit/4c04f6a5449603817d9ea8806cef40df962dc6af)
 - chore: Update commands to generate changelogs, get rid of docker. [`5887473`](https://github.com/loophp/iterators/commit/5887473c49e6ca87a9a4648ae392450b31048bfc)
 - Fix typing information [`171c65b`](https://github.com/loophp/iterators/commit/171c65ba6876e0277b77f7de33abd7861e6b61a6)
 
