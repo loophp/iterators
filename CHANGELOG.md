@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Commits
 
+- chore: Remove obsolete docker stuff. [`227b90a`](https://github.com/loophp/iterators/commit/227b90ad86216214fc17f61c429bfd1075f96926)
+- docs: Update changelog. [`135aaf7`](https://github.com/loophp/iterators/commit/135aaf7cd560172d5aba5069431252737ae44dd3)
 - chore: Remove obsolete docker stuff. [`92d439c`](https://github.com/loophp/iterators/commit/92d439c212ad3f6f01fa2831d84567b866a687a0)
 - Autofix code style [`a727898`](https://github.com/loophp/iterators/commit/a727898ae511bf18c60b2982cce287ec162c997d)
 - Fix typing information. [`d58062e`](https://github.com/loophp/iterators/commit/d58062e524795c7e81fe5d4528782df8563e68a6)
