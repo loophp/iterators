@@ -11,6 +11,7 @@ namespace tests\loophp\iterators;
 
 use loophp\iterators\FilterIterableAggregate;
 use PHPUnit\Framework\TestCase;
+
 use function count;
 
 /**

@@ -12,6 +12,7 @@ namespace tests\loophp\iterators;
 use InvalidArgumentException;
 use loophp\iterators\ResourceIteratorAggregate;
 use PHPUnit\Framework\TestCase;
+
 use function is_resource;
 
 /**

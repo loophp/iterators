@@ -19,6 +19,7 @@ use loophp\iterators\TypedIteratorAggregate;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 use Traversable;
+
 use function gettype;
 
 /**

@@ -12,6 +12,7 @@ namespace tests\loophp\iterators;
 use Generator;
 use loophp\iterators\RandomIterableAggregate;
 use PHPUnit\Framework\TestCase;
+
 use function count;
 
 /**

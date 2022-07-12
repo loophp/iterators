@@ -11,6 +11,7 @@ namespace tests\loophp\iterators;
 
 use loophp\iterators\MapIterableAggregate;
 use PHPUnit\Framework\TestCase;
+
 use function gettype;
 
 /**
