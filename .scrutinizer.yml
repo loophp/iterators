@@ -1,5 +1,8 @@
 build:
     image: default-bionic
+    dependencies:
+        override:
+            - composer install --no-dev --no-interaction
     nodes:
         php81:
             environment:
@@ -11,7 +14,7 @@ build:
 
 filter:
     paths:
-        - 'src/*'
+        - "src/*"
 
 tools:
     external_code_coverage:
