@@ -2,7 +2,7 @@ build:
     image: default-bionic
     dependencies:
         override:
-            - composer install --no-dev --no-interaction
+            - composer install --no-dev --no-interaction --ignore-platform-req=ext-pcov
     nodes:
         php81:
             environment:
