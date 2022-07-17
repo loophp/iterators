@@ -20,7 +20,7 @@ use IteratorAggregate;
  * @template TKey
  * @template T
  *
- * @implements IteratorAggregate<TKey, T>
+ * @implements IteratorAggregate<array-key|TKey, T>
  */
 final class SimpleCachingIteratorAggregate implements IteratorAggregate
 {
@@ -44,7 +44,7 @@ final class SimpleCachingIteratorAggregate implements IteratorAggregate
     }
 
     /**
-     * @return Generator<TKey, T>
+     * @return Generator<array-key|TKey, T>
      */
     public function getIterator(): Generator
     {
