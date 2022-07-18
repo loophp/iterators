@@ -21,6 +21,12 @@ use IteratorAggregate;
  * @template T
  *
  * @implements IteratorAggregate<array-key|TKey, T>
+ *
+ * @deprecated This iterator is not reliable when keys have type different from
+ * int|string. The first loop keys are ok, but during the next loops, keys are
+ * replaced by integers. This is mostly due to the fact that the method
+ * CachingIterator::getCache returns an array.
+ * In order to circumvent that, use CachingIteratorAggregate instead.
  */
 final class SimpleCachingIteratorAggregate implements IteratorAggregate
 {

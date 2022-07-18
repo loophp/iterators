@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace loophp\iterators;
 
+use CachingIterator;
 use Generator;
 use Iterator;
 use IteratorAggregate;
@@ -24,16 +25,22 @@ use IteratorAggregate;
 final class CachingIteratorAggregate implements IteratorAggregate
 {
     /**
-     * @var SimpleCachingIteratorAggregate<int, array{0: TKey, 1:T}>
+     * // TODO: Remove this when PSalm 5 is released.
+     *
+     * @psalm-var CachingIterator<int, array{0: TKey, 1: T}>
+     * @phpstan-var CachingIterator<int, array{0: TKey, 1: T}, Generator<int, array{0: TKey, 1: T}>>
      */
-    private SimpleCachingIteratorAggregate $cachingIterator;
+    private CachingIterator $iterator;
 
     /**
      * @param Iterator<TKey, T> $iterator
      */
     public function __construct(Iterator $iterator)
     {
-        $this->cachingIterator = new SimpleCachingIteratorAggregate((new PackIterableAggregate($iterator))->getIterator());
+        $this->iterator = new CachingIterator(
+            (new PackIterableAggregate($iterator))->getIterator(),
+            CachingIterator::FULL_CACHE
+        );
     }
 
     /**
@@ -41,11 +48,21 @@ final class CachingIteratorAggregate implements IteratorAggregate
      */
     public function getIterator(): Generator
     {
-        yield from (new UnpackIterableAggregate($this->cachingIterator))->getIterator();
+        foreach ($this->iterator->getCache() as [$key, $current]) {
+            yield $key => $current;
+        }
+
+        while ($this->iterator->hasNext()) {
+            $this->iterator->next();
+
+            [$key, $current] = $this->iterator->current();
+
+            yield $key => $current;
+        }
     }
 
     public function hasNext(): bool
     {
-        return $this->cachingIterator->hasNext();
+        return $this->iterator->hasNext();
     }
 }

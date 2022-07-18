@@ -23,21 +23,21 @@ use loophp\iterators\Contract\PausableIteratorAggregateInterface;
 final class PausableIteratorAggregate implements PausableIteratorAggregateInterface
 {
     /**
-     * @var Iterator<TKey, T>
+     * @var Iterator<int, array{0:TKey, 1:T}>
      */
     private Iterator $iterator;
 
     /**
-     * @var CachingIteratorAggregate<TKey, T>
+     * @var PackIterableAggregate<TKey, T>
      */
-    private CachingIteratorAggregate $iteratorAggregate;
+    private PackIterableAggregate $iteratorAggregate;
 
     /**
      * @param Iterator<TKey, T> $iterator
      */
     public function __construct(Iterator $iterator)
     {
-        $this->iteratorAggregate = new CachingIteratorAggregate($iterator);
+        $this->iteratorAggregate = new PackIterableAggregate(new CachingIteratorAggregate($iterator));
         $this->iterator = new ArrayIterator();
     }
 
@@ -46,7 +46,11 @@ final class PausableIteratorAggregate implements PausableIteratorAggregateInterf
      */
     public function getIterator(): Generator
     {
-        yield from $this->iterator = $this->iteratorAggregate->getIterator();
+        $this->iterator = $this->iteratorAggregate->getIterator();
+
+        foreach ($this->iterator as [$key, $value]) {
+            yield $key => $value;
+        }
     }
 
     /**
@@ -54,10 +58,10 @@ final class PausableIteratorAggregate implements PausableIteratorAggregateInterf
      */
     public function rest(): Generator
     {
-        $this->iterator->next();
-
         for ($this->iterator->next(); $this->iterator->valid(); $this->iterator->next()) {
-            yield $this->iterator->key() => $this->iterator->current();
+            [$key, $current] = $this->iterator->current();
+
+            yield $key => $current;
         }
     }
 }
