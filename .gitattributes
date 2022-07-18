@@ -17,8 +17,6 @@ infection.json export-ignore
 LICENSE export-ignore
 Makefile export-ignore
 phpbench.json export-ignore
-phpstan.neon.dist export-ignore
 phpunit.xml export-ignore
-psalm-baseline.xml export-ignore
 psalm.xml export-ignore
 README.md export-ignore

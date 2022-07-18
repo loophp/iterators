@@ -1,6 +1,0 @@
-parameters:
-	ignoreErrors:
-		-
-			message: "#^Generator expects key type TKey, \\(int\\|string\\) given\\.$#"
-			count: 1
-			path: src/ConcatIterableAggregate.php
