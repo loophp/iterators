@@ -23,7 +23,7 @@ jobs:
                   git config --global core.eol lf
 
             - name: Install PHP
-              uses: shivammathur/setup-php@2.18.1
+              uses: shivammathur/setup-php@2.21.0
               with:
                   php-version: ${{ matrix.php-versions }}
                   coverage: none
