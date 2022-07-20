@@ -9,6 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Commits
 
+- fix: Reduce amount of local variables thanks to PHPStan fix. [`4ad921f`](https://github.com/loophp/iterators/commit/4ad921f2f03352cab4b43aacf1da9ca3388ea394)
+- fix: Fix typing. [`95da1a1`](https://github.com/loophp/iterators/commit/95da1a16b0cc96c92536183a47c75d83c6c03ecd)
+- chore: Update composer scripts. [`2923f73`](https://github.com/loophp/iterators/commit/2923f7351745879bebef561ebfe1a1d36ee4b173)
+- fix: Deprecate `SimpleCachingIteratorAggregate`. [`c485047`](https://github.com/loophp/iterators/commit/c48504787fa5e0e7345e4303e9a5739171890ed9)
+- chore: Cleanup in `.gitattributes`. [`f4e3d2b`](https://github.com/loophp/iterators/commit/f4e3d2b6b89c9a7dfc351848a0860805b6a05de1)
+- fix: Static analysis fix. [`de29db6`](https://github.com/loophp/iterators/commit/de29db6ae185545ec4008b3da8935f79e84e7208)
+- fix: Static analysis fix. [`cb54a40`](https://github.com/loophp/iterators/commit/cb54a40e3312e4aabeff3a33cb395fddab67cda4)
+- ci: Update Scrutinizer configuration. [`985b867`](https://github.com/loophp/iterators/commit/985b867e65162eaab556300f5cb238ba157826d9)
+- ci: Update Scrutinizer configuration. [`31841bb`](https://github.com/loophp/iterators/commit/31841bbfaf66ae77045a22a26e44f02837c05ced)
+- chore: Minor configuration modification of PHPUnit and Infection. [`87a16f8`](https://github.com/loophp/iterators/commit/87a16f8a95b288e406ca9018a5578ab27749eb9b)
+- Autofix code style. [`a4373f8`](https://github.com/loophp/iterators/commit/a4373f8da02774e58d1d10e605e087c47f6e7648)
+- chore: Remove docker stuff. [`582b214`](https://github.com/loophp/iterators/commit/582b214cb8035ce02386b9f00fe18db932a49bdb)
+- docs: Update changelog. [`fb30030`](https://github.com/loophp/iterators/commit/fb300304f566e9257331787dfc9620d494e41bac)
 - chore: Remove obsolete docker stuff. [`227b90a`](https://github.com/loophp/iterators/commit/227b90ad86216214fc17f61c429bfd1075f96926)
 - docs: Update changelog. [`135aaf7`](https://github.com/loophp/iterators/commit/135aaf7cd560172d5aba5069431252737ae44dd3)
 - chore: Remove obsolete docker stuff. [`92d439c`](https://github.com/loophp/iterators/commit/92d439c212ad3f6f01fa2831d84567b866a687a0)
