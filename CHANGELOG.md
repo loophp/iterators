@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Commits
 
+- **Breaking change:** refactor: Rename `TypedIteratorAggregate` into `TypedIterableAggregate`. [`684a018`](https://github.com/loophp/iterators/commit/684a0181711fb6a5864069da67a5b0d5dba7944a)
+- docs: Update README. [`eaddfcf`](https://github.com/loophp/iterators/commit/eaddfcf893932f6c6c222fbfef0e376cb396b8f4)
+- docs: Update CHANGELOG.md [`64685ee`](https://github.com/loophp/iterators/commit/64685ee6303205571ef117d06d4162b7c2b381eb)
 - fix: Reduce amount of local variables thanks to PHPStan fix. [`4ad921f`](https://github.com/loophp/iterators/commit/4ad921f2f03352cab4b43aacf1da9ca3388ea394)
 - fix: Fix typing. [`95da1a1`](https://github.com/loophp/iterators/commit/95da1a16b0cc96c92536183a47c75d83c6c03ecd)
 - chore: Update composer scripts. [`2923f73`](https://github.com/loophp/iterators/commit/2923f7351745879bebef561ebfe1a1d36ee4b173)
