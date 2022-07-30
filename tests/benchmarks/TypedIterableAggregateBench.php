@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace benchmarks\loophp\iterators;
 
 use Generator;
-use loophp\iterators\TypedIteratorAggregate;
+use loophp\iterators\TypedIterableAggregate;
 use PhpBench\Benchmark\Metadata\Annotations\Groups;
 use PhpBench\Benchmark\Metadata\Annotations\ParamProviders;
 use PhpBench\Benchmark\Metadata\Annotations\Sleep;
@@ -19,7 +19,7 @@ use PhpBench\Benchmark\Metadata\Annotations\Sleep;
  * @Groups({"ci", "local"})
  * @Sleep(500)
  */
-final class TypedIteratorAggregateBench extends IteratorBenchmark
+final class TypedIterableAggregateBench extends IteratorBenchmark
 {
     /**
      * @ParamProviders("provideGenerators")
@@ -36,8 +36,8 @@ final class TypedIteratorAggregateBench extends IteratorBenchmark
     {
         $items = 2500;
 
-        yield 'TypedIteratorAggregate' => [
-            'class' => TypedIteratorAggregate::class,
+        yield 'TypedIterableAggregate' => [
+            'class' => TypedIterableAggregate::class,
             'size' => $items,
         ];
     }

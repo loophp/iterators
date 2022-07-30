@@ -15,7 +15,7 @@ use Generator;
 use InvalidArgumentException;
 use IteratorAggregate;
 use JsonSerializable;
-use loophp\iterators\TypedIteratorAggregate;
+use loophp\iterators\TypedIterableAggregate;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 use Traversable;
@@ -26,7 +26,7 @@ use function gettype;
  * @internal
  * @coversDefaultClass \loophp\iterators
  */
-final class TypedIteratorAggregateTest extends TestCase
+final class TypedIterableAggregateTest extends TestCase
 {
     private const LIST_DATA = [1, 2, 3];
 
@@ -36,7 +36,7 @@ final class TypedIteratorAggregateTest extends TestCase
     {
         $input = [self::MAP_DATA, self::LIST_DATA];
         $expected = $input;
-        $iterator = new TypedIteratorAggregate(new ArrayIterator($input));
+        $iterator = new TypedIterableAggregate(new ArrayIterator($input));
 
         self::assertSame($expected, iterator_to_array($iterator));
     }
@@ -55,7 +55,7 @@ final class TypedIteratorAggregateTest extends TestCase
 
         $input = [new $obj1(), new $obj2()];
         $expected = $input;
-        $iterator = new TypedIteratorAggregate(new ArrayIterator($input), $callback);
+        $iterator = new TypedIterableAggregate(new ArrayIterator($input), $callback);
 
         self::assertSame($expected, iterator_to_array($iterator));
     }
@@ -88,7 +88,7 @@ final class TypedIteratorAggregateTest extends TestCase
 
         $input = [new $obj1(), new $obj2()];
         $expected = $input;
-        $iterator = new TypedIteratorAggregate(new ArrayIterator($input));
+        $iterator = new TypedIterableAggregate(new ArrayIterator($input));
 
         self::assertSame($expected, iterator_to_array($iterator));
     }
@@ -112,7 +112,7 @@ final class TypedIteratorAggregateTest extends TestCase
         $input = [new $obj1(), new $obj2()];
         $expected = $input;
 
-        $iterator = new TypedIteratorAggregate(new ArrayIterator($input));
+        $iterator = new TypedIterableAggregate(new ArrayIterator($input));
         self::assertSame($expected, iterator_to_array($iterator));
     }
 
@@ -145,7 +145,7 @@ final class TypedIteratorAggregateTest extends TestCase
         $input = [new $obj1(), new $obj2()];
         $expected = $input;
 
-        $iterator = new TypedIteratorAggregate(new ArrayIterator($input));
+        $iterator = new TypedIterableAggregate(new ArrayIterator($input));
         self::assertSame($expected, iterator_to_array($iterator));
     }
 
@@ -153,7 +153,7 @@ final class TypedIteratorAggregateTest extends TestCase
     {
         $input = [1, null, 3];
         $expected = $input;
-        $iterator = new TypedIteratorAggregate(new ArrayIterator($input));
+        $iterator = new TypedIterableAggregate(new ArrayIterator($input));
         self::assertSame($expected, iterator_to_array($iterator));
     }
 
@@ -168,7 +168,7 @@ final class TypedIteratorAggregateTest extends TestCase
 
         $input = [new $obj(), new $obj()];
         $expected = $input;
-        $iterator = new TypedIteratorAggregate(new ArrayIterator($input));
+        $iterator = new TypedIterableAggregate(new ArrayIterator($input));
         self::assertSame($expected, iterator_to_array($iterator));
     }
 
@@ -188,7 +188,7 @@ final class TypedIteratorAggregateTest extends TestCase
 
         $input = [new $obj(), new $obj()];
         $expected = $input;
-        $iterator = new TypedIteratorAggregate(new ArrayIterator($input));
+        $iterator = new TypedIterableAggregate(new ArrayIterator($input));
         self::assertSame($expected, iterator_to_array($iterator));
     }
 
@@ -202,13 +202,13 @@ final class TypedIteratorAggregateTest extends TestCase
 
         $input = [new $obj1(), new $obj2()];
         $expected = $input;
-        $iterator = new TypedIteratorAggregate(new ArrayIterator($input));
+        $iterator = new TypedIterableAggregate(new ArrayIterator($input));
         self::assertSame($expected, iterator_to_array($iterator));
     }
 
     public function testDisallowsBoolMixed(): void
     {
-        $iterator = (new TypedIteratorAggregate(new ArrayIterator([true, false, 'bar'])))->getIterator();
+        $iterator = (new TypedIterableAggregate(new ArrayIterator([true, false, 'bar'])))->getIterator();
         $iterator->next();
 
         $this->expectException(InvalidArgumentException::class);
@@ -228,7 +228,7 @@ final class TypedIteratorAggregateTest extends TestCase
         $obj2 = new stdClass();
 
         $input = [new $obj1(), new $obj2()];
-        $iterator = (new TypedIteratorAggregate(new ArrayIterator($input)))->getIterator();
+        $iterator = (new TypedIterableAggregate(new ArrayIterator($input)))->getIterator();
 
         $this->expectException(InvalidArgumentException::class);
 
@@ -238,7 +238,7 @@ final class TypedIteratorAggregateTest extends TestCase
     public function testDisallowsFloatMixed(): void
     {
         $input = [2.3, 5.6, 1];
-        $iterator = (new TypedIteratorAggregate(new ArrayIterator($input)))->getIterator();
+        $iterator = (new TypedIterableAggregate(new ArrayIterator($input)))->getIterator();
         $iterator->next();
         $this->expectException(InvalidArgumentException::class);
 
@@ -248,7 +248,7 @@ final class TypedIteratorAggregateTest extends TestCase
     public function testDisallowsIntMixed(): void
     {
         $input = [1, 2, 'foo'];
-        $iterator = (new TypedIteratorAggregate(new ArrayIterator($input)))->getIterator();
+        $iterator = (new TypedIterableAggregate(new ArrayIterator($input)))->getIterator();
 
         $iterator->next();
 
@@ -259,7 +259,7 @@ final class TypedIteratorAggregateTest extends TestCase
 
     public function testDisallowsMixedAtBeginning(): void
     {
-        $iterator = (new TypedIteratorAggregate(new ArrayIterator([1, 'bar', 'foo'])))->getIterator();
+        $iterator = (new TypedIterableAggregate(new ArrayIterator([1, 'bar', 'foo'])))->getIterator();
 
         $this->expectException(InvalidArgumentException::class);
 
@@ -268,7 +268,7 @@ final class TypedIteratorAggregateTest extends TestCase
 
     public function testDisallowsMixedInMiddle(): void
     {
-        $iterator = (new TypedIteratorAggregate(new ArrayIterator([1, 'bar', 2])))->getIterator();
+        $iterator = (new TypedIterableAggregate(new ArrayIterator([1, 'bar', 2])))->getIterator();
 
         $this->expectException(InvalidArgumentException::class);
 
@@ -292,7 +292,7 @@ final class TypedIteratorAggregateTest extends TestCase
         };
 
         $input = [new $obj1(), new $obj2()];
-        $iterator = (new TypedIteratorAggregate(new ArrayIterator($input)))->getIterator();
+        $iterator = (new TypedIterableAggregate(new ArrayIterator($input)))->getIterator();
 
         $this->expectException(InvalidArgumentException::class);
 
@@ -316,7 +316,7 @@ final class TypedIteratorAggregateTest extends TestCase
         };
 
         $input = [new $obj1(), new $obj2()];
-        $iterator = (new TypedIteratorAggregate(new ArrayIterator($input)))->getIterator();
+        $iterator = (new TypedIterableAggregate(new ArrayIterator($input)))->getIterator();
 
         $this->expectException(InvalidArgumentException::class);
 
@@ -330,7 +330,7 @@ final class TypedIteratorAggregateTest extends TestCase
         fclose($closedResource);
 
         $input = [$openResource, $closedResource];
-        $iterator = (new TypedIteratorAggregate(new ArrayIterator($input)))->getIterator();
+        $iterator = (new TypedIterableAggregate(new ArrayIterator($input)))->getIterator();
 
         $this->expectException(InvalidArgumentException::class);
 
@@ -339,7 +339,7 @@ final class TypedIteratorAggregateTest extends TestCase
 
     public function testDisallowsStringMixed(): void
     {
-        $iterator = (new TypedIteratorAggregate(new ArrayIterator(['foo', 'bar', 3])))->getIterator();
+        $iterator = (new TypedIterableAggregate(new ArrayIterator(['foo', 'bar', 3])))->getIterator();
 
         $iterator->next();
 
@@ -350,7 +350,7 @@ final class TypedIteratorAggregateTest extends TestCase
 
     public function testIsInitializableFromArray(): void
     {
-        $iterator = (new TypedIteratorAggregate(new ArrayIterator(self::LIST_DATA)))->getIterator();
+        $iterator = (new TypedIterableAggregate(new ArrayIterator(self::LIST_DATA)))->getIterator();
 
         self::assertTrue($iterator->valid());
 
@@ -362,7 +362,7 @@ final class TypedIteratorAggregateTest extends TestCase
     {
         $gen = static fn (): Generator => yield from self::MAP_DATA;
 
-        $iterator = (new TypedIteratorAggregate($gen()))->getIterator();
+        $iterator = (new TypedIterableAggregate($gen()))->getIterator();
 
         self::assertTrue($iterator->valid());
         $expected = self::MAP_DATA;
@@ -371,7 +371,7 @@ final class TypedIteratorAggregateTest extends TestCase
 
     public function testIsInitializableFromIterator(): void
     {
-        $iterator = (new TypedIteratorAggregate(new ArrayIterator(self::LIST_DATA)))->getIterator();
+        $iterator = (new TypedIterableAggregate(new ArrayIterator(self::LIST_DATA)))->getIterator();
 
         self::assertTrue($iterator->valid());
         $expected = self::LIST_DATA;
@@ -380,7 +380,7 @@ final class TypedIteratorAggregateTest extends TestCase
 
     public function testReturnAnIntKey(): void
     {
-        $iterator = (new TypedIteratorAggregate(new ArrayIterator(self::LIST_DATA)))->getIterator();
+        $iterator = (new TypedIterableAggregate(new ArrayIterator(self::LIST_DATA)))->getIterator();
 
         self::assertSame(0, $iterator->key());
         $iterator->next();
@@ -389,7 +389,7 @@ final class TypedIteratorAggregateTest extends TestCase
 
     public function testReturnAStringKey(): void
     {
-        $iterator = (new TypedIteratorAggregate(new ArrayIterator(self::MAP_DATA)))->getIterator();
+        $iterator = (new TypedIterableAggregate(new ArrayIterator(self::MAP_DATA)))->getIterator();
 
         self::assertSame('foo', $iterator->key());
         $iterator->next();
@@ -398,7 +398,7 @@ final class TypedIteratorAggregateTest extends TestCase
 
     public function testRewind(): void
     {
-        $iteratorAggregate = new TypedIteratorAggregate(new ArrayIterator(['foo']));
+        $iteratorAggregate = new TypedIterableAggregate(new ArrayIterator(['foo']));
 
         $iterator = $iteratorAggregate->getIterator();
 
@@ -417,7 +417,7 @@ final class TypedIteratorAggregateTest extends TestCase
     {
         $input = ['a' => null, 'b' => null];
         $expected = $input;
-        $iterator = new TypedIteratorAggregate(new ArrayIterator($input));
+        $iterator = new TypedIterableAggregate(new ArrayIterator($input));
 
         self::assertSame($expected, iterator_to_array($iterator));
     }

@@ -10,15 +10,12 @@ declare(strict_types=1);
 namespace loophp\iterators;
 
 use Generator;
-use InvalidArgumentException;
 use Iterator;
 use IteratorAggregate;
 
-use function get_class;
-use function gettype;
-use function is_object;
-
 /**
+ * @deprecated Use TypedIterableAggregate for now on.
+ *
  * @template TKey
  * @template T
  *
@@ -27,14 +24,9 @@ use function is_object;
 final class TypedIteratorAggregate implements IteratorAggregate
 {
     /**
-     * @var callable(mixed): string
+     * @var TypedIterableAggregate<TKey, T>
      */
-    private $getType;
-
-    /**
-     * @var Iterator<TKey, T>
-     */
-    private Iterator $iterator;
+    private TypedIterableAggregate $iteratorAggregate;
 
     /**
      * @param Iterator<TKey, T> $iterator
@@ -42,27 +34,7 @@ final class TypedIteratorAggregate implements IteratorAggregate
      */
     public function __construct(Iterator $iterator, ?callable $getType = null)
     {
-        $this->iterator = $iterator;
-
-        $this->getType = $getType ??
-            /**
-             * @param mixed $variable
-             */
-            static function ($variable): string {
-                if (!is_object($variable)) {
-                    return gettype($variable);
-                }
-
-                $interfaces = class_implements($variable);
-
-                if ([] === $interfaces || false === $interfaces) {
-                    return get_class($variable);
-                }
-
-                sort($interfaces);
-
-                return implode(',', $interfaces);
-            };
+        $this->iteratorAggregate = new TypedIterableAggregate($iterator, $getType);
     }
 
     /**
@@ -70,29 +42,6 @@ final class TypedIteratorAggregate implements IteratorAggregate
      */
     public function getIterator(): Generator
     {
-        $previousType = null;
-
-        foreach ($this->iterator as $key => $value) {
-            if (null === $value) {
-                yield $key => $value;
-
-                continue;
-            }
-
-            $currentType = ($this->getType)($value);
-            $previousType ??= $currentType;
-
-            if ($currentType !== $previousType) {
-                throw new InvalidArgumentException(
-                    sprintf(
-                        "Detected mixed types: '%s' and '%s' !",
-                        $previousType,
-                        $currentType
-                    )
-                );
-            }
-
-            yield $key => $value;
-        }
+        return $this->iteratorAggregate->getIterator();
     }
 }

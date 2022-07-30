@@ -36,7 +36,7 @@ The missing PHP iterators.
 * `ResourceIteratorAggregate`
 * `SimpleCachingIteratorAggregate`
 * `StringIteratorAggregate`
-* `TypedIteratorAggregate`
+* `TypedIterableAggregate`
 * `UniqueIterableAggregate`
 * `UnpackIterableAggregate`
 

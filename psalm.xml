@@ -9,7 +9,9 @@
         <directory name="./tests/static-analysis" />
         <ignoreFiles>
             <directory name="vendor" />
+            <directory name="vendor" />
             <directory name="tests/unit/" />
+            <file name="src/TypedIteratorAggregate.php" />
         </ignoreFiles>
     </projectFiles>
 </psalm>
