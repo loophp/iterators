@@ -346,9 +346,16 @@ Static analyzers are also controlling the code. [PHPStan][38] and
 
 ## Contributing
 
-Feel free to contribute by sending Github pull requests. I'm quite responsive :-)
+Feel free to contribute by sending pull requests. We are a
+usually very responsive team and we will help you going
+through your pull request from the beginning to the end.
 
-If you can't contribute to the code, you can also sponsor me on [Github][5].
+For some reasons, if you can't contribute to the code and
+willing to help, sponsoring is a good, sound and safe way
+to show us some gratitude for the hours we invested in this
+package.
+
+Sponsor me on [Github][5] and/or any of [the contributors][6].
 
 ## Changelog
 
@@ -357,14 +364,17 @@ See [CHANGELOG.md][43] for a changelog based on [git commits][44].
 For more detailed changelogs, please check [the release changelogs][45].
 
 [1]: https://packagist.org/packages/loophp/iterators
+[2]: https://github.com/loophp/iterators/actions
+[3]: https://scrutinizer-ci.com/g/loophp/iterators/?branch=main
+[4]: https://shepherd.dev/github/loophp/iterators
+[5]: https://github.com/sponsors/drupol
+[6]: https://github.com/loophp/iterators/graphs/contributors
 [latest stable version]: https://img.shields.io/packagist/v/loophp/iterators.svg?style=flat-square
 [github stars]: https://img.shields.io/github/stars/loophp/iterators.svg?style=flat-square
 [total downloads]: https://img.shields.io/packagist/dt/loophp/iterators.svg?style=flat-square
 [github workflow status]: https://img.shields.io/github/workflow/status/loophp/iterators/Unit%20tests?style=flat-square
 [code quality]: https://img.shields.io/scrutinizer/quality/g/loophp/iterators/main.svg?style=flat-square
-[3]: https://scrutinizer-ci.com/g/loophp/iterators/?branch=main
 [type coverage]: https://img.shields.io/badge/dynamic/json?style=flat-square&color=color&label=Type%20coverage&query=message&url=https%3A%2F%2Fshepherd.dev%2Fgithub%2Floophp%2Fiterators%2Fcoverage
-[4]: https://shepherd.dev/github/loophp/iterators
 [code coverage]: https://img.shields.io/scrutinizer/coverage/g/loophp/iterators/main.svg?style=flat-square
 [license]: https://img.shields.io/packagist/l/loophp/iterators.svg?style=flat-square
 [donate github]: https://img.shields.io/badge/Sponsor-Github-brightgreen.svg?style=flat-square
@@ -372,13 +382,11 @@ For more detailed changelogs, please check [the release changelogs][45].
 [mutation badge image]: https://img.shields.io/endpoint?style=flat-square&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Floophp%2Fiterators%2Fmain
 [mutation badge link]: https://dashboard.stryker-mutator.io/reports/github.com/loophp/iterators/main
 [34]: https://github.com/loophp/iterators/issues
-[2]: https://github.com/loophp/iterators/actions
 [35]: https://www.phpunit.de/
 [36]: https://github.com/phpro/grumphp
 [37]: https://github.com/infection/infection
 [38]: https://github.com/phpstan/phpstan
 [39]: https://github.com/vimeo/psalm
-[5]: https://github.com/sponsors/drupol
 [43]: https://github.com/loophp/iterators/blob/main/CHANGELOG.md
 [44]: https://github.com/loophp/iterators/commits/main
 [45]: https://github.com/loophp/iterators/releases
