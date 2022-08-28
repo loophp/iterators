@@ -2,9 +2,15 @@
 
 on:
     push:
+        paths:
+            - "src/**.php"
+            - "tests/**.php"
         branches:
             - main
     pull_request:
+        paths:
+            - "src/**.php"
+            - "tests/**.php"
 
 name: "Mutations testing"
 
@@ -26,36 +32,23 @@ jobs:
 
             - name: Checkout
               uses: actions/checkout@v3
-              with:
-                  fetch-depth: 1
 
             - name: Install PHP
-              uses: shivammathur/setup-php@2.18.1
+              uses: shivammathur/setup-php@v2
               with:
                   php-version: ${{ matrix.php-versions }}
-                  extensions: gd,mbstring,pcov
-
-            - name: Get Composer Cache Directory
-              id: composer-cache
-              run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-
-            - name: Cache dependencies
-              uses: actions/cache@v3
-              with:
-                  path: ${{ steps.composer-cache.outputs.dir }}
-                  key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
-                  restore-keys: ${{ runner.os }}-composer-
+                  coverage: pcov
+                  extensions: gd,mbstring
 
             - name: Install dependencies
-              run: composer install --no-progress --prefer-dist --optimize-autoloader
+              uses: ramsey/composer-install@v2
 
             - name: Run Grumphp
               env:
                   STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
-              run: XDEBUG_MODE=coverage vendor/bin/grumphp run --tasks=infection -n
+              run: vendor/bin/grumphp run --tasks=infection -n
 
             - name: Send feedback on Github
-              env:
-                  STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
+              if: ${{ failure() }}
               run: |
-                  XDEBUG_MODE=coverage vendor/bin/infection -j2 --logger-github
+                  vendor/bin/infection -j2 --logger-github

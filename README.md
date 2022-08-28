@@ -1,13 +1,13 @@
 [![Latest Stable Version][latest stable version]][1]
- [![GitHub stars][github stars]][1]
- [![Total Downloads][total downloads]][1]
- [![GitHub Workflow Status][github workflow status]][2]
- [![Scrutinizer code quality][code quality]][3]
- [![Type Coverage][type coverage]][4]
- [![Code Coverage][code coverage]][3]
- [![Mutation testing badge][mutation badge image]][mutation badge link]
- [![License][license]][1]
- [![Donate!][donate github]][5]
+[![GitHub stars][github stars]][1]
+[![Total Downloads][total downloads]][1]
+[![GitHub Workflow Status][github workflow status]][2]
+[![Scrutinizer code quality][code quality]][3]
+[![Type Coverage][type coverage]][4]
+[![Code Coverage][code coverage]][3]
+[![Mutation testing badge][mutation badge image]][mutation badge link]
+[![License][license]][1]
+[![Donate!][donate github]][5]
 
 # PHP Iterators
 
@@ -17,32 +17,32 @@ The missing PHP iterators.
 
 ## Features
 
-* `CachingIteratorAggregate`
-* `ChunkIterableAggregate`
-* `ClosureIterator`: `ClosureIterator(callable $callable, array $arguments = [])`
-* `ClosureIteratorAggregate`: `ClosureIteratorAggregate(callable $callable, array $arguments = [])`
-* `ConcatIterableAggregate`
-* `FilterIterableAggregate`
-* `InterruptableIterableIteratorAggregate`: `InterruptableIterableIteratorAggregate(iterable $iterable)`
-* `IterableIterator`: `IterableIterator(iterable $iterable)`
-* `IterableIteratorAggregate`: `IterableIteratorAggregate(iterable $iterable)`
-* `MapIterableAggregate`
-* `MersenneTwisterRNGIteratorAggregate`
-* `MultipleIterableAggregate`
-* `PackIterableAggregate`
-* `PausableIteratorAggregate`
-* `RandomIterableAggregate`
-* `ReductionIterableAggregate`
-* `ResourceIteratorAggregate`
-* `SimpleCachingIteratorAggregate`
-* `StringIteratorAggregate`
-* `TypedIterableAggregate`
-* `UniqueIterableAggregate`
-* `UnpackIterableAggregate`
+- `CachingIteratorAggregate`
+- `ChunkIterableAggregate`
+- `ClosureIterator`: `ClosureIterator(callable $callable, array $arguments = [])`
+- `ClosureIteratorAggregate`: `ClosureIteratorAggregate(callable $callable, array $arguments = [])`
+- `ConcatIterableAggregate`
+- `FilterIterableAggregate`
+- `InterruptableIterableIteratorAggregate`: `InterruptableIterableIteratorAggregate(iterable $iterable)`
+- `IterableIterator`: `IterableIterator(iterable $iterable)`
+- `IterableIteratorAggregate`: `IterableIteratorAggregate(iterable $iterable)`
+- `MapIterableAggregate`
+- `MersenneTwisterRNGIteratorAggregate`
+- `MultipleIterableAggregate`
+- `PackIterableAggregate`
+- `PausableIteratorAggregate`
+- `RandomIterableAggregate`
+- `ReductionIterableAggregate`
+- `ResourceIteratorAggregate`
+- `SimpleCachingIteratorAggregate`
+- `StringIteratorAggregate`
+- `TypedIterableAggregate`
+- `UniqueIterableAggregate`
+- `UnpackIterableAggregate`
 
 ## Installation
 
-```composer require loophp/iterators```
+`composer require loophp/iterators`
 
 ## Usage
 

@@ -53,13 +53,13 @@ jobs:
 
             - name: Clear vendor files
               run: |
-                rm -rf vendor composer.lock
+                  rm -rf vendor composer.lock
 
             - name: Checkout
               uses: actions/checkout@v3
               with:
-                clean: false
-                fetch-depth: 1
+                  clean: false
+                  fetch-depth: 1
 
             - name: Install dependencies
               run: composer install --no-progress --prefer-dist --optimize-autoloader

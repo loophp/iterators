@@ -1,9 +1,7 @@
 {
     "timeout": 120,
     "source": {
-        "directories": [
-            "src"
-        ]
+        "directories": ["src"]
     },
     "tmpDir": "build/logs/coverage/coverage-xml",
     "logs": {
@@ -17,5 +15,5 @@
             "report": "main"
         }
     },
-    "testFramework":"phpunit"
+    "testFramework": "phpunit"
 }

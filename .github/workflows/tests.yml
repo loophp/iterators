@@ -2,22 +2,36 @@
 
 on:
     push:
+        paths:
+            - "**.php"
         branches:
             - main
     pull_request:
+        paths:
+            - "**.php"
 
 name: "Unit tests"
 
 jobs:
-    run:
+    supported-versions-matrix:
+        name: Supported Versions Matrix
+        runs-on: ubuntu-latest
+        outputs:
+            version: ${{ steps.supported-versions-matrix.outputs.version }}
+        steps:
+            - uses: actions/checkout@v3
+            - id: supported-versions-matrix
+              uses: WyriHaximus/github-action-composer-php-versions-in-range@v1
+    tests:
         name: "Unit Tests"
         runs-on: ${{ matrix.operating-system }}
+        needs:
+            - supported-versions-matrix
         strategy:
             fail-fast: false
             matrix:
                 operating-system: [ubuntu-latest, windows-latest, macOS-latest]
-                php-versions: ["8.1"]
-
+                php: ${{ fromJson(needs.supported-versions-matrix.outputs.version) }}
         steps:
             - name: Set git to use LF
               run: |
@@ -26,32 +40,17 @@ jobs:
 
             - name: Checkout
               uses: actions/checkout@v3
-              with:
-                  fetch-depth: 2
 
             - name: Install PHP
-              uses: shivammathur/setup-php@2.18.1
+              uses: shivammathur/setup-php@v2
               with:
-                  php-version: ${{ matrix.php-versions }}
-                  extensions: gd,mbstring,pcov,xdebug
-
-            - name: Get Composer Cache Directory
-              id: composer-cache
-              run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-
-            - name: Cache dependencies
-              uses: actions/cache@v3
-              with:
-                  path: ${{ steps.composer-cache.outputs.dir }}
-                  key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
-                  restore-keys: ${{ runner.os }}-composer-
+                  php-version: ${{ matrix.php }}
+                  coverage: pcov
 
             - name: Install dependencies
-              run: composer install --no-progress --prefer-dist --optimize-autoloader
+              uses: ramsey/composer-install@v2
 
             - name: Run Grumphp
-              env:
-                XDEBUG_MODE: coverage
               run: vendor/bin/grumphp run --tasks=phpunit,clover_coverage
 
             - name: Send Scrutinizer data
