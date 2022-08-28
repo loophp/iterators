@@ -10,20 +10,6 @@ parameters:
     tasks.phpcsfixer.diff: true
     tasks.phpcsfixer.config: .php-cs-fixer.dist.php
 
-    # PHPCS
-    tasks.phpcs.ignore_patterns:
-        - "/.github/"
-        - "/.idea/"
-        - "/build/"
-        - "/benchmarks/"
-        - "/docs/"
-        - "/node_modules/"
-        - "/resource/"
-        - "/spec/"
-        - "/tests/"
-        - "/var/"
-        - "/vendor/"
-
     # PHPStan
     tasks.phpstan.level: 8
     tasks.phpstan.blocking: true
