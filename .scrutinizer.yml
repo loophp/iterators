@@ -1,20 +1,23 @@
 build:
     image: default-bionic
-    dependencies:
-        override:
-            - composer install --no-dev --no-interaction --ignore-platform-req=ext-pcov
     nodes:
         php81:
             environment:
                 php:
                     version: 8.1
+            dependencies:
+                before:
+                    - pecl install pcov
             tests:
                 override:
                     - php-scrutinizer-run
-
+        coverage:
+            dependencies:
+                before:
+                    - pecl install pcov
 filter:
     paths:
-        - "src/*"
+        - 'src/*'
 
 tools:
     external_code_coverage:
