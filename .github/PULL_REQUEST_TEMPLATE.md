@@ -8,6 +8,4 @@ This PR:
 - [ ] Has documentation
 - [ ] Is an experimental thing
 
-Follows #.
-Related to #.
-Fixes #.
+Follows #. Related to #. Fixes #.

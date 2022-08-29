@@ -23,7 +23,7 @@ branches:
                   - "Mutation Testing (ubuntu-latest, 8.1)"
                   - "Code Style (ubuntu-latest, 7.4)"
                   - "Code Style (ubuntu-latest, 8.1)"
-
+                  - "prettier"
           restrictions: null
           required_linear_history: true
 

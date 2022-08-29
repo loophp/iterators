@@ -1,13 +1,10 @@
 [![Latest Stable Version][latest stable version]][1]
-[![GitHub stars][github stars]][1]
-[![Total Downloads][total downloads]][1]
+[![GitHub stars][github stars]][1] [![Total Downloads][total downloads]][1]
 [![GitHub Workflow Status][github workflow status]][2]
 [![Scrutinizer code quality][code quality]][3]
-[![Type Coverage][type coverage]][4]
-[![Code Coverage][code coverage]][3]
+[![Type Coverage][type coverage]][4] [![Code Coverage][code coverage]][3]
 [![Mutation testing badge][mutation badge image]][mutation badge link]
-[![License][license]][1]
-[![Donate!][donate github]][5]
+[![License][license]][1] [![Donate!][donate github]][5]
 
 # PHP Iterators
 
@@ -19,11 +16,14 @@ The missing PHP iterators.
 
 - `CachingIteratorAggregate`
 - `ChunkIterableAggregate`
-- `ClosureIterator`: `ClosureIterator(callable $callable, array $arguments = [])`
-- `ClosureIteratorAggregate`: `ClosureIteratorAggregate(callable $callable, array $arguments = [])`
+- `ClosureIterator`:
+  `ClosureIterator(callable $callable, array $arguments = [])`
+- `ClosureIteratorAggregate`:
+  `ClosureIteratorAggregate(callable $callable, array $arguments = [])`
 - `ConcatIterableAggregate`
 - `FilterIterableAggregate`
-- `InterruptableIterableIteratorAggregate`: `InterruptableIterableIteratorAggregate(iterable $iterable)`
+- `InterruptableIterableIteratorAggregate`:
+  `InterruptableIterableIteratorAggregate(iterable $iterable)`
 - `IterableIterator`: `IterableIterator(iterable $iterable)`
 - `IterableIteratorAggregate`: `IterableIteratorAggregate(iterable $iterable)`
 - `MapIterableAggregate`
@@ -48,15 +48,14 @@ The missing PHP iterators.
 
 ### CachingIteratorAggregate
 
-Let you cache any iterator. You then get [\Generators][49]
-rewindable for free.
+Let you cache any iterator. You then get [\Generators][49] rewindable for free.
 
-This implementation does not use internal state to keep track
-of the current position of the iterator.
-The underlying mechanism is based on [SPL \CachingIterator][48].
+This implementation does not use internal state to keep track of the current
+position of the iterator. The underlying mechanism is based on [SPL
+\CachingIterator][48].
 
-The pros of using that iterator is **performance**. It's blazing fast,
-it cannot compare to any other stateful custom implementations.
+The pros of using that iterator is **performance**. It's blazing fast, it cannot
+compare to any other stateful custom implementations.
 
 This iterator will cache keys and values, of any type.
 
@@ -269,21 +268,18 @@ foreach ($iteratorAggregate->rest() as $v) {
 
 ### RandomIterableAggregate
 
-In order to properly use this iterator, the user need to
-provide an extra parameter `seed`. By default, this parameter
-is set to zero and thus, the resulting iterator will be
-identical to the original one.
+In order to properly use this iterator, the user need to provide an extra
+parameter `seed`. By default, this parameter is set to zero and thus, the
+resulting iterator will be identical to the original one.
 
-Random items are selected by choosing a random integer between
-zero and the value of `seed`. If that value is zero, then the
-iterator will yield else it will skip the value and start
-again with the next one.
+Random items are selected by choosing a random integer between zero and the
+value of `seed`. If that value is zero, then the iterator will yield else it
+will skip the value and start again with the next one.
 
-The bigger the `seed` is, the bigger the entropy will be and
-the longer it will take to yield random items.
-It's then up to the user to choose an appropriate value.
-Usually a good value is twice the approximate amount of items
-the decorated iterator has.
+The bigger the `seed` is, the bigger the entropy will be and the longer it will
+take to yield random items. It's then up to the user to choose an appropriate
+value. Usually a good value is twice the approximate amount of items the
+decorated iterator has.
 
 If you're willing to iterate multiple times on this, use the
 `CachingIteratorAggregate` to cache the results.
@@ -329,11 +325,10 @@ foreach ($iterator as $reduction) {} // [0, 1, 3, 6, 10, 15, 21, 28, 36, 45, 55]
 
 ## Code quality, tests, benchmarks
 
-Every time changes are introduced into the library, [Github][2] runs the
-tests.
+Every time changes are introduced into the library, [Github][2] runs the tests.
 
-The library has tests written with [PHPUnit][35].
-Feel free to check them out in the `tests` directory.
+The library has tests written with [PHPUnit][35]. Feel free to check them out in
+the `tests` directory.
 
 Before each commit, some inspections are executed with [GrumPHP][36]; run
 `composer grumphp` to check manually.
@@ -341,19 +336,18 @@ Before each commit, some inspections are executed with [GrumPHP][36]; run
 The quality of the tests is tested with [Infection][37] a PHP Mutation testing
 framework - run `composer infection` to try it.
 
-Static analyzers are also controlling the code. [PHPStan][38] and
-[PSalm][39] are enabled to their maximum level.
+Static analyzers are also controlling the code. [PHPStan][38] and [PSalm][39]
+are enabled to their maximum level.
 
 ## Contributing
 
-Feel free to contribute by sending pull requests. We are a
-usually very responsive team and we will help you going
-through your pull request from the beginning to the end.
+Feel free to contribute by sending pull requests. We are a usually very
+responsive team and we will help you going through your pull request from the
+beginning to the end.
 
-For some reasons, if you can't contribute to the code and
-willing to help, sponsoring is a good, sound and safe way
-to show us some gratitude for the hours we invested in this
-package.
+For some reasons, if you can't contribute to the code and willing to help,
+sponsoring is a good, sound and safe way to show us some gratitude for the hours
+we invested in this package.
 
 Sponsor me on [Github][5] and/or any of [the contributors][6].
 
@@ -369,18 +363,30 @@ For more detailed changelogs, please check [the release changelogs][45].
 [4]: https://shepherd.dev/github/loophp/iterators
 [5]: https://github.com/sponsors/drupol
 [6]: https://github.com/loophp/iterators/graphs/contributors
-[latest stable version]: https://img.shields.io/packagist/v/loophp/iterators.svg?style=flat-square
-[github stars]: https://img.shields.io/github/stars/loophp/iterators.svg?style=flat-square
-[total downloads]: https://img.shields.io/packagist/dt/loophp/iterators.svg?style=flat-square
-[github workflow status]: https://img.shields.io/github/workflow/status/loophp/iterators/Unit%20tests?style=flat-square
-[code quality]: https://img.shields.io/scrutinizer/quality/g/loophp/iterators/main.svg?style=flat-square
-[type coverage]: https://img.shields.io/badge/dynamic/json?style=flat-square&color=color&label=Type%20coverage&query=message&url=https%3A%2F%2Fshepherd.dev%2Fgithub%2Floophp%2Fiterators%2Fcoverage
-[code coverage]: https://img.shields.io/scrutinizer/coverage/g/loophp/iterators/main.svg?style=flat-square
-[license]: https://img.shields.io/packagist/l/loophp/iterators.svg?style=flat-square
-[donate github]: https://img.shields.io/badge/Sponsor-Github-brightgreen.svg?style=flat-square
-[donate paypal]: https://img.shields.io/badge/Sponsor-Paypal-brightgreen.svg?style=flat-square
-[mutation badge image]: https://img.shields.io/endpoint?style=flat-square&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Floophp%2Fiterators%2Fmain
-[mutation badge link]: https://dashboard.stryker-mutator.io/reports/github.com/loophp/iterators/main
+[latest stable version]:
+  https://img.shields.io/packagist/v/loophp/iterators.svg?style=flat-square
+[github stars]:
+  https://img.shields.io/github/stars/loophp/iterators.svg?style=flat-square
+[total downloads]:
+  https://img.shields.io/packagist/dt/loophp/iterators.svg?style=flat-square
+[github workflow status]:
+  https://img.shields.io/github/workflow/status/loophp/iterators/Unit%20tests?style=flat-square
+[code quality]:
+  https://img.shields.io/scrutinizer/quality/g/loophp/iterators/main.svg?style=flat-square
+[type coverage]:
+  https://img.shields.io/badge/dynamic/json?style=flat-square&color=color&label=Type%20coverage&query=message&url=https%3A%2F%2Fshepherd.dev%2Fgithub%2Floophp%2Fiterators%2Fcoverage
+[code coverage]:
+  https://img.shields.io/scrutinizer/coverage/g/loophp/iterators/main.svg?style=flat-square
+[license]:
+  https://img.shields.io/packagist/l/loophp/iterators.svg?style=flat-square
+[donate github]:
+  https://img.shields.io/badge/Sponsor-Github-brightgreen.svg?style=flat-square
+[donate paypal]:
+  https://img.shields.io/badge/Sponsor-Paypal-brightgreen.svg?style=flat-square
+[mutation badge image]:
+  https://img.shields.io/endpoint?style=flat-square&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Floophp%2Fiterators%2Fmain
+[mutation badge link]:
+  https://dashboard.stryker-mutator.io/reports/github.com/loophp/iterators/main
 [34]: https://github.com/loophp/iterators/issues
 [35]: https://www.phpunit.de/
 [36]: https://github.com/phpro/grumphp
