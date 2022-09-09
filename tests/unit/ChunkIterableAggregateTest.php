@@ -14,6 +14,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
+ *
  * @coversDefaultClass \loophp\iterators
  */
 final class ChunkIterableAggregateTest extends TestCase

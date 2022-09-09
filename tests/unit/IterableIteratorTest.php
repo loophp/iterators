@@ -16,6 +16,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
+ *
  * @coversDefaultClass \loophp\iterators
  */
 final class IterableIteratorTest extends TestCase

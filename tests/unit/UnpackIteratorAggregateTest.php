@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
+ *
  * @coversDefaultClass \loophp\iterators
  */
 final class UnpackIteratorAggregateTest extends TestCase

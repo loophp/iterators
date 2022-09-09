@@ -17,6 +17,7 @@ use Traversable;
 
 /**
  * @internal
+ *
  * @coversDefaultClass \loophp\iterators
  */
 final class CachingIteratorAggregateTest extends TestCase

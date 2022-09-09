@@ -16,6 +16,7 @@ use function count;
 
 /**
  * @internal
+ *
  * @coversDefaultClass \loophp\iterators
  */
 final class FilterIterableAggregateTest extends TestCase

@@ -24,6 +24,7 @@ use function gettype;
 
 /**
  * @internal
+ *
  * @coversDefaultClass \loophp\iterators
  */
 final class TypedIterableAggregateTest extends TestCase

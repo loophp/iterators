@@ -17,6 +17,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
+ *
  * @coversDefaultClass \loophp\iterators
  */
 final class MultipleIterableAggregateTest extends TestCase

@@ -16,6 +16,7 @@ use function gettype;
 
 /**
  * @internal
+ *
  * @coversDefaultClass \loophp\iterators
  */
 final class MapIterableAggregateTest extends TestCase

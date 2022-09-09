@@ -22,7 +22,7 @@ use ReturnTypeWillChange;
 final class ClosureIterator implements Iterator
 {
     /**
-     * @var callable(mixed ...$parameters): iterable<TKey, T>
+     * @var callable(mixed): iterable<TKey, T>
      */
     private $callable;
 
@@ -37,7 +37,7 @@ final class ClosureIterator implements Iterator
     private iterable $parameters;
 
     /**
-     * @param callable(mixed ...$parameters): iterable<TKey, T> $callable
+     * @param callable(mixed): iterable<TKey, T> $callable
      * @param iterable<int, mixed> $parameters
      */
     public function __construct(callable $callable, iterable $parameters = [])

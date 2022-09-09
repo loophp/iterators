@@ -17,6 +17,7 @@ use function count;
 
 /**
  * @internal
+ *
  * @coversDefaultClass \loophp\iterators
  */
 final class RandomIterableAggregateTest extends TestCase

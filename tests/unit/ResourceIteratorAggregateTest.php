@@ -17,6 +17,7 @@ use function is_resource;
 
 /**
  * @internal
+ *
  * @coversDefaultClass \loophp\iterators
  */
 final class ResourceIteratorAggregateTest extends TestCase

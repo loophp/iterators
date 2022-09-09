@@ -28,6 +28,7 @@ final class CachingIteratorAggregate implements IteratorAggregate
      * // TODO: Remove this when PSalm 5 is released.
      *
      * @psalm-var CachingIterator<int, array{0: TKey, 1: T}>
+     *
      * @phpstan-var CachingIterator<int, array{0: TKey, 1: T}, Generator<int, array{0: TKey, 1: T}>>
      */
     private CachingIterator $iterator;
