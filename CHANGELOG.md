@@ -5,11 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/loophp/iterators/compare/1.6.13...HEAD)
+## [2.0.0](https://github.com/loophp/iterators/compare/1.6.13...2.0.0)
 
 ### Commits
 
 - **Breaking change:** refactor: Rename `TypedIteratorAggregate` into `TypedIterableAggregate`. [`684a018`](https://github.com/loophp/iterators/commit/684a0181711fb6a5864069da67a5b0d5dba7944a)
+- chore: Do not export `.prettierrc` file. [`061d36c`](https://github.com/loophp/iterators/commit/061d36cdfd1365dacb22e452c10ab4d0c085d3c7)
+- ci: Fix Github workflow. [`ffbb643`](https://github.com/loophp/iterators/commit/ffbb6437ddd01d13893cc76354c5fc495dd81449)
+- cs: Autofix code style. [`5298919`](https://github.com/loophp/iterators/commit/52989196530817ec7a4e9eb5ef676936be66504d)
+- chore: Update static files. [`5037520`](https://github.com/loophp/iterators/commit/50375207042766f3d30b27b0ecb289ba1e109b48)
+- ci: Update branch. [`1bafe72`](https://github.com/loophp/iterators/commit/1bafe7235b958629de94063b6496496caf31900b)
+- chore: Update `.scrutinizer`. [`05aa029`](https://github.com/loophp/iterators/commit/05aa029149d4a0dfdc5b62f9eb4fd9e993ad5f01)
+- fix: Prettify codebase. [`170749b`](https://github.com/loophp/iterators/commit/170749bf44e324a9dd15da7b1b32012f76f0438c)
+- chore: Remove `phpcs` configuration. [`b62dc69`](https://github.com/loophp/iterators/commit/b62dc69da5d1d82b217569a31d4342a0df0d19ab)
+- chore: Update `.gitattributes`. [`219e8c3`](https://github.com/loophp/iterators/commit/219e8c3fc02a9a8c0aa9d354b9cc1f20e8683ee2)
+- chore: Add `prettier`. [`ec032f9`](https://github.com/loophp/iterators/commit/ec032f9461934c9ff42271b7b6f6431851948f3c)
+- docs: Update CHANGELOG. [`9ed8c44`](https://github.com/loophp/iterators/commit/9ed8c446ae8a159b2b47eee26f6a140e368ce0ea)
 - docs: Update README. [`eaddfcf`](https://github.com/loophp/iterators/commit/eaddfcf893932f6c6c222fbfef0e376cb396b8f4)
 - docs: Update CHANGELOG.md [`64685ee`](https://github.com/loophp/iterators/commit/64685ee6303205571ef117d06d4162b7c2b381eb)
 - fix: Reduce amount of local variables thanks to PHPStan fix. [`4ad921f`](https://github.com/loophp/iterators/commit/4ad921f2f03352cab4b43aacf1da9ca3388ea394)
