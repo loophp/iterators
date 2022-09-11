@@ -11,6 +11,7 @@
 /.gitignore export-ignore
 /.php-cs-fixer.dist.php export-ignore
 /.prettierignore export-ignore
+/.prettierrc export-ignore
 /.scrutinizer.yml export-ignore
 /CHANGELOG.md export-ignore
 /infection.json export-ignore
