@@ -14,7 +14,6 @@ on:
             - ".github/workflows/tests.yml"
             - ".scrutinizer.yml"
 
-
 name: "Unit tests"
 
 jobs:
