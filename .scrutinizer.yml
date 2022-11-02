@@ -1,12 +1,15 @@
 build:
+    environment:
+        php:
+            version: 8.1.12
+            ini:
+                xdebug.mode: off
+            pecl_extensions:
+                - pcov
     image: default-bionic
-    nodes:
-        php81:
-            environment:
-                php:
-                    version: 8.1
-                    pecl_extensions:
-                        - pcov
+    tests:
+        override:
+            - php-scrutinizer-run
 
 filter:
     paths:

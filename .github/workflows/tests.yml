@@ -4,11 +4,16 @@ on:
     push:
         paths:
             - "**.php"
+            - ".github/workflows/tests.yml"
+            - ".scrutinizer.yml"
         branches:
             - main
     pull_request:
         paths:
             - "**.php"
+            - ".github/workflows/tests.yml"
+            - ".scrutinizer.yml"
+
 
 name: "Unit tests"
 
@@ -40,6 +45,8 @@ jobs:
 
             - name: Checkout
               uses: actions/checkout@v3
+              with:
+                  fetch-depth: 2
 
             - name: Install PHP
               uses: shivammathur/setup-php@2.22.0
