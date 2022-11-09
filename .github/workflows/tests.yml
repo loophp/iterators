@@ -48,10 +48,11 @@ jobs:
                   fetch-depth: 2
 
             - name: Install PHP
-              uses: shivammathur/setup-php@2.22.0
+              uses: shivammathur/setup-php@v2
               with:
                   php-version: ${{ matrix.php }}
                   coverage: pcov
+                  extensions: gd
 
             - name: Install dependencies
               uses: ramsey/composer-install@v2
