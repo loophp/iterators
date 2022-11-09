@@ -49,7 +49,10 @@ final class CachingIteratorAggregate implements IteratorAggregate
      */
     public function getIterator(): Generator
     {
-        foreach ($this->iterator->getCache() as [$key, $current]) {
+        /** @var array<array-key, array{0: TKey, 1:T}> $cache */
+        $cache = $this->iterator->getCache();
+
+        foreach ($cache as [$key, $current]) {
             yield $key => $current;
         }
 
