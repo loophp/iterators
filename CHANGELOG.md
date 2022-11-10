@@ -5,11 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.0.0](https://github.com/loophp/iterators/compare/1.6.13...2.0.0)
+## [2.0.1](https://github.com/loophp/iterators/compare/2.0.0...2.0.1)
+
+### Merged
+
+- chore(deps): Bump shivammathur/setup-php from 2.18.1 to 2.22.0 [`#28`](https://github.com/loophp/iterators/pull/28)
+- chore(deps): Bump cachix/install-nix-action from 17 to 18 [`#27`](https://github.com/loophp/iterators/pull/27)
+
+### Commits
+
+- fix: update `CachingIteratorAggregate` [`044da03`](https://github.com/loophp/iterators/commit/044da037cc61677503b596ad728baa4450c6293d)
+- ci: update [`9f02861`](https://github.com/loophp/iterators/commit/9f028618f1a786220f7d071f30ac8a62fa44a166)
+- Autofix code style. [`9aa76fc`](https://github.com/loophp/iterators/commit/9aa76fcff0fec668ab6aea51a858e78343d23fb7)
+- ci: update workflows [`f07700d`](https://github.com/loophp/iterators/commit/f07700d87a3ebf008df3b79feb003f6bf5e88e16)
+
+## [2.0.0](https://github.com/loophp/iterators/compare/1.6.13...2.0.0) - 2022-09-11
 
 ### Commits
 
 - **Breaking change:** refactor: Rename `TypedIteratorAggregate` into `TypedIterableAggregate`. [`684a018`](https://github.com/loophp/iterators/commit/684a0181711fb6a5864069da67a5b0d5dba7944a)
+- docs: Update CHANGELOG. [`17a8621`](https://github.com/loophp/iterators/commit/17a86214c12ee5284a5faa5203ba2a98c65e56bb)
 - chore: Do not export `.prettierrc` file. [`061d36c`](https://github.com/loophp/iterators/commit/061d36cdfd1365dacb22e452c10ab4d0c085d3c7)
 - ci: Fix Github workflow. [`ffbb643`](https://github.com/loophp/iterators/commit/ffbb6437ddd01d13893cc76354c5fc495dd81449)
 - cs: Autofix code style. [`5298919`](https://github.com/loophp/iterators/commit/52989196530817ec7a4e9eb5ef676936be66504d)
