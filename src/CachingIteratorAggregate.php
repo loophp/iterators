@@ -9,12 +9,9 @@ declare(strict_types=1);
 
 namespace loophp\iterators;
 
-use CachingIterator;
 use Generator;
 use Iterator;
 use IteratorAggregate;
-
-// phpcs:disable Generic.Files.LineLength.TooLong
 
 /**
  * @template TKey
@@ -25,23 +22,16 @@ use IteratorAggregate;
 final class CachingIteratorAggregate implements IteratorAggregate
 {
     /**
-     * // TODO: Remove this when PSalm 5 is released.
-     *
-     * @psalm-var CachingIterator<int, array{0: TKey, 1: T}>
-     *
-     * @phpstan-var CachingIterator<int, array{0: TKey, 1: T}, Generator<int, array{0: TKey, 1: T}>>
+     * @var SimpleCachingIteratorAggregate<int, array{0: TKey, 1: T}>
      */
-    private CachingIterator $iterator;
+    private SimpleCachingIteratorAggregate $iterator;
 
     /**
      * @param Iterator<TKey, T> $iterator
      */
     public function __construct(Iterator $iterator)
     {
-        $this->iterator = new CachingIterator(
-            (new PackIterableAggregate($iterator))->getIterator(),
-            CachingIterator::FULL_CACHE
-        );
+        $this->iterator = new SimpleCachingIteratorAggregate((new PackIterableAggregate($iterator))->getIterator());
     }
 
     /**
@@ -49,18 +39,7 @@ final class CachingIteratorAggregate implements IteratorAggregate
      */
     public function getIterator(): Generator
     {
-        /** @var array<array-key, array{0: TKey, 1:T}> $cache */
-        $cache = $this->iterator->getCache();
-
-        foreach ($cache as [$key, $current]) {
-            yield $key => $current;
-        }
-
-        while ($this->iterator->hasNext()) {
-            $this->iterator->next();
-
-            [$key, $current] = $this->iterator->current();
-
+        foreach ($this->iterator as [$key, $current]) {
             yield $key => $current;
         }
     }

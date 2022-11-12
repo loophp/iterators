@@ -14,18 +14,18 @@ use Generator;
 use Iterator;
 use IteratorAggregate;
 
-// phpcs:disable Generic.Files.LineLength.TooLong
-
 /**
  * @template TKey
  * @template T
  *
  * @implements IteratorAggregate<array-key|TKey, T>
  *
- * @deprecated This iterator is not reliable when keys have type different from
- * int|string. The first loop keys are ok, but during the next loops, keys are
- * replaced by integers. This is mostly due to the fact that the method
- * CachingIterator::getCache returns an array.
+ * This iterator must be used only if keys are int|string. When it is used with
+ * keys of different type, during the first loop keys are ok, but during the
+ * next loops, keys are replaced by integers.
+ * This is mostly due to the fact that the method
+ * CachingIterator::getCache returns an array, and keys of an array can only be
+ * int|string.
  * In order to circumvent that, use CachingIteratorAggregate instead.
  */
 final class SimpleCachingIteratorAggregate implements IteratorAggregate

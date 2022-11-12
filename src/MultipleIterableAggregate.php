@@ -13,8 +13,6 @@ use Generator;
 use IteratorAggregate;
 use MultipleIterator;
 
-// phpcs:disable Generic.Files.LineLength.TooLong
-
 /**
  * @template TKey
  * @template T
