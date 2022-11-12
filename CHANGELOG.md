@@ -5,7 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.0.1](https://github.com/loophp/iterators/compare/2.0.0...2.0.1)
+## [2.0.2](https://github.com/loophp/iterators/compare/2.0.1...2.0.2)
+
+### Commits
+
+- Use decorator pattern to avoid duplicating code. [`29ed1da`](https://github.com/loophp/iterators/commit/29ed1da85f0d469f4bca4155990d0da86ada4fb1)
+
+## [2.0.1](https://github.com/loophp/iterators/compare/2.0.0...2.0.1) - 2022-11-10
 
 ### Merged
 
@@ -14,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Commits
 
+- docs: update changelog [`2a8083d`](https://github.com/loophp/iterators/commit/2a8083dba5a6eec212bcba092b45ba247aa98440)
 - fix: update `CachingIteratorAggregate` [`044da03`](https://github.com/loophp/iterators/commit/044da037cc61677503b596ad728baa4450c6293d)
 - ci: update [`9f02861`](https://github.com/loophp/iterators/commit/9f028618f1a786220f7d071f30ac8a62fa44a166)
 - Autofix code style. [`9aa76fc`](https://github.com/loophp/iterators/commit/9aa76fcff0fec668ab6aea51a858e78343d23fb7)
