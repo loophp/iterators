@@ -5,10 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.0.2](https://github.com/loophp/iterators/compare/2.0.1...2.0.2)
+## [2.1.0](https://github.com/loophp/iterators/compare/2.0.2...2.1.0)
+
+### Merged
+
+- chore(deps): update actions/stale action to v6 [`#30`](https://github.com/loophp/iterators/pull/30)
+- chore(deps): add renovate.json [`#29`](https://github.com/loophp/iterators/pull/29)
 
 ### Commits
 
+- update code for PHP 8 [`e4bb414`](https://github.com/loophp/iterators/commit/e4bb4140bab07fb0afa9f4e66e0f9194809b6775)
+- nix: update `.envrc` [`f3b5a5e`](https://github.com/loophp/iterators/commit/f3b5a5ea4ee9d7b6972d1b8f56e57494bb8a4498)
+- update `composer.json`, require `php &gt;= 8` [`6f75985`](https://github.com/loophp/iterators/commit/6f759857600cbe7fd40c986be99fa98c14ab4f8c)
+- Prettify [`4d1c986`](https://github.com/loophp/iterators/commit/4d1c9868325ab84bdf43d1405538035c3c44e4fb)
+- chore: update grumphp configuration [`d9a5a86`](https://github.com/loophp/iterators/commit/d9a5a86706b3b701b634ac9db4b76d3a7501152c)
+
+## [2.0.2](https://github.com/loophp/iterators/compare/2.0.1...2.0.2) - 2022-11-12
+
+### Commits
+
+- docs: update changelog [`ec3d429`](https://github.com/loophp/iterators/commit/ec3d4299aed752c0e29d856e54409c4583077df1)
 - Use decorator pattern to avoid duplicating code. [`29ed1da`](https://github.com/loophp/iterators/commit/29ed1da85f0d469f4bca4155990d0da86ada4fb1)
 
 ## [2.0.1](https://github.com/loophp/iterators/compare/2.0.0...2.0.1) - 2022-11-10
