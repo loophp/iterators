@@ -45,7 +45,7 @@ final class ChunkIterableAggregate implements IteratorAggregate
     {
         $values = [];
 
-        foreach ($this->iterable as $key => $value) {
+        foreach ($this->iterable as $value) {
             if (count($values) !== $this->chunkSize) {
                 $values[] = $value;
 

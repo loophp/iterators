@@ -44,10 +44,7 @@ final class TypedIterableAggregate implements IteratorAggregate
         $this->iterable = $iterable;
 
         $this->getType = $getType ??
-            /**
-             * @param mixed $variable
-             */
-            static function ($variable): string {
+            static function (mixed $variable): string {
                 if (!is_object($variable)) {
                     return gettype($variable);
                 }

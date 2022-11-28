@@ -30,7 +30,7 @@ final class ReductionIterableAggregate implements IteratorAggregate
     /**
      * @var W
      */
-    private $initial;
+    private mixed $initial;
 
     /**
      * @var iterable<TKey, T>
@@ -42,7 +42,7 @@ final class ReductionIterableAggregate implements IteratorAggregate
      * @param (Closure(W, T, TKey, iterable<TKey, T>): W) $closure
      * @param W $initial
      */
-    public function __construct(iterable $iterable, Closure $closure, $initial)
+    public function __construct(iterable $iterable, Closure $closure, mixed $initial)
     {
         $this->iterable = $iterable;
         $this->closure = $closure;

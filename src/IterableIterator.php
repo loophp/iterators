@@ -11,7 +11,6 @@ namespace loophp\iterators;
 
 use Generator;
 use Iterator;
-use ReturnTypeWillChange;
 
 /**
  * @template TKey
@@ -45,8 +44,7 @@ final class IterableIterator implements Iterator
     /**
      * @return T
      */
-    #[ReturnTypeWillChange]
-    public function current()
+    public function current(): mixed
     {
         return $this->iterator->current();
     }
@@ -54,8 +52,7 @@ final class IterableIterator implements Iterator
     /**
      * @return TKey
      */
-    #[ReturnTypeWillChange]
-    public function key()
+    public function key(): mixed
     {
         return $this->iterator->key();
     }
