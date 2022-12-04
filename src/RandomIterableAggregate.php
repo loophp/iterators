@@ -53,7 +53,7 @@ final class RandomIterableAggregate implements IteratorAggregate
         $queue = [];
 
         foreach (new UnpackIterableAggregate($iterable) as $key => $value) {
-            if (0 === random_int(0, $seed)) {
+            if (0 === mt_rand(0, $seed)) {
                 yield $key => $value;
 
                 continue;
