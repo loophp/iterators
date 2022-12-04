@@ -21,16 +21,10 @@ use IteratorAggregate;
 final class UnpackIterableAggregate implements IteratorAggregate
 {
     /**
-     * @var iterable<array-key, array{0: TKey, 1: T}>
-     */
-    private iterable $iterable;
-
-    /**
      * @param iterable<array-key, array{0: TKey, 1: T}> $iterable
      */
-    public function __construct(iterable $iterable)
+    public function __construct(private iterable $iterable)
     {
-        $this->iterable = $iterable;
     }
 
     /**

@@ -37,7 +37,7 @@ final class MersenneTwisterRNGIteratorAggregate implements IteratorAggregate
 
         // @phpstan-ignore-next-line
         while (true) {
-            yield mt_rand($this->min, $this->max);
+            yield random_int($this->min, $this->max);
         }
     }
 

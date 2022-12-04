@@ -22,22 +22,10 @@ use LimitIterator;
 final class LimitIterableAggregate implements IteratorAggregate
 {
     /**
-     * @var iterable<TKey, T>
-     */
-    private iterable $iterable;
-
-    private int $limit;
-
-    private int $offset;
-
-    /**
      * @param iterable<TKey, T> $iterable
      */
-    public function __construct(iterable $iterable, int $offset = 0, int $limit = -1)
+    public function __construct(private iterable $iterable, private int $offset = 0, private int $limit = -1)
     {
-        $this->iterable = $iterable;
-        $this->offset = $offset;
-        $this->limit = $limit;
     }
 
     /**

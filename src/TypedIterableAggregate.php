@@ -13,7 +13,6 @@ use Generator;
 use InvalidArgumentException;
 use IteratorAggregate;
 
-use function get_class;
 use function gettype;
 use function is_object;
 
@@ -31,18 +30,11 @@ final class TypedIterableAggregate implements IteratorAggregate
     private $getType;
 
     /**
-     * @var iterable<TKey, T>
-     */
-    private iterable $iterable;
-
-    /**
      * @param iterable<TKey, T> $iterable
      * @param callable(mixed): string $getType
      */
-    public function __construct(iterable $iterable, ?callable $getType = null)
+    public function __construct(private iterable $iterable, ?callable $getType = null)
     {
-        $this->iterable = $iterable;
-
         $this->getType = $getType ??
             static function (mixed $variable): string {
                 if (!is_object($variable)) {
@@ -52,7 +44,7 @@ final class TypedIterableAggregate implements IteratorAggregate
                 $interfaces = class_implements($variable);
 
                 if ([] === $interfaces || false === $interfaces) {
-                    return get_class($variable);
+                    return $variable::class;
                 }
 
                 sort($interfaces);

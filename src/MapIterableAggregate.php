@@ -28,17 +28,11 @@ final class MapIterableAggregate implements IteratorAggregate
     private Closure $closure;
 
     /**
-     * @var iterable<TKey, T>
-     */
-    private iterable $iterable;
-
-    /**
      * @param iterable<TKey, T> $iterable
      * @param (Closure(T, TKey, iterable<TKey, T>): W) $closure
      */
-    public function __construct(iterable $iterable, Closure $closure)
+    public function __construct(private iterable $iterable, Closure $closure)
     {
-        $this->iterable = $iterable;
         $this->closure = $closure;
     }
 

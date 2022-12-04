@@ -17,14 +17,8 @@ use IteratorAggregate;
  */
 final class StringIteratorAggregate implements IteratorAggregate
 {
-    private string $data;
-
-    private string $delimiter;
-
-    public function __construct(string $data, string $delimiter = '')
+    public function __construct(private string $data, private string $delimiter = '')
     {
-        $this->data = $data;
-        $this->delimiter = $delimiter;
     }
 
     /**

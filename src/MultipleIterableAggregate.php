@@ -22,23 +22,11 @@ use MultipleIterator;
 final class MultipleIterableAggregate implements IteratorAggregate
 {
     /**
-     * @var (0|1|2|3)
-     */
-    private int $flags;
-
-    /**
-     * @var iterable<array-key, iterable<TKey, T>>
-     */
-    private iterable $iterables;
-
-    /**
      * @param iterable<array-key, iterable<TKey, T>> $iterables
      * @param (0|1|2|3) $flags
      */
-    public function __construct(iterable $iterables, int $flags = MultipleIterator::MIT_NEED_ALL | MultipleIterator::MIT_KEYS_NUMERIC)
+    public function __construct(private iterable $iterables, private int $flags = MultipleIterator::MIT_NEED_ALL | MultipleIterator::MIT_KEYS_NUMERIC)
     {
-        $this->flags = $flags;
-        $this->iterables = $iterables;
     }
 
     /**

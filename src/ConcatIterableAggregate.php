@@ -23,16 +23,10 @@ use NoRewindIterator;
 final class ConcatIterableAggregate implements IteratorAggregate
 {
     /**
-     * @var iterable<mixed, iterable<TKey, T>>
-     */
-    private iterable $iterables;
-
-    /**
      * @param iterable<mixed, iterable<TKey, T>> $iterables
      */
-    public function __construct(iterable $iterables)
+    public function __construct(private iterable $iterables)
     {
-        $this->iterables = $iterables;
     }
 
     /**

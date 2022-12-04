@@ -52,10 +52,8 @@ final class StringIteratorAggregateTest extends TestCase
 
     /**
      * @dataProvider stringIteratorAggregateProvider
-     *
-     * @param mixed $expected
      */
-    public function testBasic(string $input, string $delimiter, $expected)
+    public function testBasic(string $input, string $delimiter, mixed $expected)
     {
         self::assertSame(
             $expected,

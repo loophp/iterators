@@ -25,15 +25,12 @@ final class RandomIterableAggregate implements IteratorAggregate
      */
     private PackIterableAggregate $iteratorAggregate;
 
-    private int $seed;
-
     /**
      * @param iterable<TKey, T> $iterable
      */
-    public function __construct(iterable $iterable, int $seed = 0)
+    public function __construct(iterable $iterable, private int $seed = 0)
     {
         $this->iteratorAggregate = new PackIterableAggregate($iterable);
-        $this->seed = $seed;
     }
 
     /**
@@ -56,7 +53,7 @@ final class RandomIterableAggregate implements IteratorAggregate
         $queue = [];
 
         foreach (new UnpackIterableAggregate($iterable) as $key => $value) {
-            if (0 === mt_rand(0, $seed)) {
+            if (0 === random_int(0, $seed)) {
                 yield $key => $value;
 
                 continue;

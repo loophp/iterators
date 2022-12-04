@@ -23,16 +23,10 @@ final class InterruptableIterableIteratorAggregate implements IteratorAggregate
     public const BREAK = 'break';
 
     /**
-     * @var iterable<TKey, T>
-     */
-    private iterable $iterable;
-
-    /**
      * @param iterable<TKey, T> $iterable
      */
-    public function __construct(iterable $iterable)
+    public function __construct(private iterable $iterable)
     {
-        $this->iterable = $iterable;
     }
 
     /**

@@ -35,7 +35,7 @@ $callableStringBool =
     /**
      * @return Generator<string, bool>
      */
-    static fn () => yield uniqid() => (mt_rand(0, 1) === 1 ? true : false);
+    static fn () => yield uniqid() => (random_int(0, 1) === 1 ? true : false);
 
 closureIterator_checkList(new ClosureIterator($callableIntInt));
 closureIterator_checkMap(new ClosureIterator($callableStringBool));

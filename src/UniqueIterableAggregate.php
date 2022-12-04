@@ -29,15 +29,12 @@ final class UniqueIterableAggregate implements IteratorAggregate
      */
     private InterruptableIterableIteratorAggregate $iterable;
 
-    private int $retries;
-
     /**
      * @param iterable<TKey, T> $iterable
      */
-    public function __construct(iterable $iterable, int $retries = PHP_INT_MAX)
+    public function __construct(iterable $iterable, private int $retries = PHP_INT_MAX)
     {
         $this->iterable = new InterruptableIterableIteratorAggregate($iterable);
-        $this->retries = $retries;
     }
 
     /**

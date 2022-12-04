@@ -20,8 +20,6 @@ use function is_resource;
  */
 final class ResourceIteratorAggregate implements IteratorAggregate
 {
-    private bool $closeResource;
-
     /**
      * @var resource
      */
@@ -30,14 +28,13 @@ final class ResourceIteratorAggregate implements IteratorAggregate
     /**
      * @param false|resource $resource
      */
-    public function __construct($resource, bool $closeResource = false)
+    public function __construct($resource, private bool $closeResource = false)
     {
         if (!is_resource($resource) || 'stream' !== get_resource_type($resource)) {
             throw new InvalidArgumentException('Invalid resource type.');
         }
 
         $this->resource = $resource;
-        $this->closeResource = $closeResource;
     }
 
     /**

@@ -22,20 +22,11 @@ use function count;
  */
 final class ChunkIterableAggregate implements IteratorAggregate
 {
-    private int $chunkSize;
-
-    /**
-     * @var iterable<TKey, T>
-     */
-    private iterable $iterable;
-
     /**
      * @param iterable<TKey, T> $iterable
      */
-    public function __construct(iterable $iterable, int $chunkSize)
+    public function __construct(private iterable $iterable, private int $chunkSize)
     {
-        $this->iterable = $iterable;
-        $this->chunkSize = $chunkSize;
     }
 
     /**

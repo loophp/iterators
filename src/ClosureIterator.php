@@ -31,18 +31,12 @@ final class ClosureIterator implements Iterator
     private Generator $generator;
 
     /**
-     * @var iterable<int, mixed>
-     */
-    private iterable $parameters;
-
-    /**
      * @param callable(mixed): iterable<TKey, T> $callable
      * @param iterable<int, mixed> $parameters
      */
-    public function __construct(callable $callable, iterable $parameters = [])
+    public function __construct(callable $callable, private iterable $parameters = [])
     {
         $this->callable = $callable;
-        $this->parameters = $parameters;
         $this->generator = $this->getGenerator();
     }
 

@@ -46,6 +46,6 @@ final class ClosureIteratorAggregateBench extends IteratorBenchmark
 
     protected function getSubject(array $params): Traversable
     {
-        return new $params['class'](Closure::fromCallable([__CLASS__, 'loop']), [$this->getGenerator($params)]);
+        return new $params['class'](Closure::fromCallable([self::class, 'loop']), [$this->getGenerator($params)]);
     }
 }
