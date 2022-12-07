@@ -30,13 +30,6 @@ use IteratorAggregate;
  */
 final class SimpleCachingIteratorAggregate implements IteratorAggregate
 {
-    /**
-     * // TODO: Remove this when PSalm 5 is released.
-     *
-     * @psalm-var CachingIterator<TKey, T>
-     *
-     * @phpstan-var CachingIterator<TKey, T, Iterator<TKey, T>>
-     */
     private CachingIterator $iterator;
 
     /**
