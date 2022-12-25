@@ -370,7 +370,7 @@ For more detailed changelogs, please check [the release changelogs][45].
 [total downloads]:
   https://img.shields.io/packagist/dt/loophp/iterators.svg?style=flat-square
 [github workflow status]:
-  https://img.shields.io/github/workflow/status/loophp/iterators/Unit%20tests?style=flat-square
+  https://img.shields.io/github/actions/workflow/status/loophp/iterators/tests.yml?branch=main&style=flat-square
 [code quality]:
   https://img.shields.io/scrutinizer/quality/g/loophp/iterators/main.svg?style=flat-square
 [type coverage]:
