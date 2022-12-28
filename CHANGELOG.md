@@ -5,10 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.3.0](https://github.com/loophp/iterators/compare/2.2.0...2.3.0)
+## [2.3.1](https://github.com/loophp/iterators/compare/2.3.0...2.3.1)
 
 ### Commits
 
+- feat: add `ReduceIterableAggregate` [`8aa9aac`](https://github.com/loophp/iterators/commit/8aa9aaca25c5db07d14c524d4e3a7d7e62a9b3f9)
+
+## [2.3.0](https://github.com/loophp/iterators/compare/2.2.0...2.3.0) - 2022-12-28
+
+### Commits
+
+- docs: update changelog [`4f242aa`](https://github.com/loophp/iterators/commit/4f242aa34f4a7bea8aa4935b1933ab9d2ab1ce8d)
 - fix: `ReductionIterableAggreate` must yield the initial value first [`6c43b9a`](https://github.com/loophp/iterators/commit/6c43b9aadedc1b0ab7f44cafa89536be4b563374)
 
 ## [2.2.0](https://github.com/loophp/iterators/compare/2.1.0...2.2.0) - 2022-12-28
