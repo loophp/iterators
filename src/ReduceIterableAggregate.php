@@ -18,7 +18,7 @@ use IteratorAggregate;
  * @template T
  * @template W
  *
- * @implements IteratorAggregate<TKey|int, W>
+ * @implements IteratorAggregate<int, W>
  */
 final class ReduceIterableAggregate implements IteratorAggregate
 {
