@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace tests\loophp\iterators;
 
 use loophp\iterators\ReduceIterableAggregate;
-use loophp\iterators\ReductionIterableAggregate;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -24,20 +23,20 @@ final class ReduceIterableAggregateTest extends TestCase
     {
         $iterator = (new ReduceIterableAggregate(
             range(0, 10),
-            static fn (int $carry, int $value, int $key, iterable $iterable): int => $carry + $value,
+            static fn (int $carry, int $value, int $key): int => $carry + $value + $key,
             0
         ));
 
-        $expected = [55];
+        $expected = [110];
 
         self::assertSame($expected, iterator_to_array($iterator));
     }
 
     public function testEmptyInput(): void
     {
-        $iterator = (new ReductionIterableAggregate(
+        $iterator = (new ReduceIterableAggregate(
             [],
-            static fn (int $carry, int $value, int $key, iterable $iterable): int => $carry + $value,
+            static fn (int $carry, int $value, int $key): int => $carry + $value + $key,
             123
         ));
 

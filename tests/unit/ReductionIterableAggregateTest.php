@@ -23,11 +23,11 @@ final class ReductionIterableAggregateTest extends TestCase
     {
         $iterator = (new ReductionIterableAggregate(
             range(0, 10),
-            static fn (int $carry, int $value, int $key, iterable $iterable): int => $carry + $value,
+            static fn (int $carry, int $value, int $key): int => $carry + $value + $key,
             0
         ));
 
-        $expected = [0, 1, 3, 6, 10, 15, 21, 28, 36, 45, 55];
+        $expected = [0, 2, 6, 12, 20, 30, 42, 56, 72, 90, 110];
 
         self::assertSame($expected, iterator_to_array($iterator));
     }
@@ -36,7 +36,7 @@ final class ReductionIterableAggregateTest extends TestCase
     {
         $iterator = (new ReductionIterableAggregate(
             [],
-            static fn (int $carry, int $value, int $key, iterable $iterable): int => $carry + $value,
+            static fn (int $carry, int $value, int $key): int => $carry + $value + $key,
             123
         ));
 
