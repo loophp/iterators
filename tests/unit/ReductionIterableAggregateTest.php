@@ -31,4 +31,17 @@ final class ReductionIterableAggregateTest extends TestCase
 
         self::assertSame($expected, iterator_to_array($iterator));
     }
+
+    public function testEmptyInput(): void
+    {
+        $iterator = (new ReductionIterableAggregate(
+            [],
+            static fn (int $carry, int $value, int $key, iterable $iterable): int => $carry + $value,
+            123
+        ));
+
+        $expected = [123];
+
+        self::assertSame($expected, iterator_to_array($iterator));
+    }
 }

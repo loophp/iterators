@@ -18,7 +18,7 @@ use IteratorAggregate;
  * @template T
  * @template W
  *
- * @implements IteratorAggregate<TKey, W>
+ * @implements IteratorAggregate<TKey|int, W>
  */
 final class ReductionIterableAggregate implements IteratorAggregate
 {
@@ -38,16 +38,22 @@ final class ReductionIterableAggregate implements IteratorAggregate
     }
 
     /**
-     * @return Generator<TKey, W>
+     * @return Generator<TKey|int, W>
      */
     public function getIterator(): Generator
     {
+        $isEmpty = true;
         $initial = $this->initial;
 
         foreach ($this->iterable as $key => $value) {
+            $isEmpty = false;
             $initial = ($this->closure)($initial, $value, $key, $this->iterable);
 
             yield $key => $initial;
+        }
+
+        if (true === $isEmpty) {
+            yield $initial;
         }
     }
 }
