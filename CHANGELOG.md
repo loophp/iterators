@@ -5,7 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.2.0](https://github.com/loophp/iterators/compare/2.1.0...2.2.0)
+## [2.3.0](https://github.com/loophp/iterators/compare/2.2.0...2.3.0)
+
+### Commits
+
+- fix: `ReductionIterableAggreate` must yield the initial value first [`6c43b9a`](https://github.com/loophp/iterators/commit/6c43b9aadedc1b0ab7f44cafa89536be4b563374)
+
+## [2.2.0](https://github.com/loophp/iterators/compare/2.1.0...2.2.0) - 2022-12-28
 
 ### Merged
 
@@ -13,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Commits
 
+- docs: update changelog [`7cd68e6`](https://github.com/loophp/iterators/commit/7cd68e65c9f8c06d11744d07e072cb4d7a05274f)
 - fix: `ReductionIterableAggreate` must yield the initial value when input is empty [`91640a4`](https://github.com/loophp/iterators/commit/91640a435a40e55720a991f7d43d376b0186de02)
 - docs: update Readme badges [`23383f0`](https://github.com/loophp/iterators/commit/23383f03619d10f7912f96ac088ab7753532d7b3)
 - fix: update SA annotations [`fae69fe`](https://github.com/loophp/iterators/commit/fae69fe89ec58ac637c1a907b055ce71985dd475)
