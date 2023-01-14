@@ -5,10 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.3.2](https://github.com/loophp/iterators/compare/2.3.1...2.3.2)
+## [2.3.3](https://github.com/loophp/iterators/compare/2.3.2...2.3.3)
 
 ### Commits
 
+- chore: update license date [`a5eb272`](https://github.com/loophp/iterators/commit/a5eb2724a6c3d14b5c17d879821cf82bed3b8622)
+- fix: `TypedIterableAggregate` [`945b4b8`](https://github.com/loophp/iterators/commit/945b4b89e15f7e094b258d6eaac15a10a1cfbe72)
+- fix: tests [`abd5782`](https://github.com/loophp/iterators/commit/abd5782460bd94c353569cf0599d5ebb33d0035d)
+
+## [2.3.2](https://github.com/loophp/iterators/compare/2.3.1...2.3.2) - 2022-12-28
+
+### Commits
+
+- docs: update changelog [`2bdea29`](https://github.com/loophp/iterators/commit/2bdea2961e0a9da86769dad024c9114b99c173da)
 - fix: sa annotation [`4bae292`](https://github.com/loophp/iterators/commit/4bae2923d98ede10ab1c225c887656e9336cb3bc)
 
 ## [2.3.1](https://github.com/loophp/iterators/compare/2.3.0...2.3.1) - 2022-12-28
