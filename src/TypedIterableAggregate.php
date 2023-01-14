@@ -41,9 +41,9 @@ final class TypedIterableAggregate implements IteratorAggregate
                     return gettype($variable);
                 }
 
-                $interfaces = class_implements($variable);
-
-                if ([] === $interfaces || false === $interfaces) {
+                // There is no need to check for false here anymore, since
+                // $variable is an object and therefore, the class must exist.
+                if ([] === $interfaces = class_implements($variable)) {
                     return $variable::class;
                 }
 
