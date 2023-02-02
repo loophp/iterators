@@ -19,6 +19,7 @@ use Traversable;
 
 /**
  * @Groups({"ci", "local"})
+ *
  * @Sleep(500)
  */
 final class PausableIteratorAggregateBench extends IteratorBenchmark

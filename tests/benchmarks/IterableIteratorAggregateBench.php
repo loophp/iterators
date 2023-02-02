@@ -17,6 +17,7 @@ use PhpBench\Benchmark\Metadata\Annotations\Sleep;
 
 /**
  * @Groups({"ci", "local"})
+ *
  * @Sleep(500)
  */
 final class IterableIteratorAggregateBench extends IteratorBenchmark

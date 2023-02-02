@@ -25,6 +25,7 @@ final class CachingIteratorsAggregateBench extends IteratorBenchmark
 {
     /**
      * @Groups({"ci", "local"})
+     *
      * @ParamProviders("provideGenerators")
      */
     public function bench(array $params): void
@@ -37,6 +38,7 @@ final class CachingIteratorsAggregateBench extends IteratorBenchmark
 
     /**
      * @Groups({"others"})
+     *
      * @ParamProviders("provideGeneratorsWithOthers")
      */
     public function benchWithOthers(array $params): void

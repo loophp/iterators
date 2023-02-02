@@ -18,6 +18,7 @@ use Traversable;
 
 /**
  * @Groups({"ci", "local"})
+ *
  * @Sleep(500)
  */
 final class StringIteratorAggregateBench extends IteratorBenchmark
