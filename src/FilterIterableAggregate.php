@@ -22,17 +22,11 @@ use IteratorAggregate;
 final class FilterIterableAggregate implements IteratorAggregate
 {
     /**
-     * @var Closure(T, TKey, iterable<TKey, T>): bool
-     */
-    private Closure $predicate;
-
-    /**
      * @param iterable<TKey, T> $iterable
      * @param (Closure(T, TKey, iterable<TKey, T>): bool) $predicate
      */
-    public function __construct(private iterable $iterable, Closure $predicate)
+    public function __construct(private iterable $iterable, private Closure $predicate)
     {
-        $this->predicate = $predicate;
     }
 
     /**

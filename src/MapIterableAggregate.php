@@ -23,17 +23,11 @@ use IteratorAggregate;
 final class MapIterableAggregate implements IteratorAggregate
 {
     /**
-     * @var Closure(T, TKey, iterable<TKey, T>): W
-     */
-    private Closure $closure;
-
-    /**
      * @param iterable<TKey, T> $iterable
      * @param (Closure(T, TKey, iterable<TKey, T>): W) $closure
      */
-    public function __construct(private iterable $iterable, Closure $closure)
+    public function __construct(private iterable $iterable, private Closure $closure)
     {
-        $this->closure = $closure;
     }
 
     /**

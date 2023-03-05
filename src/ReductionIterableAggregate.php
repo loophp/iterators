@@ -23,18 +23,12 @@ use IteratorAggregate;
 final class ReductionIterableAggregate implements IteratorAggregate
 {
     /**
-     * @var Closure(W, T, TKey, iterable<TKey, T>): W
-     */
-    private Closure $closure;
-
-    /**
      * @param iterable<TKey, T> $iterable
      * @param (Closure(W, T, TKey, iterable<TKey, T>): W) $closure
      * @param W $initial
      */
-    public function __construct(private iterable $iterable, Closure $closure, private mixed $initial)
+    public function __construct(private iterable $iterable, private Closure $closure, private mixed $initial)
     {
-        $this->closure = $closure;
     }
 
     /**
