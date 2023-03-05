@@ -1,4 +1,5 @@
 /.direnv/
+/.phpunit.cache/
 /composer.lock
 /vendor
 /build
