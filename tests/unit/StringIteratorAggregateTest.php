@@ -19,7 +19,7 @@ use PHPUnit\Framework\TestCase;
  */
 final class StringIteratorAggregateTest extends TestCase
 {
-    public function stringIteratorAggregateProvider()
+    public static function stringIteratorAggregateProvider()
     {
         yield [
             'hello world',
