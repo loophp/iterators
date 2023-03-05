@@ -3,7 +3,6 @@
 [![GitHub Workflow Status][github workflow status]][2]
 [![Scrutinizer code quality][code quality]][3]
 [![Type Coverage][type coverage]][4] [![Code Coverage][code coverage]][3]
-[![Mutation testing badge][mutation badge image]][mutation badge link]
 [![License][license]][1] [![Donate!][donate github]][5]
 
 # PHP Iterators
@@ -333,9 +332,6 @@ the `tests` directory.
 Before each commit, some inspections are executed with [GrumPHP][36]; run
 `composer grumphp` to check manually.
 
-The quality of the tests is tested with [Infection][37] a PHP Mutation testing
-framework - run `composer infection` to try it.
-
 Static analyzers are also controlling the code. [PHPStan][38] and [PSalm][39]
 are enabled to their maximum level.
 
@@ -383,14 +379,9 @@ For more detailed changelogs, please check [the release changelogs][45].
   https://img.shields.io/badge/Sponsor-Github-brightgreen.svg?style=flat-square
 [donate paypal]:
   https://img.shields.io/badge/Sponsor-Paypal-brightgreen.svg?style=flat-square
-[mutation badge image]:
-  https://img.shields.io/endpoint?style=flat-square&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Floophp%2Fiterators%2Fmain
-[mutation badge link]:
-  https://dashboard.stryker-mutator.io/reports/github.com/loophp/iterators/main
 [34]: https://github.com/loophp/iterators/issues
 [35]: https://www.phpunit.de/
 [36]: https://github.com/phpro/grumphp
-[37]: https://github.com/infection/infection
 [38]: https://github.com/phpstan/phpstan
 [39]: https://github.com/vimeo/psalm
 [43]: https://github.com/loophp/iterators/blob/main/CHANGELOG.md
