@@ -5,10 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.3.3](https://github.com/loophp/iterators/compare/2.3.2...2.3.3)
+## [2.3.4](https://github.com/loophp/iterators/compare/2.3.3...2.3.4)
+
+### Merged
+
+- chore(deps): update cachix/install-nix-action action to v20 [`#36`](https://github.com/loophp/iterators/pull/36)
+- chore(deps): update cachix/install-nix-action action to v19 [`#35`](https://github.com/loophp/iterators/pull/35)
 
 ### Commits
 
+- chore: remove infection testing [`8d90cef`](https://github.com/loophp/iterators/commit/8d90cef9b85dd4fc5743faa91edd97cdb04f6199)
+- chore: remove infection testing [`34c3b5c`](https://github.com/loophp/iterators/commit/34c3b5c0ee445f5c0274652fddc30ac579777b87)
+- chore: minor code update [`b8f4397`](https://github.com/loophp/iterators/commit/b8f43972e094d08900055159736e6a913605b3ed)
+- chore: relax phpunit version constraints [`12c5825`](https://github.com/loophp/iterators/commit/12c5825a57e23823a5c7f27d2736ed8467c43efb)
+- chore: update `.gitignore` [`a78bdf6`](https://github.com/loophp/iterators/commit/a78bdf68243089bb96a62fd7f8743f3cee7a7dec)
+- style: use constructor property promotion style [`2568d7f`](https://github.com/loophp/iterators/commit/2568d7f9bf1d2e1c695df4f2dc263dcc314cf07f)
+- style: autofix [`673f86f`](https://github.com/loophp/iterators/commit/673f86f957738f4defbed008e211a33777659544)
+
+## [2.3.3](https://github.com/loophp/iterators/compare/2.3.2...2.3.3) - 2023-01-14
+
+### Commits
+
+- docs: update changelog [`600c63a`](https://github.com/loophp/iterators/commit/600c63af7316104872f5f139229879ac1ad944b3)
 - chore: update license date [`a5eb272`](https://github.com/loophp/iterators/commit/a5eb2724a6c3d14b5c17d879821cf82bed3b8622)
 - fix: `TypedIterableAggregate` [`945b4b8`](https://github.com/loophp/iterators/commit/945b4b89e15f7e094b258d6eaac15a10a1cfbe72)
 - fix: tests [`abd5782`](https://github.com/loophp/iterators/commit/abd5782460bd94c353569cf0599d5ebb33d0035d)
