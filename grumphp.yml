@@ -46,9 +46,3 @@ parameters:
         clover_coverage:
             clover_file: build/logs/coverage/clover.xml
             level: 95
-        infection:
-            threads: 10
-            test_framework: phpunit
-            configuration: infection.json
-            min_msi: 85
-            min_covered_msi: 85

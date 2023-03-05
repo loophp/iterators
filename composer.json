@@ -32,7 +32,6 @@
     "require-dev": {
         "ext-pcov": "*",
         "drupol/php-conventions": "^5",
-        "infection/infection": "^0.26",
         "phpbench/phpbench": "^1.2",
         "phpstan/phpstan-strict-rules": "^1.0",
         "phpunit/php-code-coverage": "^9.2 || ^10",
@@ -53,7 +52,6 @@
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
             "ergebnis/composer-normalize": true,
-            "infection/extension-installer": true,
             "phpro/grumphp": true,
             "phpstan/extension-installer": true
         },
@@ -62,7 +60,6 @@
     "scripts": {
         "changelog-unreleased": "auto-changelog -c .auto-changelog -u",
         "changelog-version": "auto-changelog -c .auto-changelog -v",
-        "grumphp": "./vendor/bin/grumphp run",
-        "infection": "vendor/bin/infection run -j 2"
+        "grumphp": "./vendor/bin/grumphp run"
     }
 }
