@@ -1,8 +1,8 @@
 [![Latest Stable Version][latest stable version]][1]
 [![GitHub stars][github stars]][1] [![Total Downloads][total downloads]][1]
 [![GitHub Workflow Status][github workflow status]][2]
-[![Type Coverage][type coverage]][4]
-[![License][license]][1] [![Donate!][donate github]][5]
+[![Type Coverage][type coverage]][4] [![License][license]][1]
+[![Donate!][donate github]][5]
 
 # PHP Iterators
 
