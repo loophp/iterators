@@ -1,8 +1,7 @@
 [![Latest Stable Version][latest stable version]][1]
 [![GitHub stars][github stars]][1] [![Total Downloads][total downloads]][1]
 [![GitHub Workflow Status][github workflow status]][2]
-[![Scrutinizer code quality][code quality]][3]
-[![Type Coverage][type coverage]][4] [![Code Coverage][code coverage]][3]
+[![Type Coverage][type coverage]][4]
 [![License][license]][1] [![Donate!][donate github]][5]
 
 # PHP Iterators
@@ -355,7 +354,6 @@ For more detailed changelogs, please check [the release changelogs][45].
 
 [1]: https://packagist.org/packages/loophp/iterators
 [2]: https://github.com/loophp/iterators/actions
-[3]: https://scrutinizer-ci.com/g/loophp/iterators/?branch=main
 [4]: https://shepherd.dev/github/loophp/iterators
 [5]: https://github.com/sponsors/drupol
 [6]: https://github.com/loophp/iterators/graphs/contributors
@@ -367,12 +365,8 @@ For more detailed changelogs, please check [the release changelogs][45].
   https://img.shields.io/packagist/dt/loophp/iterators.svg?style=flat-square
 [github workflow status]:
   https://img.shields.io/github/actions/workflow/status/loophp/iterators/tests.yml?branch=main&style=flat-square
-[code quality]:
-  https://img.shields.io/scrutinizer/quality/g/loophp/iterators/main.svg?style=flat-square
 [type coverage]:
   https://img.shields.io/badge/dynamic/json?style=flat-square&color=color&label=Type%20coverage&query=message&url=https%3A%2F%2Fshepherd.dev%2Fgithub%2Floophp%2Fiterators%2Fcoverage
-[code coverage]:
-  https://img.shields.io/scrutinizer/coverage/g/loophp/iterators/main.svg?style=flat-square
 [license]:
   https://img.shields.io/packagist/l/loophp/iterators.svg?style=flat-square
 [donate github]:
