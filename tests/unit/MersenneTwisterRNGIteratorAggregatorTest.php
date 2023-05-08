@@ -13,6 +13,8 @@ use LimitIterator;
 use loophp\iterators\MersenneTwisterRNGIteratorAggregate;
 use PHPUnit\Framework\TestCase;
 
+use const PHP_VERSION_ID;
+
 /**
  * @internal
  *
