@@ -23,15 +23,17 @@ final class MapIterableAggregateTest extends TestCase
 {
     public function testBasic(): void
     {
+        $input = array_combine(range('a', 'c'), range('a', 'c'));
+
         $iterator = (new MapIterableAggregate(
-            range('a', 'c'),
-            static fn (string $letter, int $key, iterable $iterable): string => sprintf('%s::%s::%s', $key, $letter, gettype($iterable))
+            $input,
+            static fn (string $letter, string $key, iterable $iterable): string => sprintf('%s::%s::%s', $key, $letter, gettype($iterable))
         ));
 
         $expected = [
-            '0::a::array',
-            '1::b::array',
-            '2::c::array',
+            'a' => 'a::a::array',
+            'b' => 'b::b::array',
+            'c' => 'c::c::array',
         ];
 
         self::assertSame($expected, iterator_to_array($iterator));

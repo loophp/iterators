@@ -23,7 +23,7 @@ final class PausableIteratorAggregateTest extends TestCase
     public function testGetRest(): void
     {
         $input = static function (): Generator {
-            yield from range('a', 'e');
+            yield from array_combine(range('a', 'e'), range('a', 'e'));
         };
 
         $iterator = (new PausableIteratorAggregate($input()));
@@ -54,16 +54,16 @@ final class PausableIteratorAggregateTest extends TestCase
         }
 
         $expected = [
-            [0, 'a'],
-            [1, 'b'],
-            [2, 'c'],
-            [3, 'd'],
-            [4, 'e'],
-            [0, 'a'],
-            [1, 'b'],
-            [2, 'c'],
-            [3, 'd'],
-            [4, 'e'],
+            ['a', 'a'],
+            ['b', 'b'],
+            ['c', 'c'],
+            ['d', 'd'],
+            ['e', 'e'],
+            ['a', 'a'],
+            ['b', 'b'],
+            ['c', 'c'],
+            ['d', 'd'],
+            ['e', 'e'],
         ];
 
         self::assertSame($expected, $a);

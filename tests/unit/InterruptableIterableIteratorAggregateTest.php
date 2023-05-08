@@ -27,14 +27,14 @@ final class InterruptableIterableIteratorAggregateTest extends TestCase
             $i = 0;
 
             while (true) {
-                yield $i++;
+                yield sprintf('[%s]', $i) => $i++;
             }
         };
 
         $subject = new InterruptableIterableIteratorAggregate($naturals());
 
         self::assertSame(
-            range(0, 10),
+            array_combine(array_map(static fn (int $a): string => sprintf('[%s]', $a), range(0, 10)), range(0, 10)),
             iterator_to_array($this->getSubjectGenerator($subject))
         );
     }

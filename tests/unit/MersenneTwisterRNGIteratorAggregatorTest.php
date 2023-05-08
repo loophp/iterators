@@ -33,6 +33,42 @@ final class MersenneTwisterRNGIteratorAggregatorTest extends TestCase
         self::assertNotSame($expected, iterator_to_array($iterator));
     }
 
+    public function testSeed(): void
+    {
+        $seed = -1;
+        $innerIterator = (new MersenneTwisterRNGIteratorAggregate())->withSeed($seed);
+
+        $iterator = new LimitIterator($innerIterator->getIterator(), 0, 10);
+
+        $expected = [
+            -7422378986580066014,
+            7607120784305990727,
+            5331760257347419712,
+            5165154706003526138,
+            -8892443392435847392,
+            8660855838641975931,
+            1718781808164485227,
+            -6527986301322975030,
+            7551637291286289549,
+            991259994952170583,
+        ];
+
+        self::assertSame($expected, iterator_to_array($iterator));
+
+        $iterator = new LimitIterator($innerIterator->withSeed(-1)->getIterator(), 0, 10);
+
+        self::assertSame($expected, iterator_to_array($iterator));
+    }
+
+    public function testWithers(): void
+    {
+        $iterator = (new MersenneTwisterRNGIteratorAggregate());
+
+        self::assertNotEquals($iterator, $iterator->withMax(10));
+        self::assertNotEquals($iterator, $iterator->withMin(0));
+        self::assertNotEquals($iterator, $iterator->withSeed(123));
+    }
+
     public function testWithSeed(): void
     {
         $seed = 123;
