@@ -27,15 +27,15 @@
         }
     ],
     "require": {
-        "php": ">= 8.0"
+        "php": ">= 8.1"
     },
     "require-dev": {
         "ext-pcov": "*",
         "drupol/php-conventions": "^5",
         "phpbench/phpbench": "^1.2",
         "phpstan/phpstan-strict-rules": "^1.0",
-        "phpunit/php-code-coverage": "^9.2 || ^10",
-        "phpunit/phpunit": "^9.6 || ^10"
+        "phpunit/php-code-coverage": "^10",
+        "phpunit/phpunit": "^10"
     },
     "autoload": {
         "psr-4": {
