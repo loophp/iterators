@@ -37,6 +37,9 @@
         "phpunit/php-code-coverage": "^10",
         "phpunit/phpunit": "^10"
     },
+    "suggest": {
+        "ext-mbstring": "For UTF-8 support in the StringIteratorAggregate."
+    },
     "autoload": {
         "psr-4": {
             "loophp\\iterators\\": "./src/"
