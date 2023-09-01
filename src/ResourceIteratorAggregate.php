@@ -21,20 +21,27 @@ use function is_resource;
 final class ResourceIteratorAggregate implements IteratorAggregate
 {
     /**
+     * @var null|non-negative-int
+     */
+    private ?int $length = null;
+
+    /**
      * @var resource
      */
     private $resource;
 
     /**
      * @param false|resource $resource
+     * @param null|non-negative-int $length
      */
-    public function __construct($resource, private bool $closeResource = false)
+    public function __construct($resource, private bool $closeResource = false, ?int $length = null)
     {
         if (!is_resource($resource) || 'stream' !== get_resource_type($resource)) {
             throw new InvalidArgumentException('Invalid resource type.');
         }
 
         $this->resource = $resource;
+        $this->length = $length;
     }
 
     /**
@@ -42,11 +49,26 @@ final class ResourceIteratorAggregate implements IteratorAggregate
      */
     public function getIterator(): Generator
     {
-        $resource = $this->resource;
         $closeResource = $this->closeResource;
+        $length = $this->length;
+        $resource = $this->resource;
+
+        $fgetc =
+            /**
+             * @param resource $resource
+             */
+            static fn ($resource): string|false => fgetc($resource);
+
+        $fgets =
+            /**
+             * @param resource $resource
+             */
+            static fn ($resource): string|false => fgets($resource, $length);
+
+        $function = (null === $length) ? $fgetc : $fgets;
 
         try {
-            while (false !== $chunk = fgetc($resource)) {
+            while (false !== $chunk = $function($resource)) {
                 yield $chunk;
             }
         } finally {
