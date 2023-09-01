@@ -5,7 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.3.4](https://github.com/loophp/iterators/compare/2.3.3...2.3.4)
+## [2.3.5](https://github.com/loophp/iterators/compare/2.3.4...2.3.5)
+
+### Merged
+
+- chore(deps): Bump cachix/install-nix-action from 20 to 22 [`#42`](https://github.com/loophp/iterators/pull/42)
+- chore(deps): Bump actions/stale from 7 to 8 [`#38`](https://github.com/loophp/iterators/pull/38)
+
+### Commits
+
+- feat: let this iterator use `fgets` when needed. [`45e1fdf`](https://github.com/loophp/iterators/commit/45e1fdffb66c6a76f0d2d71bd78017983c78c650)
+- chore: add `suggest` attribute [`b16881d`](https://github.com/loophp/iterators/commit/b16881d2087bf4826b7f56e2edfcbe3e60fb6c56)
+- chore: autofix `README` [`9dbb4af`](https://github.com/loophp/iterators/commit/9dbb4afff8e7c1aff94316e1a0de387d9c4c821f)
+- chore: get rid of scrutinizer [`32d0733`](https://github.com/loophp/iterators/commit/32d0733ade1a36bc0d18dc963957080c18cdd106)
+- chore: php &gt;= 8.1 [`2b46f5f`](https://github.com/loophp/iterators/commit/2b46f5f64ad4a6cea7e958811ff46f418ab585a7)
+- autofix code style [`c632a78`](https://github.com/loophp/iterators/commit/c632a78a323a3c9b1c7b29582b9cb77ca6bba3e9)
+- tests: fix tests for PHP &gt;= 8.2 [`1ce182d`](https://github.com/loophp/iterators/commit/1ce182de7db30af79b778a8cba1038f69200ce8a)
+- chore: improve tests [`23c085e`](https://github.com/loophp/iterators/commit/23c085eb072415c927099b2be697b437c3e8ba38)
+
+## [2.3.4](https://github.com/loophp/iterators/compare/2.3.3...2.3.4) - 2023-03-05
 
 ### Merged
 
@@ -14,6 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Commits
 
+- docs: update changelog [`6995619`](https://github.com/loophp/iterators/commit/699561907e07fc6cd56765ccbbe8c04e19da733f)
 - chore: remove infection testing [`8d90cef`](https://github.com/loophp/iterators/commit/8d90cef9b85dd4fc5743faa91edd97cdb04f6199)
 - chore: remove infection testing [`34c3b5c`](https://github.com/loophp/iterators/commit/34c3b5c0ee445f5c0274652fddc30ac579777b87)
 - chore: minor code update [`b8f4397`](https://github.com/loophp/iterators/commit/b8f43972e094d08900055159736e6a913605b3ed)
