@@ -22,7 +22,7 @@ use PHPUnit\Framework\TestCase;
  */
 final class MultipleIterableAggregateTest extends TestCase
 {
-    public static function basicProvider()
+    public static function provideBasicCases(): iterable
     {
         $generator = static function () {
             yield from range('a', 'c');
@@ -52,7 +52,7 @@ final class MultipleIterableAggregateTest extends TestCase
         ];
     }
 
-    public static function basicWithFlagsProvider()
+    public static function provideFlagsCases(): iterable
     {
         yield [
             [range('a', 'c'), range('d', 'e')],
@@ -90,7 +90,7 @@ final class MultipleIterableAggregateTest extends TestCase
     }
 
     /**
-     * @dataProvider basicProvider
+     * @dataProvider provideBasicCases
      */
     public function testBasic(array $iterables, array $expected): void
     {
@@ -102,7 +102,7 @@ final class MultipleIterableAggregateTest extends TestCase
     }
 
     /**
-     * @dataProvider basicWithFlagsProvider
+     * @dataProvider provideFlagsCases
      */
     public function testFlags(array $iterables, int $flags, array $expected): void
     {

@@ -19,7 +19,7 @@ use PHPUnit\Framework\TestCase;
  */
 final class StringIteratorAggregateTest extends TestCase
 {
-    public static function stringIteratorAggregateProvider()
+    public static function provideBasicCases(): iterable
     {
         yield [
             'hello world',
@@ -51,7 +51,7 @@ final class StringIteratorAggregateTest extends TestCase
     }
 
     /**
-     * @dataProvider stringIteratorAggregateProvider
+     * @dataProvider provideBasicCases
      */
     public function testBasic(string $input, string $delimiter, mixed $expected)
     {
