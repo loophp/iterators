@@ -1,10 +1,5 @@
 <?php
 
-/**
- * For the full copyright and license information, please view
- * the LICENSE file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace loophp\iterators;
@@ -26,9 +21,7 @@ final class MapIterableAggregate implements IteratorAggregate
      * @param iterable<TKey, T> $iterable
      * @param (Closure(T, TKey, iterable<TKey, T>): W) $closure
      */
-    public function __construct(private iterable $iterable, private Closure $closure)
-    {
-    }
+    public function __construct(private iterable $iterable, private Closure $closure) {}
 
     /**
      * @return Generator<TKey, W>

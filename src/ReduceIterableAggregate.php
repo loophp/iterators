@@ -1,10 +1,5 @@
 <?php
 
-/**
- * For the full copyright and license information, please view
- * the LICENSE file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace loophp\iterators;
@@ -27,9 +22,7 @@ final class ReduceIterableAggregate implements IteratorAggregate
      * @param (Closure(W, T, TKey, iterable<TKey, T>): W) $closure
      * @param W $initial
      */
-    public function __construct(private iterable $iterable, private Closure $closure, private mixed $initial)
-    {
-    }
+    public function __construct(private iterable $iterable, private Closure $closure, private mixed $initial) {}
 
     /**
      * @return Generator<int, W>

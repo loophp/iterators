@@ -1,10 +1,5 @@
 <?php
 
-/**
- * For the full copyright and license information, please view
- * the LICENSE file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace loophp\iterators;
@@ -25,9 +20,7 @@ final class ConcatIterableAggregate implements IteratorAggregate
     /**
      * @param iterable<mixed, iterable<TKey, T>> $iterables
      */
-    public function __construct(private iterable $iterables)
-    {
-    }
+    public function __construct(private iterable $iterables) {}
 
     /**
      * @return Generator<TKey, T>

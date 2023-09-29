@@ -14,16 +14,12 @@ include __DIR__ . '/../../vendor/autoload.php';
 /**
  * @param Iterator<int, int> $iterator
  */
-function closureIterator_checkList(Iterator $iterator): void
-{
-}
+function closureIterator_checkList(Iterator $iterator): void {}
 
 /**
  * @param Iterator<string, bool> $iterator
  */
-function closureIterator_checkMap(Iterator $iterator): void
-{
-}
+function closureIterator_checkMap(Iterator $iterator): void {}
 
 $callableIntInt =
     /**
