@@ -19,7 +19,7 @@ final class SortIterator extends SplHeap
      * @param iterable<TKey, T> $iterable
      * @param Closure(T, T): int $callback
      */
-    public function __construct(private iterable $iterable, private Closure $callback)
+    public function __construct(iterable $iterable, private Closure $callback)
     {
         foreach ($iterable as $value) {
             $this->insert($value);
@@ -30,7 +30,7 @@ final class SortIterator extends SplHeap
      * @param T $left
      * @param T $right
      */
-    public function compare($left, $right): int
+    protected function compare($left, $right): int
     {
         return ($this->callback)($left, $right);
     }
