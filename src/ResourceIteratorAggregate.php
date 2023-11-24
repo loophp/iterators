@@ -12,7 +12,9 @@ use IteratorAggregate;
 use function is_resource;
 
 /**
- * @implements IteratorAggregate<int, string>
+ * @template T
+ *
+ * @implements IteratorAggregate<int, string|T>
  */
 final class ResourceIteratorAggregate implements IteratorAggregate
 {
@@ -29,7 +31,7 @@ final class ResourceIteratorAggregate implements IteratorAggregate
     /**
      * @param false|resource $resource
      * @param null|non-negative-int $length
-     * @param Closure(resource): string $consumer
+     * @param Closure(resource): T $consumer
      */
     public function __construct($resource, private bool $closeResource = false, ?int $length = null, private ?Closure $consumer = null)
     {
@@ -42,7 +44,7 @@ final class ResourceIteratorAggregate implements IteratorAggregate
     }
 
     /**
-     * @return Generator<int, string>
+     * @return Generator<int, string|T>
      */
     public function getIterator(): Generator
     {
