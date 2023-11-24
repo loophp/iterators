@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace loophp\iterators;
 
+use Closure;
 use Generator;
 use InvalidArgumentException;
 use IteratorAggregate;
@@ -28,8 +29,9 @@ final class ResourceIteratorAggregate implements IteratorAggregate
     /**
      * @param false|resource $resource
      * @param null|non-negative-int $length
+     * @param Closure(resource): string $consumer
      */
-    public function __construct($resource, private bool $closeResource = false, ?int $length = null)
+    public function __construct($resource, private bool $closeResource = false, ?int $length = null, private ?Closure $consumer = null)
     {
         if (!is_resource($resource) || 'stream' !== get_resource_type($resource)) {
             throw new InvalidArgumentException('Invalid resource type.');
@@ -52,15 +54,15 @@ final class ResourceIteratorAggregate implements IteratorAggregate
             /**
              * @param resource $resource
              */
-            static fn ($resource): string|false => fgetc($resource);
+            static fn ($resource): false|string => fgetc($resource);
 
         $fgets =
             /**
              * @param resource $resource
              */
-            static fn ($resource): string|false => fgets($resource, $length);
+            static fn ($resource): false|string => fgets($resource, $length);
 
-        $function = (null === $length) ? $fgetc : $fgets;
+        $function = $this->consumer ?? ((null === $length) ? $fgetc : $fgets);
 
         try {
             while (false !== $chunk = $function($resource)) {
