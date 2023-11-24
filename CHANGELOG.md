@@ -5,7 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.4.0](https://github.com/loophp/iterators/compare/2.3.5...2.4.0)
+## [2.5.0](https://github.com/loophp/iterators/compare/2.4.0...2.5.0)
+
+### Merged
+
+- Update SortIterator.php [`#47`](https://github.com/loophp/iterators/pull/47)
+
+### Commits
+
+- feat: add a `consumer` parameter to constructor [`46419a0`](https://github.com/loophp/iterators/commit/46419a0213b2791727c94c894ab08e172e2fc88b)
+- fix: update parameter names [`331dc50`](https://github.com/loophp/iterators/commit/331dc50719d4d654d385e30352843a8ca6846a3f)
+
+## [2.4.0](https://github.com/loophp/iterators/compare/2.3.5...2.4.0) - 2023-09-29
 
 ### Merged
 
@@ -13,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Commits
 
+- docs: update CHANGELOG [`c3923c5`](https://github.com/loophp/iterators/commit/c3923c58712eaab4954648ad877c0b45c3c1d905)
 - autofix code style [`49d56b7`](https://github.com/loophp/iterators/commit/49d56b72a2e45ba5a749864409ee1a970cdebeda)
 - feat: add `SortIterableAggregate` and `SortIterator` [`0c810ab`](https://github.com/loophp/iterators/commit/0c810abcdb8b847f6455c201e0196ca99f2880a3)
 - ci: switch to `DeterminateSystems/nix-installer-action` [`98ee821`](https://github.com/loophp/iterators/commit/98ee8218f4a1a54d374f2f7eb9ac279cc19660f2)
@@ -100,7 +112,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - update code for PHP 8 - fix tests [`8c18ff4`](https://github.com/loophp/iterators/commit/8c18ff4927946bba74d096c7b3a3ea1b03dc0f3b)
 - update code for PHP 8 [`8ef4a6b`](https://github.com/loophp/iterators/commit/8ef4a6b3cd871f368b2c4bddd9fbe94150d6e792)
 
-## [2.1.0](https://github.com/loophp/iterators/compare/2.0.1...2.1.0) - 2022-11-28
+## [2.1.0](https://github.com/loophp/iterators/compare/2.0.2...2.1.0) - 2022-11-28
 
 ### Merged
 
@@ -115,6 +127,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - update `composer.json`, require `php &gt;= 8` [`6f75985`](https://github.com/loophp/iterators/commit/6f759857600cbe7fd40c986be99fa98c14ab4f8c)
 - Prettify [`4d1c986`](https://github.com/loophp/iterators/commit/4d1c9868325ab84bdf43d1405538035c3c44e4fb)
 - chore: update grumphp configuration [`d9a5a86`](https://github.com/loophp/iterators/commit/d9a5a86706b3b701b634ac9db4b76d3a7501152c)
+
+## [2.0.2](https://github.com/loophp/iterators/compare/2.0.1...2.0.2) - 2022-11-12
+
+### Commits
+
 - docs: update changelog [`ec3d429`](https://github.com/loophp/iterators/commit/ec3d4299aed752c0e29d856e54409c4583077df1)
 - Use decorator pattern to avoid duplicating code. [`29ed1da`](https://github.com/loophp/iterators/commit/29ed1da85f0d469f4bca4155990d0da86ada4fb1)
 
