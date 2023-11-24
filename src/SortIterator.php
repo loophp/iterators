@@ -27,11 +27,11 @@ final class SortIterator extends SplHeap
     }
 
     /**
-     * @param T $left
-     * @param T $right
+     * @param T $value1
+     * @param T $value2
      */
-    protected function compare($left, $right): int
+    protected function compare($value1, $value2): int
     {
-        return ($this->callback)($left, $right);
+        return ($this->callback)($value1, $value2);
     }
 }
