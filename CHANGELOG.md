@@ -5,7 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.5.0](https://github.com/loophp/iterators/compare/2.4.0...2.5.0)
+## [2.5.1](https://github.com/loophp/iterators/compare/2.5.0...2.5.1)
+
+### Commits
+
+- fix: update return type of `ResourceIteratorAggregate` [`a4d3990`](https://github.com/loophp/iterators/commit/a4d399015b252fa8050881458b34d90fe6c9a4bd)
+
+## [2.5.0](https://github.com/loophp/iterators/compare/2.4.0...2.5.0) - 2023-11-24
 
 ### Merged
 
@@ -13,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Commits
 
+- docs: update changelog [`f79c6e1`](https://github.com/loophp/iterators/commit/f79c6e1533e497ebb74a722ced7e722afd088c94)
 - feat: add a `consumer` parameter to constructor [`46419a0`](https://github.com/loophp/iterators/commit/46419a0213b2791727c94c894ab08e172e2fc88b)
 - fix: update parameter names [`331dc50`](https://github.com/loophp/iterators/commit/331dc50719d4d654d385e30352843a8ca6846a3f)
 
