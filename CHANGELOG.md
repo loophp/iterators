@@ -5,10 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [3.0.1](https://github.com/loophp/iterators/compare/3.0.0...3.0.1)
+## [3.0.2](https://github.com/loophp/iterators/compare/3.0.1...3.0.2)
 
 ### Commits
 
+- fix: typo, replace `fgets` with `fgetc` [`6414540`](https://github.com/loophp/iterators/commit/6414540cd2f6900b246b567c81b42ebd9269e4d6)
+
+## [3.0.1](https://github.com/loophp/iterators/compare/3.0.0...3.0.1) - 2023-11-25
+
+### Commits
+
+- docs: update changelog [`60077a1`](https://github.com/loophp/iterators/commit/60077a1822518fb47c6e6b6b026f0dfa441d9baf)
 - fix: Static analysis annotations [`a8976aa`](https://github.com/loophp/iterators/commit/a8976aa4734ecccd7802738f715b7b6609cbbf98)
 
 ## [3.0.0](https://github.com/loophp/iterators/compare/2.5.1...3.0.0) - 2023-11-25
