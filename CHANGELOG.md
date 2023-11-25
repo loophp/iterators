@@ -5,11 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [3.0.0](https://github.com/loophp/iterators/compare/2.5.1...3.0.0)
+## [3.0.1](https://github.com/loophp/iterators/compare/3.0.0...3.0.1)
+
+### Commits
+
+- fix: Static analysis annotations [`a8976aa`](https://github.com/loophp/iterators/commit/a8976aa4734ecccd7802738f715b7b6609cbbf98)
+
+## [3.0.0](https://github.com/loophp/iterators/compare/2.5.1...3.0.0) - 2023-11-25
 
 ### Commits
 
 - **Breaking change:** refactor: remove `length` parameter [`f9d98cc`](https://github.com/loophp/iterators/commit/f9d98cc7979da976c53b52c550054637206d13df)
+- docs: update changelog [`ce6247d`](https://github.com/loophp/iterators/commit/ce6247d4b3eff4f80bbfb355e6bc115a74760d2d)
 
 ## [2.5.1](https://github.com/loophp/iterators/compare/2.5.0...2.5.1) - 2023-11-24
 
