@@ -44,7 +44,7 @@ final class ResourceIteratorAggregate implements IteratorAggregate
             /**
              * @param resource $resource
              */
-            static fn ($resource): bool|string => fgets($resource);
+            static fn ($resource): bool|string => fgetc($resource);
     }
 
     /**
