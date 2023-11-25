@@ -5,10 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.5.1](https://github.com/loophp/iterators/compare/2.5.0...2.5.1)
+## [3.0.0](https://github.com/loophp/iterators/compare/2.5.1...3.0.0)
 
 ### Commits
 
+- **Breaking change:** refactor: remove `length` parameter [`f9d98cc`](https://github.com/loophp/iterators/commit/f9d98cc7979da976c53b52c550054637206d13df)
+
+## [2.5.1](https://github.com/loophp/iterators/compare/2.5.0...2.5.1) - 2023-11-24
+
+### Commits
+
+- docs: update changelog [`7142179`](https://github.com/loophp/iterators/commit/7142179e326466dd1abd4a5a691a277bea69b7d9)
 - fix: update return type of `ResourceIteratorAggregate` [`a4d3990`](https://github.com/loophp/iterators/commit/a4d399015b252fa8050881458b34d90fe6c9a4bd)
 
 ## [2.5.0](https://github.com/loophp/iterators/compare/2.4.0...2.5.0) - 2023-11-24
