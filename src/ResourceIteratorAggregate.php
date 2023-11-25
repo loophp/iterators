@@ -19,22 +19,32 @@ use function is_resource;
 final class ResourceIteratorAggregate implements IteratorAggregate
 {
     /**
+     * @var Closure(resource): (T|mixed)
+     */
+    private Closure $consumer;
+
+    /**
      * @var resource
      */
     private $resource;
 
     /**
      * @param false|resource $resource
-     * @param Closure(resource): T $consumer
+     * @param Closure(resource): (T|mixed) $consumer
      */
-    public function __construct($resource, private bool $closeResource = false, private ?Closure $consumer = null)
+    public function __construct($resource, private bool $closeResource = false, ?Closure $consumer = null)
     {
         if (!is_resource($resource) || 'stream' !== get_resource_type($resource)) {
             throw new InvalidArgumentException('Invalid resource type.');
         }
 
         $this->resource = $resource;
-        $this->consumer ??= static fn ($resource): bool|string => fgetc($resource);
+
+        $this->consumer = $consumer ??
+            /**
+             * @param resource $resource
+             */
+            static fn ($resource): bool|string => fgets($resource);
     }
 
     /**
