@@ -19,28 +19,22 @@ use function is_resource;
 final class ResourceIteratorAggregate implements IteratorAggregate
 {
     /**
-     * @var null|non-negative-int
-     */
-    private ?int $length = null;
-
-    /**
      * @var resource
      */
     private $resource;
 
     /**
      * @param false|resource $resource
-     * @param null|non-negative-int $length
      * @param Closure(resource): T $consumer
      */
-    public function __construct($resource, private bool $closeResource = false, ?int $length = null, private ?Closure $consumer = null)
+    public function __construct($resource, private bool $closeResource = false, private ?Closure $consumer = null)
     {
         if (!is_resource($resource) || 'stream' !== get_resource_type($resource)) {
             throw new InvalidArgumentException('Invalid resource type.');
         }
 
         $this->resource = $resource;
-        $this->length = $length;
+        $this->consumer ??= static fn ($resource): bool|string => fgetc($resource);
     }
 
     /**
@@ -49,25 +43,10 @@ final class ResourceIteratorAggregate implements IteratorAggregate
     public function getIterator(): Generator
     {
         $closeResource = $this->closeResource;
-        $length = $this->length;
         $resource = $this->resource;
 
-        $fgetc =
-            /**
-             * @param resource $resource
-             */
-            static fn ($resource): false|string => fgetc($resource);
-
-        $fgets =
-            /**
-             * @param resource $resource
-             */
-            static fn ($resource): false|string => fgets($resource, $length);
-
-        $function = $this->consumer ?? ((null === $length) ? $fgetc : $fgets);
-
         try {
-            while (false !== $chunk = $function($resource)) {
+            while ($chunk = ($this->consumer)($resource)) {
                 yield $chunk;
             }
         } finally {
