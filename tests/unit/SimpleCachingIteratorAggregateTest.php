@@ -105,4 +105,31 @@ final class SimpleCachingIteratorAggregateTest extends TestCase
 
         self::assertSame($expected, $a);
     }
+
+    public function testConsecutiveCachingFromInnerTraversals(): void
+    {
+        $iterator = new SimpleCachingIteratorAggregate(new ArrayIterator([1, 2, 3, 4, 5, 6]));
+
+        $outerItems = [];
+
+        foreach ($iterator as $outerItem) {
+            if ($outerItem === 2) {
+                $innerItems = [];
+
+                foreach ($iterator as $innerItem) {
+                    $innerItems[] = $innerItem;
+
+                    if ($innerItem === 4) {
+                        break;
+                    }
+                }
+
+                self::assertSame([1, 2, 3, 4], $innerItems);
+            }
+
+            $outerItems[] = $outerItem;
+        }
+
+        self::assertSame([1, 2, 3, 4, 5, 6], $outerItems);
+    }
 }
