@@ -21,6 +21,29 @@ use PHPUnit\Framework\TestCase;
  */
 final class SimpleCachingIteratorAggregateTest extends TestCase
 {
+    public function testConsecutiveCachingFromInnerTraversals(): void
+    {
+        $iterator = new SimpleCachingIteratorAggregate(new ArrayIterator([1, 2, 3, 4, 5, 6]));
+        $outerItems = $innerItems = [];
+
+        foreach ($iterator as $outerItem) {
+            $outerItems[] = $outerItem;
+
+            if (2 === $outerItem) {
+                foreach ($iterator as $innerItem) {
+                    $innerItems[] = $innerItem;
+
+                    if (4 === $innerItem) {
+                        break;
+                    }
+                }
+            }
+        }
+
+        self::assertSame([1, 2, 3, 4], $innerItems);
+        self::assertSame([1, 2, 3, 4, 5, 6], $outerItems);
+    }
+
     public function testHasNext(): void
     {
         $range = range('a', 'c');
@@ -104,32 +127,5 @@ final class SimpleCachingIteratorAggregateTest extends TestCase
         ];
 
         self::assertSame($expected, $a);
-    }
-
-    public function testConsecutiveCachingFromInnerTraversals(): void
-    {
-        $iterator = new SimpleCachingIteratorAggregate(new ArrayIterator([1, 2, 3, 4, 5, 6]));
-
-        $outerItems = [];
-
-        foreach ($iterator as $outerItem) {
-            if ($outerItem === 2) {
-                $innerItems = [];
-
-                foreach ($iterator as $innerItem) {
-                    $innerItems[] = $innerItem;
-
-                    if ($innerItem === 4) {
-                        break;
-                    }
-                }
-
-                self::assertSame([1, 2, 3, 4], $innerItems);
-            }
-
-            $outerItems[] = $outerItem;
-        }
-
-        self::assertSame([1, 2, 3, 4, 5, 6], $outerItems);
     }
 }

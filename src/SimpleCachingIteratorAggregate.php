@@ -52,13 +52,13 @@ final class SimpleCachingIteratorAggregate implements IteratorAggregate
 
             $cache = $this->iterator->getCache();
 
-            if ($key === array_key_last($cache)) {
+            if (array_key_last($cache) === $key) {
                 continue;
             }
 
-            // If the cache pointer has shifted since last iteration (inner loop over the same iterator),
-            // it's necessary to yield extra-cached items as well
-
+            // If the cache pointer has shifted since last iteration
+            // (inner loop over the same iterator), it's necessary to yield
+            // extra-cached items as well
             $yieldStarted = false;
 
             foreach ($cache as $cacheKey => $cacheItem) {
@@ -66,9 +66,7 @@ final class SimpleCachingIteratorAggregate implements IteratorAggregate
                     yield $cacheKey => $cacheItem;
                 }
 
-                if ($key === $cacheKey) {
-                    $yieldStarted = true;
-                }
+                $yieldStarted = $yieldStarted || $key === $cacheKey;
             }
         }
     }
