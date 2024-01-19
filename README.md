@@ -33,6 +33,7 @@ The missing PHP iterators.
 - `ReductionIterableAggregate`
 - `ResourceIteratorAggregate`
 - `SimpleCachingIteratorAggregate`
+- `SortIterableAggregate`
 - `StringIteratorAggregate`
 - `TypedIterableAggregate`
 - `UniqueIterableAggregate`
@@ -319,6 +320,33 @@ $iterator = (new ReductionIterableAggregate(
 ));
 
 foreach ($iterator as $reduction) {} // [0, 1, 3, 6, 10, 15, 21, 28, 36, 45, 55]
+```
+
+### SortIterableAggregate
+
+Implements a
+[stable](https://en.m.wikipedia.org/wiki/Sorting_algorithm#Stability) sort
+iterable aggregate
+
+This means that if two elements have the same key, the one that appeared earlier
+in the input will also appear earlier in the sorted output.
+
+```php
+$valueObjectFactory = static fn (int $id, int $weight) => new class($id, $weight)
+{
+    public function __construct(public readonly int $id, public readonly int $weight) {}
+};
+
+$input = [
+    $valueObjectFactory(id: 1, weight: 1),
+    $valueObjectFactory(id: 2, weight: 1),
+    $valueObjectFactory(id: 3, weight: 1),
+];
+
+$sort = new SortIterableAggregate(
+  $input,
+  static fn (object $a, object $b): int => $a->weight <=> $b->weight
+);
 ```
 
 ## Code quality, tests, benchmarks

@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace tests\loophp\iterators;
 
+use loophp\iterators\MapIterableAggregate;
 use loophp\iterators\SortIterableAggregate;
 use PHPUnit\Framework\TestCase;
 
@@ -47,5 +48,27 @@ final class SortIterableAggregateTest extends TestCase
         }
 
         self::assertSame($expected, range('a', 'c'));
+    }
+
+    public function testStableSort(): void
+    {
+        $valueObjectFactory = static fn (int $id, int $weight) => new class($id, $weight) {
+            public function __construct(
+                public readonly int $id,
+                public readonly int $weight,
+            ) {}
+        };
+
+        $input = [
+            $valueObjectFactory(id: 1, weight: 1),
+            $valueObjectFactory(id: 2, weight: 1),
+            $valueObjectFactory(id: 3, weight: 1),
+        ];
+
+        $sort = new SortIterableAggregate($input, static fn (object $a, object $b): int => $a->weight <=> $b->weight);
+
+        $expected = [1, 2, 3];
+
+        self::assertSame($expected, iterator_to_array(new MapIterableAggregate($sort, static fn (object $value): int => $value->id)));
     }
 }
