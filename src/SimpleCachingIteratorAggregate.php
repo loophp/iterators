@@ -50,12 +50,18 @@ final class SimpleCachingIteratorAggregate implements IteratorAggregate
 
             yield $key = $this->iterator->key() => $this->iterator->current();
 
+            $cache = $this->iterator->getCache();
+
+            if (array_key_last($cache) === $key) {
+                continue;
+            }
+
             // If the cache pointer has shifted since last iteration
             // (inner loop over the same iterator), it's necessary to yield
             // extra-cached items as well
             $yieldStarted = false;
 
-            foreach ($this->iterator->getCache() as $cacheKey => $cacheItem) {
+            foreach ($cache as $cacheKey => $cacheItem) {
                 if ($yieldStarted) {
                     yield $cacheKey => $cacheItem;
                 }
