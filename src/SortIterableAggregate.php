@@ -54,7 +54,7 @@ final class SortIterableAggregate implements IteratorAggregate
              */
             protected function compare($value1, $value2): int
             {
-                return (0 === $return = ($this->callback)($value1[1][1], $value2[1][1], $value1[1][0], $value2[1][0])) ? $value2[0] <=> $value1[0] : $return;
+                return (0 === $return = ($this->callback)($value2[1][1], $value1[1][1], $value2[1][0], $value1[1][0])) ? $value2[0] <=> $value1[0] : $return;
             }
         };
 

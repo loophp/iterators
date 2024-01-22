@@ -332,7 +332,7 @@ This means that if two elements have the same key, the one that appeared earlier
 in the input will also appear earlier in the sorted output.
 
 ```php
-$valueObjectFactory = static fn (int $id, int $weight) => new class($id, $weight)
+$valueObjectFactory = static fn (int $id, int $weight): object => new class($id, $weight)
 {
     public function __construct(public readonly int $id, public readonly int $weight) {}
 };
