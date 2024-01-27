@@ -77,6 +77,44 @@ final class SimpleCachingIteratorAggregateTest extends TestCase
         ], $secondIterationItems);
     }
 
+    public function testInnerTraversalConsumesDuplicatedKeyValues(): void
+    {
+        $input = static function (): Generator {
+            yield 'a' => 1;
+            yield 'a' => 2;
+            yield 'a' => 3;
+            yield 'b' => 4;
+            yield 'b' => 5;
+        };
+
+        $iter = new SimpleCachingIteratorAggregate($input());
+
+        $outerItems = $innerItems = [];
+
+        foreach ($iter as $ko => $vo) {
+            if ($vo === 2) {
+                foreach ($iter as $ki => $vi) {
+                    $innerItems[] = [$ki, $vi];
+                }
+            }
+
+            $outerItems[] = [$ko, $vo];
+        }
+
+        self::assertSame([
+            ['a', 1],
+            ['a', 2],
+            ['b', 5],
+        ], $outerItems);
+
+        self::assertSame([
+            ['a', 2],
+            ['a', 3],
+            ['b', 4],
+            ['b', 5],
+        ], $innerItems);
+    }
+
     public function testHasNext(): void
     {
         $range = range('a', 'c');
