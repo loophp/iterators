@@ -44,6 +44,39 @@ final class SimpleCachingIteratorAggregateTest extends TestCase
         self::assertSame([1, 2, 3, 4, 5, 6], $outerItems);
     }
 
+    public function testSecondTraversalEliminatesDuplicatedKeys(): void
+    {
+        $input = static function (): Generator {
+            yield 'a' => 1;
+            yield 'a' => 2;
+            yield 'a' => 3;
+        };
+
+        $iter = new SimpleCachingIteratorAggregate($input());
+
+        $firstIterationItems = [];
+
+        foreach ($iter as $ko => $vo) {
+            $firstIterationItems[] = [$ko, $vo];
+        }
+
+        $secondIterationItems = [];
+
+        foreach ($iter as $ko => $vo) {
+            $secondIterationItems[] = [$ko, $vo];
+        }
+
+        self::assertSame([
+            ['a', 1],
+            ['a', 2],
+            ['a', 3],
+        ], $firstIterationItems);
+
+        self::assertSame([
+            ['a', 3],
+        ], $secondIterationItems);
+    }
+
     public function testHasNext(): void
     {
         $range = range('a', 'c');
