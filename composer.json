@@ -35,7 +35,7 @@
         "phpbench/phpbench": "^1.2",
         "phpstan/phpstan-strict-rules": "^1.0",
         "phpunit/php-code-coverage": "^10",
-        "phpunit/phpunit": "^10"
+        "phpunit/phpunit": "^11"
     },
     "suggest": {
         "ext-mbstring": "For UTF-8 support in the StringIteratorAggregate."
