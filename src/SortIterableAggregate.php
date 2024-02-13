@@ -21,7 +21,10 @@ final class SortIterableAggregate implements IteratorAggregate
      * @param iterable<TKey, T> $iterable
      * @param Closure(T, T, TKey, TKey): int $callback
      */
-    public function __construct(private readonly iterable $iterable, private readonly Closure $callback) {}
+    public function __construct(
+        private readonly iterable $iterable,
+        private readonly Closure $callback
+    ) {}
 
     /**
      * @return Generator<TKey, T>

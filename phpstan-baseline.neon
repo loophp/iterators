@@ -1,0 +1,16 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^While loop condition is always true\\.$#"
+			count: 1
+			path: src/RandomIntegerAggregate.php
+
+		-
+			message: "#^Parameter \\#1 \\$iterable of class loophp\\\\iterators\\\\UnpackIterableAggregate constructor expects iterable\\<\\(int\\|string\\), array\\{TKey, T\\}\\>, loophp\\\\iterators\\\\UnpackIterableAggregate\\<array\\{TKey, T\\}\\|int\\|null, array\\{TKey, T\\}\\|int\\|null\\> given\\.$#"
+			count: 1
+			path: src/RandomIterableAggregate.php
+
+		-
+			message: "#^Parameter \\#1 \\$iterable of class loophp\\\\iterators\\\\UnpackIterableAggregate constructor expects iterable\\<\\(int\\|string\\), array\\{array\\{TKey, T\\}\\|int\\|null, array\\{TKey, T\\}\\|int\\|null\\}\\>, loophp\\\\iterators\\\\SortIterableAggregate\\<array\\<int, int\\|null\\>, array\\<int, array\\{TKey, T\\}\\|int\\|null\\>\\> given\\.$#"
+			count: 1
+			path: src/RandomIterableAggregate.php
