@@ -5,10 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [3.1.1](https://github.com/loophp/iterators/compare/3.1.0...3.1.1)
+## [3.2.0](https://github.com/loophp/iterators/compare/3.1.1...3.2.0)
+
+### Merged
+
+- fix: update `RandomIterableAggregate` [`#53`](https://github.com/loophp/iterators/pull/53)
+
+## [3.1.1](https://github.com/loophp/iterators/compare/3.1.0...3.1.1) - 2024-01-22
 
 ### Commits
 
+- docs: update changelog [`e5c9cee`](https://github.com/loophp/iterators/commit/e5c9cee35230776c40b97ecd51412e13bc2b4628)
 - fix: sort direction match usort [`e6d42d9`](https://github.com/loophp/iterators/commit/e6d42d96fe03c7a2654cfb87187845290450f865)
 
 ## [3.1.0](https://github.com/loophp/iterators/compare/3.0.2...3.1.0) - 2024-01-19
