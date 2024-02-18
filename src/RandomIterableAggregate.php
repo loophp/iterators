@@ -16,49 +16,30 @@ use IteratorAggregate;
 final class RandomIterableAggregate implements IteratorAggregate
 {
     /**
-     * @var PackIterableAggregate<TKey, T>
-     */
-    private PackIterableAggregate $iteratorAggregate;
-
-    /**
      * @param iterable<TKey, T> $iterable
      */
-    public function __construct(iterable $iterable, private int $seed = 0)
-    {
-        $this->iteratorAggregate = new PackIterableAggregate($iterable);
-    }
+    public function __construct(
+        private readonly iterable $iterable,
+        private readonly ?int $seed = null
+    ) {}
 
     /**
      * @return Generator<TKey, T>
+     *
+     * @psalm-suppress InvalidArgument
      */
     public function getIterator(): Generator
     {
-        mt_srand($this->seed);
-
-        yield from $this->randomize($this->iteratorAggregate, $this->seed);
-    }
-
-    /**
-     * @param iterable<int, array{0: TKey, 1: T}> $iterable
-     *
-     * @return Generator<TKey, T>
-     */
-    private function randomize(iterable $iterable, int $seed): Generator
-    {
-        $queue = [];
-
-        foreach (new UnpackIterableAggregate($iterable) as $key => $value) {
-            if (0 === mt_rand(0, $seed)) {
-                yield $key => $value;
-
-                continue;
-            }
-
-            $queue[] = [$key, $value];
-        }
-
-        if ([] !== $queue) {
-            yield from $this->randomize($queue, $seed);
-        }
+        yield from new UnpackIterableAggregate(
+            new UnpackIterableAggregate(
+                new SortIterableAggregate(
+                    new MultipleIterableAggregate([
+                        new RandomIntegerAggregate($this->seed),
+                        new PackIterableAggregate($this->iterable),
+                    ]),
+                    static fn (array $a, array $b): int => $a[0] <=> $b[0]
+                )
+            )
+        );
     }
 }
