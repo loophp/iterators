@@ -59,9 +59,6 @@ class RecursiveIteratorAggregateIterator implements IteratorAggregate
         }
     }
 
-    /**
-     * @phpstan-ignore missingType.iterableValue
-     */
     private static function findIterator(Traversable $input): Iterator
     {
         $prev = null;
@@ -74,7 +71,6 @@ class RecursiveIteratorAggregateIterator implements IteratorAggregate
             $input = $input->getIterator();
         }
 
-        // @phpstan-ignore return.type
         return $input;
     }
 }
