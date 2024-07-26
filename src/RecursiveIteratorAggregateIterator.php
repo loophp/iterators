@@ -28,10 +28,7 @@ class RecursiveIteratorAggregateIterator implements IteratorAggregate
     /**
      * @param Traversable<TKey,T> $input
      */
-    public function __construct(Traversable $input)
-    {
-        $this->stack[] = self::findIterator($input);
-    }
+    public function __construct(private readonly Traversable $input) {}
 
     public function getDepth(): int
     {
@@ -43,6 +40,8 @@ class RecursiveIteratorAggregateIterator implements IteratorAggregate
      */
     public function getIterator(): Generator
     {
+        $this->stack = [self::findIterator($this->input)];
+
         while (true) {
             while (count($this->stack) > 0 && !end($this->stack)->valid()) {
                 array_pop($this->stack);
