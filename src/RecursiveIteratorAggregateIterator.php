@@ -32,7 +32,7 @@ class RecursiveIteratorAggregateIterator implements IteratorAggregate
 
     public function getDepth(): int
     {
-        return count($this->stack) - 1;
+        return count($this->stack);
     }
 
     /**
@@ -40,21 +40,26 @@ class RecursiveIteratorAggregateIterator implements IteratorAggregate
      */
     public function getIterator(): Generator
     {
-        $this->stack = [self::findIterator($this->input)];
+        $iterator = self::findIterator($this->input);
+        $this->stack = [];
 
         while (true) {
-            while (count($this->stack) > 0 && !end($this->stack)->valid()) {
-                array_pop($this->stack);
+            while (null !== $iterator && $iterator->valid() === false) {
+                $iterator = array_pop($this->stack);
             }
 
-            if (count($this->stack) === 0) {
+            if (null === $iterator) {
                 return;
             }
-            $current = end($this->stack)->current();
+            $current = $iterator->current();
 
             yield $current;
-            end($this->stack)->next();
-            $this->stack[] = self::findIterator($current);
+            $iterator->next();
+
+            if ($current instanceof Traversable) {
+                $this->stack[] = $iterator;
+                $iterator = self::findIterator($current);
+            }
         }
     }
 
