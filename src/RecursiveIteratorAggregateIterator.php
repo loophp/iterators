@@ -47,7 +47,7 @@ class RecursiveIteratorAggregateIterator implements IteratorAggregate
                 array_pop($this->stack);
             }
 
-            if (count($this->stack) === 0) {
+            if ($this->stack === []) {
                 return;
             }
             $current = end($this->stack)->current();
