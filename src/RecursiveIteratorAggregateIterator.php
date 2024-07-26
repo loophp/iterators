@@ -40,7 +40,7 @@ class RecursiveIteratorAggregateIterator implements IteratorAggregate
      */
     public function getIterator(): Generator
     {
-        $iterator = self::findIterator($this->input);
+        $iterator = $this->findIterator($this->input);
         $this->stack = [];
 
         while (true) {
@@ -58,12 +58,12 @@ class RecursiveIteratorAggregateIterator implements IteratorAggregate
 
             if ($current instanceof Traversable) {
                 $this->stack[] = $iterator;
-                $iterator = self::findIterator($current);
+                $iterator = $this->findIterator($current);
             }
         }
     }
 
-    private static function findIterator(Traversable $input): Iterator
+    private function findIterator(Traversable $input): Iterator
     {
         $prev = null;
 
