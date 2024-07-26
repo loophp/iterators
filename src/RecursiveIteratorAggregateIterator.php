@@ -5,40 +5,76 @@ declare(strict_types=1);
 namespace loophp\iterators;
 
 use Generator;
+use Iterator;
 use IteratorAggregate;
+use RuntimeException;
 use Traversable;
 
 use function count;
 
+/**
+ * @template TKey
+ * @template T
+ *
+ * @implements IteratorAggregate<int, T>
+ */
 class RecursiveIteratorAggregateIterator implements IteratorAggregate
 {
+    /**
+     * @var list<Iterator>
+     */
     private array $stack = [];
 
+    /**
+     * @param Traversable<TKey,T> $input
+     */
     public function __construct(Traversable $input)
     {
-        $this->stack[] = $input instanceof IteratorAggregate ? $input->getIterator() : $input;
+        $this->stack[] = self::findIterator($input);
     }
 
-    public function getDepth()
+    public function getDepth(): int
     {
         return count($this->stack) - 1;
     }
 
+    /**
+     * @return Generator<int,T>
+     */
     public function getIterator(): Generator
     {
         while (true) {
-            while (!empty($this->stack) && !end($this->stack)->valid()) {
+            while (count($this->stack) > 0 && !end($this->stack)->valid()) {
                 array_pop($this->stack);
             }
 
-            if (empty($this->stack)) {
+            if (count($this->stack) === 0) {
                 return;
             }
             $current = end($this->stack)->current();
 
             yield $current;
             end($this->stack)->next();
-            $this->stack[] = $current instanceof IteratorAggregate ? $current->getIterator() : $current;
+            $this->stack[] = self::findIterator($current);
         }
+    }
+
+    /**
+     * @phpstan-ignore missingType.iterableValue
+     */
+    private static function findIterator(Traversable $input): Iterator
+    {
+        $prev = null;
+
+        while (!($input instanceof Iterator)) {
+            if ($prev === $input || !($input instanceof IteratorAggregate)) {
+                throw new RuntimeException('Invalid iterator');
+            }
+            $prev = $input;
+            $input = $input->getIterator();
+        }
+
+        // @phpstan-ignore return.type
+        return $input;
     }
 }
