@@ -21,6 +21,6 @@
 /phpspec.yml export-ignore
 /psalm.xml export-ignore
 /phpstan-baseline.neon export-ignore
-/phpstan.neon export-ignore
+/phpstan.neon.dist export-ignore
 /phpunit.xml export-ignore
 /README.md export-ignore
