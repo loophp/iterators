@@ -5,11 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [3.2.0](https://github.com/loophp/iterators/compare/3.1.1...3.2.0)
+## [3.2.1](https://github.com/loophp/iterators/compare/3.2.0...3.2.1)
+
+### Merged
+
+- Remove renovate.json from dist version [`#58`](https://github.com/loophp/iterators/pull/58)
+- Export ignore phpstan.neon.dist instead of phpstan.neon [`#57`](https://github.com/loophp/iterators/pull/57)
+
+### Commits
+
+- perf: avoid recursivity [`1119d7c`](https://github.com/loophp/iterators/commit/1119d7c069da02221cb9150819d30c44758ea4f9)
+
+## [3.2.0](https://github.com/loophp/iterators/compare/3.1.1...3.2.0) - 2024-02-18
 
 ### Merged
 
 - fix: update `RandomIterableAggregate` [`#53`](https://github.com/loophp/iterators/pull/53)
+
+### Commits
+
+- docs: update changelog [`1332fd9`](https://github.com/loophp/iterators/commit/1332fd9bb9ec6adc82ee9d93e9a5445daa47bf81)
 
 ## [3.1.1](https://github.com/loophp/iterators/compare/3.1.0...3.1.1) - 2024-01-22
 
