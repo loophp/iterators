@@ -34,8 +34,8 @@ final class InfiniteIteratorAggregate implements IteratorAggregate
      */
     public function getIterator(): Generator
     {
-        yield from $this->iterator;
-
-        yield from $this->getIterator();
+        while (true) {
+            yield from $this->iterator;
+        }
     }
 }
