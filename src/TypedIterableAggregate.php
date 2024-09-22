@@ -10,6 +10,7 @@ use IteratorAggregate;
 
 use function gettype;
 use function is_object;
+use function sprintf;
 
 /**
  * @template TKey

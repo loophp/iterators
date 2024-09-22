@@ -13,6 +13,7 @@ use loophp\iterators\MapIterableAggregate;
 use PHPUnit\Framework\TestCase;
 
 use function gettype;
+use function sprintf;
 
 /**
  * @internal

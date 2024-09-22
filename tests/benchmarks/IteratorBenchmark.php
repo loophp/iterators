@@ -13,6 +13,8 @@ use Generator;
 use PhpBench\Benchmark\Metadata\Annotations\ParamProviders;
 use Traversable;
 
+use function sprintf;
+
 abstract class IteratorBenchmark
 {
     /**

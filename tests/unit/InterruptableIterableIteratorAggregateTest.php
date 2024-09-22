@@ -14,6 +14,8 @@ use IteratorAggregate;
 use loophp\iterators\InterruptableIterableIteratorAggregate;
 use PHPUnit\Framework\TestCase;
 
+use function sprintf;
+
 /**
  * @internal
  *
