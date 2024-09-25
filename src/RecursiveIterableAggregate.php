@@ -6,7 +6,9 @@ namespace loophp\iterators;
 
 use Closure;
 use Generator;
+use Iterator;
 use IteratorAggregate;
+use SplStack;
 
 /**
  * @template TKey
@@ -27,20 +29,34 @@ class RecursiveIterableAggregate implements IteratorAggregate
      */
     public function getIterator(): Generator
     {
-        yield from $this->flatten($this->iterable);
-    }
+        /** @var SplStack<Iterator> $iterables */
+        $iterables = new SplStack();
+        $iterables->push(new IterableIterator($this->iterable));
 
-    /**
-     * @param iterable<TKey, T> $items
-     *
-     * @return Generator<TKey, T>
-     */
-    private function flatten(iterable $items): Generator
-    {
-        foreach ($items as $key => $value) {
-            yield $key => $value;
+        while (!$iterables->isEmpty()) {
+            $currentIterable = $iterables->top();
 
-            yield from $this->flatten(($this->closure)($value, $key, $this->iterable));
+            while ($currentIterable->valid()) {
+                $currentValue = $currentIterable->current();
+                $currentKey = $currentIterable->key();
+
+                yield $currentKey => $currentValue;
+
+                $subIterable = new IterableIterator(
+                    ($this->closure)($currentValue, $currentKey, $this->iterable)
+                );
+
+                $currentIterable->next();
+                $subIterable->rewind();
+
+                if ($subIterable->valid()) {
+                    $iterables->push($subIterable);
+
+                    continue 2;
+                }
+            }
+
+            $iterables->pop();
         }
     }
 }
