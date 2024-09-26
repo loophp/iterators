@@ -30,6 +30,7 @@ The missing PHP iterators.
 - `PackIterableAggregate`
 - `PausableIteratorAggregate`
 - `RandomIterableAggregate`
+- `RecursiveIterableAggregate`
 - `ReductionIterableAggregate`
 - `ResourceIteratorAggregate`
 - `SimpleCachingIteratorAggregate`
@@ -305,6 +306,49 @@ foreach ($iterator as $v) {
 }
 foreach ($iterator as $v) {
     var_dump($v);
+}
+```
+
+### RecursiveIterableAggregate
+
+This iterator allows you to iterate through tree-like structures by simply
+providing an `iterable` and callback to access its children.
+
+```php
+<?php
+
+$treeStructure = [
+    [
+        'value' => '1',
+        'children' => [
+            [
+                'value' => '1.1',
+                'children' => [
+                    [
+                        'value' => '1.1.1',
+                        'children' => [],
+                    ],
+                ],
+            ],
+            [
+                'value' => '1.2',
+                'children' => [],
+            ],
+        ],
+    ],
+    [
+        'value' => '2',
+        'children' => [],
+    ],
+];
+
+$iterator = new RecursiveIterableAggregate(
+    $treeStructure,
+    fn (array $i) => $i['children']
+);
+
+foreach ($iterator as $item) {
+    var_dump($item['value']); // This will print '1', '1.1', '1.1.1', '1.2', '2'
 }
 ```
 
