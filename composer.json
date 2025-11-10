@@ -34,7 +34,7 @@
         "drupol/php-conventions": "^6",
         "phpbench/phpbench": "^1.2",
         "phpstan/phpstan-strict-rules": "^1.0",
-        "phpunit/php-code-coverage": "^11",
+        "phpunit/php-code-coverage": "^12",
         "phpunit/phpunit": "^11"
     },
     "suggest": {
