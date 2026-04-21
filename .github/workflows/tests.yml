@@ -55,7 +55,7 @@ jobs:
                   extensions: gd
 
             - name: Install dependencies
-              uses: ramsey/composer-install@v2
+              uses: ramsey/composer-install@4.0.0
 
             - name: Run Grumphp
               run: vendor/bin/grumphp run --tasks=phpunit,clover_coverage
