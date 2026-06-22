@@ -33,7 +33,7 @@
         "ext-pcov": "*",
         "drupol/php-conventions": "^6",
         "phpbench/phpbench": "^1.2",
-        "phpstan/phpstan-strict-rules": "^1.0",
+        "phpstan/phpstan-strict-rules": "^2.0",
         "phpunit/php-code-coverage": "^11",
         "phpunit/phpunit": "^11"
     },
